@@ -18,14 +18,18 @@ import com.fdc.service.UsersService;
 import com.opensymphony.xwork2.ActionContext;
 
 public class ToSpaceAction {
+	String msg;
+	
 	UsersService usersService;
 	RecordRentService recordRentService;
 	HouseNewsService houseNewsService;
 	MailsService mailsService;
 	
 	
-	ArrayList<HouseNewsRecord> houseNewsRecords;
-	ArrayList<Mails> mails;
+	ArrayList<HouseNewsRecord> houseNewsRecords;//我租购的房屋记录
+	ArrayList<Mails> mails;//我的邮件列表
+	ArrayList<HouseNews> myHouseNews;//我发布的租售房信息
+	ArrayList<HouseNewsRecord> myHouseNewsRecords;//我的租售房屋记录
 	
 	public ArrayList<HouseNewsRecord> getHouseNewsRecords() {
 		return houseNewsRecords;
@@ -42,8 +46,6 @@ public class ToSpaceAction {
 	public void setHouseNewsService(HouseNewsService houseNewsService) {
 		this.houseNewsService = houseNewsService;
 	}
-
-	String msg;
 
 	public String getMsg() {
 		return msg;
@@ -85,6 +87,38 @@ public class ToSpaceAction {
 		this.mails = mails;
 	}
 	
+	public ArrayList<HouseNews> getMyHouseNews() {
+		return myHouseNews;
+	}
+
+	public void setMyHouseNews(ArrayList<HouseNews> myHouseNews) {
+		this.myHouseNews = myHouseNews;
+	}
+
+	public ArrayList<HouseNewsRecord> getMyHouseNewsRecords() {
+		return myHouseNewsRecords;
+	}
+
+	public void setMyHouseNewsRecords(ArrayList<HouseNewsRecord> myHouseNewsRecords) {
+		this.myHouseNewsRecords = myHouseNewsRecords;
+	}
+
+// .'"'.        ___,,,___        .'``.'
+// : (\  `."'"```         ```"'"-'  /) ;'
+//  :  \                         `./  .''
+//  `.                            :.''
+//	 /        _         _        \)
+//   |         0}       {0         |
+//   |         /         \         |
+//   |        /           \        |
+//   |       /             \       |
+//    \     |      .-.      |     /
+// 	   `.   | . . /   \ . . |   .''
+//	     `-._\.'.(     ).'./_.-''
+//	        `\'  `._.'  '/' 
+//             `. --'-- .'
+//              `-...-'。'
+
 	public String loadPageInfo() {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
 		Users thisUsers = usersService.getUserById(1);
@@ -106,23 +140,6 @@ public class ToSpaceAction {
 					+ recordRent.getRecordReqTime());
 			HouseNews houseNews = houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
 			HouseNewsRecord tmp = new HouseNewsRecord();
-			
-	
-// .'"'.        ___,,,___        .'``.'
-// : (\  `."'"```         ```"'"-'  /) ;'
-//  :  \                         `./  .''
-//  `.                            :.''
-//	 /        _         _        \)
-//   |         0}       {0         |
-//   |         /         \         |
-//   |        /           \        |
-//   |       /             \       |
-//    \     |      .-.      |     /
-// 	   `.   | . . /   \ . . |   .''
-//	     `-._\.'.(     ).'./_.-''
-//	        `\'  `._.'  '/' 
-//             `. --'-- .'
-//              `-...-'。'
 
 			tmp.setId(houseNews.getId());
 			tmp.setHouseAddr(houseNews.getHouseAddDetail());
