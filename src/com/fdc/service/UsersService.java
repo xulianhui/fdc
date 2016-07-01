@@ -21,8 +21,7 @@ public class UsersService {
 	}
 	
 	public Users getUserById(int _id) {
-		
-		return null;
+		return usersDAO.findById(_id);
 	}
 
 }

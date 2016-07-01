@@ -46,22 +46,40 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	
-	
+
+
 	<bean id="UsersService" class="com.fdc.service.UsersService">
 		<property name="usersDAO">
-			<ref bean="UsersDAO"/>
+			<ref bean="UsersDAO" />
 		</property>
 	</bean>
-	
+
 	<bean id="SpaceAction" class="com.fdc.action.SpaceActoin">
 		<property name="usersService">
-			<ref bean="UsersService"/>
+			<ref bean="UsersService" />
 		</property>
 	</bean>
 	<bean id="RecordRentService" class="com.fdc.service.RecordRentService">
 		<property name="recordRentDAO">
-			<ref bean="RecordRentDAO"/>
+			<ref bean="RecordRentDAO" />
+		</property>
+	</bean>
+	
+	<bean id="HouseNewsService" class="com.fdc.service.HouseNewsService">
+		<property name="houseNewsDAO">
+			<ref bean="HouseNewsDAO"/>
+		</property>
+	</bean>
+
+	<bean id="ToSpaceAction" class="com.fdc.action.ToSpaceAction">
+		<property name="recordRentService">
+			<ref bean="RecordRentService" />
+		</property>
+		<property name="usersService">
+			<ref bean="UsersService" />
+		</property>
+		<property name="houseNewsService">
+			<ref bean="HouseNewsService"/>
 		</property>
 	</bean>
 </beans>

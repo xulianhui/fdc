@@ -8,5 +8,9 @@
 		<action name="updateUserInfo" class="SpaceAction">
 			<result name="success">/WEB-INF/jsp/space.jsp</result>
 		</action>
+		<action name="ToSpace" class="ToSpaceAction">
+			<result name="success">/WEB-INF/jsp/space.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
 	</package>
 </struts>    

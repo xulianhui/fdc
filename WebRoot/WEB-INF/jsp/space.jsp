@@ -5,7 +5,7 @@
 <%-- <%@page import="com.fdc.pojo.HouseNews"%> --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page contentType="text/html; charset=utf-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl" %>
 <%@ page import="com.xue.VisualUser"%>
 <%@ page import="com.fdc.pojo.Users"%>
 <%
@@ -226,164 +226,48 @@ Users thisUsr = VisualUser.CreateVisualUser();
 				</div>
 				<!--租购记录-->
 				<div role="tabpanel" class="tab-pane" id="zgjl">
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
+					<jstl:forEach var="e" items="${houseNewsRecords }">
+						<div class="media">
+							<div class="media-left">
+								<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
+									class="img-rounded" style="width: 64px; height: 64px;" />
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">${e.houseTitle }</h4>
+								房屋地址：${e.houseAddr }
+								房屋楼层：${e.houseFloor }
+								房租价格：${e.housePrice }
+								房屋面积：${e.houseArea }
+								装修状况：${e.houseStatus }
+								联系电话：${e.tel }<br>
+								记录状态：${e.recordState }
+								记录时间：${e.recordReqTime }
+							</div>
 						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-					<div class="media">
-						<div class="media-left">
-							<a href="#"> <img src="img/剪刀.png" alt="租房缩略图"
-								class="img-rounded" style="width: 64px; height: 64px;" />
-							</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">租购记录标题</h4>
-							<p>记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容记录内容</p>
-						</div>
-					</div>
-
+					</jstl:forEach>
 				</div>
 				<!--我的发布-->
-				<div role="tabpanel" class="tab-pane" id="wdfb">4</div>
+				<div role="tabpanel" class="tab-pane" id="wdfb">
+<%-- 					<table class="table" >
+						<jstl:forEach var="e" items="${houseNewsRecords }">
+							<tr>
+								<td>${e.houseAddr }</td>
+								<td>${e.houseFloor }</td>
+								<td>${e.housePrice }</td>
+								<td>${e.houseTitle }</td>
+								<td>${e.houseArea }</td>
+								<td>${e.houseStatus }</td>
+								<td>${e.newsType }</td>
+								<td>${e.houseNewsId }</td>
+								<td>${e.houseUserId }</td>
+								<td>${e.recordState }</td>
+								<td>${e.recordReqTime }</td>
+								<td>${e.recordType }</td>
+							</tr>
+						</jstl:forEach>
+					</table> --%>
+				</div>
 			</div>
 		</div>
 	</div>
