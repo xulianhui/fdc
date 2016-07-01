@@ -24,21 +24,26 @@ import com.fdc.pojo.HouseNews;
 public class HouseNewsDAO extends HibernateDaoSupport {
 	private static final Log log = LogFactory.getLog(HouseNewsDAO.class);
 	// property constants
-	public static final String HOUSE_ADDR = "houseAddr";
+	public static final String USER_ID = "userId";
+	public static final String NEWS_TYPE = "newsType";
+	public static final String HOUSE_REG = "houseReg";
+	public static final String HOUSE_ADD_DETAIL = "houseAddDetail";
+	public static final String HOUSE_TITLE = "houseTitle";
 	public static final String HOUSE_FLOOR = "houseFloor";
 	public static final String HOUSE_PRICE = "housePrice";
-	public static final String HOUSE_TITLE = "houseTitle";
+	public static final String HOUSE_HALL = "houseHall";
+	public static final String HOSUE_WC = "hosueWc";
+	public static final String HOUSE_ROOM = "houseRoom";
 	public static final String HOUSE_AREA = "houseArea";
-	public static final String HOUSE_STATUS = "houseStatus";
+	public static final String BUILD_TYPE = "buildType";
+	public static final String HOUSE_DETIAL = "houseDetial";
 	public static final String TEL = "tel";
-	public static final String NEWS_TYPE = "newsType";
-	public static final String HOUSE_STRUCT = "houseStruct";
-	public static final String HOUSE_LOOK = "houseLook";
-	public static final String BUILDTYPE = "buildtype";
-	public static final String BUILDTIME = "buildtime";
-	public static final String VILLAGETYPE = "villagetype";
-	public static final String SPECIAL = "special";
-	public static final String PHOTO = "photo";
+	public static final String IMG1 = "img1";
+	public static final String IMG2 = "img2";
+	public static final String IMG3 = "img3";
+	public static final String IMG4 = "img4";
+	public static final String IMG5 = "img5";
+	public static final String IMG6 = "img6";
 
 	protected void initDao() {
 		// do nothing
@@ -104,8 +109,24 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByHouseAddr(Object houseAddr) {
-		return findByProperty(HOUSE_ADDR, houseAddr);
+	public List findByUserId(Object userId) {
+		return findByProperty(USER_ID, userId);
+	}
+
+	public List findByNewsType(Object newsType) {
+		return findByProperty(NEWS_TYPE, newsType);
+	}
+
+	public List findByHouseReg(Object houseReg) {
+		return findByProperty(HOUSE_REG, houseReg);
+	}
+
+	public List findByHouseAddDetail(Object houseAddDetail) {
+		return findByProperty(HOUSE_ADD_DETAIL, houseAddDetail);
+	}
+
+	public List findByHouseTitle(Object houseTitle) {
+		return findByProperty(HOUSE_TITLE, houseTitle);
 	}
 
 	public List findByHouseFloor(Object houseFloor) {
@@ -116,52 +137,56 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		return findByProperty(HOUSE_PRICE, housePrice);
 	}
 
-	public List findByHouseTitle(Object houseTitle) {
-		return findByProperty(HOUSE_TITLE, houseTitle);
+	public List findByHouseHall(Object houseHall) {
+		return findByProperty(HOUSE_HALL, houseHall);
+	}
+
+	public List findByHosueWc(Object hosueWc) {
+		return findByProperty(HOSUE_WC, hosueWc);
+	}
+
+	public List findByHouseRoom(Object houseRoom) {
+		return findByProperty(HOUSE_ROOM, houseRoom);
 	}
 
 	public List findByHouseArea(Object houseArea) {
 		return findByProperty(HOUSE_AREA, houseArea);
 	}
 
-	public List findByHouseStatus(Object houseStatus) {
-		return findByProperty(HOUSE_STATUS, houseStatus);
+	public List findByBuildType(Object buildType) {
+		return findByProperty(BUILD_TYPE, buildType);
+	}
+
+	public List findByHouseDetial(Object houseDetial) {
+		return findByProperty(HOUSE_DETIAL, houseDetial);
 	}
 
 	public List findByTel(Object tel) {
 		return findByProperty(TEL, tel);
 	}
 
-	public List findByNewsType(Object newsType) {
-		return findByProperty(NEWS_TYPE, newsType);
+	public List findByImg1(Object img1) {
+		return findByProperty(IMG1, img1);
 	}
 
-	public List findByHouseStruct(Object houseStruct) {
-		return findByProperty(HOUSE_STRUCT, houseStruct);
+	public List findByImg2(Object img2) {
+		return findByProperty(IMG2, img2);
 	}
 
-	public List findByHouseLook(Object houseLook) {
-		return findByProperty(HOUSE_LOOK, houseLook);
+	public List findByImg3(Object img3) {
+		return findByProperty(IMG3, img3);
 	}
 
-	public List findByBuildtype(Object buildtype) {
-		return findByProperty(BUILDTYPE, buildtype);
+	public List findByImg4(Object img4) {
+		return findByProperty(IMG4, img4);
 	}
 
-	public List findByBuildtime(Object buildtime) {
-		return findByProperty(BUILDTIME, buildtime);
+	public List findByImg5(Object img5) {
+		return findByProperty(IMG5, img5);
 	}
 
-	public List findByVillagetype(Object villagetype) {
-		return findByProperty(VILLAGETYPE, villagetype);
-	}
-
-	public List findBySpecial(Object special) {
-		return findByProperty(SPECIAL, special);
-	}
-
-	public List findByPhoto(Object photo) {
-		return findByProperty(PHOTO, photo);
+	public List findByImg6(Object img6) {
+		return findByProperty(IMG6, img6);
 	}
 
 	public List findAll() {

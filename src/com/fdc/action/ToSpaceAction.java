@@ -125,12 +125,12 @@ public class ToSpaceAction {
 //              `-...-'¡£'
 
 			tmp.setId(houseNews.getId());
-			tmp.setHouseAddr(houseNews.getHouseAddr());
+			tmp.setHouseAddr(houseNews.getHouseAddDetail());
 			tmp.setHouseFloor(houseNews.getHouseFloor());
 			tmp.setHousePrice(houseNews.getHousePrice());
 			tmp.setHouseTitle(houseNews.getHouseTitle());
 			tmp.setHouseArea(houseNews.getHouseArea());
-			tmp.setHouseStatus(houseNews.getHouseStatus());
+			tmp.setHouseStatus(houseNews.getBuildType());
 			tmp.setTel(houseNews.getTel());
 			tmp.setNewsType(houseNews.getNewsType());
 //			photo

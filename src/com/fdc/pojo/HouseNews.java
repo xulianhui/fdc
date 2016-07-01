@@ -9,21 +9,26 @@ public class HouseNews implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
-	private String houseAddr;
+	private Integer userId;
+	private Integer newsType;
+	private String houseReg;
+	private String houseAddDetail;
+	private String houseTitle;
 	private Integer houseFloor;
 	private Integer housePrice;
-	private String houseTitle;
+	private Integer houseHall;
+	private Integer hosueWc;
+	private Integer houseRoom;
 	private Integer houseArea;
-	private String houseStatus;
+	private String buildType;
+	private String houseDetial;
 	private String tel;
-	private Integer newsType;
-	private String houseStruct;
-	private String houseLook;
-	private String buildtype;
-	private String buildtime;
-	private String villagetype;
-	private String special;
-	private String photo;
+	private String img1;
+	private String img2;
+	private String img3;
+	private String img4;
+	private String img5;
+	private String img6;
 
 	// Constructors
 
@@ -32,40 +37,52 @@ public class HouseNews implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public HouseNews(String houseAddr, Integer houseFloor, Integer housePrice,
-			String houseTitle, Integer houseArea, String houseStatus,
-			String tel, Integer newsType) {
-		this.houseAddr = houseAddr;
+	public HouseNews(Integer userId, Integer newsType, String houseReg,
+			String houseAddDetail, String houseTitle, Integer houseFloor,
+			Integer housePrice, Integer houseHall, Integer hosueWc,
+			Integer houseRoom, Integer houseArea, String buildType, String tel) {
+		this.userId = userId;
+		this.newsType = newsType;
+		this.houseReg = houseReg;
+		this.houseAddDetail = houseAddDetail;
+		this.houseTitle = houseTitle;
 		this.houseFloor = houseFloor;
 		this.housePrice = housePrice;
-		this.houseTitle = houseTitle;
+		this.houseHall = houseHall;
+		this.hosueWc = hosueWc;
+		this.houseRoom = houseRoom;
 		this.houseArea = houseArea;
-		this.houseStatus = houseStatus;
+		this.buildType = buildType;
 		this.tel = tel;
-		this.newsType = newsType;
 	}
 
 	/** full constructor */
-	public HouseNews(String houseAddr, Integer houseFloor, Integer housePrice,
-			String houseTitle, Integer houseArea, String houseStatus,
-			String tel, Integer newsType, String houseStruct, String houseLook,
-			String buildtype, String buildtime, String villagetype,
-			String special, String photo) {
-		this.houseAddr = houseAddr;
+	public HouseNews(Integer userId, Integer newsType, String houseReg,
+			String houseAddDetail, String houseTitle, Integer houseFloor,
+			Integer housePrice, Integer houseHall, Integer hosueWc,
+			Integer houseRoom, Integer houseArea, String buildType,
+			String houseDetial, String tel, String img1, String img2,
+			String img3, String img4, String img5, String img6) {
+		this.userId = userId;
+		this.newsType = newsType;
+		this.houseReg = houseReg;
+		this.houseAddDetail = houseAddDetail;
+		this.houseTitle = houseTitle;
 		this.houseFloor = houseFloor;
 		this.housePrice = housePrice;
-		this.houseTitle = houseTitle;
+		this.houseHall = houseHall;
+		this.hosueWc = hosueWc;
+		this.houseRoom = houseRoom;
 		this.houseArea = houseArea;
-		this.houseStatus = houseStatus;
+		this.buildType = buildType;
+		this.houseDetial = houseDetial;
 		this.tel = tel;
-		this.newsType = newsType;
-		this.houseStruct = houseStruct;
-		this.houseLook = houseLook;
-		this.buildtype = buildtype;
-		this.buildtime = buildtime;
-		this.villagetype = villagetype;
-		this.special = special;
-		this.photo = photo;
+		this.img1 = img1;
+		this.img2 = img2;
+		this.img3 = img3;
+		this.img4 = img4;
+		this.img5 = img5;
+		this.img6 = img6;
 	}
 
 	// Property accessors
@@ -78,12 +95,44 @@ public class HouseNews implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getHouseAddr() {
-		return this.houseAddr;
+	public Integer getUserId() {
+		return this.userId;
 	}
 
-	public void setHouseAddr(String houseAddr) {
-		this.houseAddr = houseAddr;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Integer getNewsType() {
+		return this.newsType;
+	}
+
+	public void setNewsType(Integer newsType) {
+		this.newsType = newsType;
+	}
+
+	public String getHouseReg() {
+		return this.houseReg;
+	}
+
+	public void setHouseReg(String houseReg) {
+		this.houseReg = houseReg;
+	}
+
+	public String getHouseAddDetail() {
+		return this.houseAddDetail;
+	}
+
+	public void setHouseAddDetail(String houseAddDetail) {
+		this.houseAddDetail = houseAddDetail;
+	}
+
+	public String getHouseTitle() {
+		return this.houseTitle;
+	}
+
+	public void setHouseTitle(String houseTitle) {
+		this.houseTitle = houseTitle;
 	}
 
 	public Integer getHouseFloor() {
@@ -102,12 +151,28 @@ public class HouseNews implements java.io.Serializable {
 		this.housePrice = housePrice;
 	}
 
-	public String getHouseTitle() {
-		return this.houseTitle;
+	public Integer getHouseHall() {
+		return this.houseHall;
 	}
 
-	public void setHouseTitle(String houseTitle) {
-		this.houseTitle = houseTitle;
+	public void setHouseHall(Integer houseHall) {
+		this.houseHall = houseHall;
+	}
+
+	public Integer getHosueWc() {
+		return this.hosueWc;
+	}
+
+	public void setHosueWc(Integer hosueWc) {
+		this.hosueWc = hosueWc;
+	}
+
+	public Integer getHouseRoom() {
+		return this.houseRoom;
+	}
+
+	public void setHouseRoom(Integer houseRoom) {
+		this.houseRoom = houseRoom;
 	}
 
 	public Integer getHouseArea() {
@@ -118,12 +183,20 @@ public class HouseNews implements java.io.Serializable {
 		this.houseArea = houseArea;
 	}
 
-	public String getHouseStatus() {
-		return this.houseStatus;
+	public String getBuildType() {
+		return this.buildType;
 	}
 
-	public void setHouseStatus(String houseStatus) {
-		this.houseStatus = houseStatus;
+	public void setBuildType(String buildType) {
+		this.buildType = buildType;
+	}
+
+	public String getHouseDetial() {
+		return this.houseDetial;
+	}
+
+	public void setHouseDetial(String houseDetial) {
+		this.houseDetial = houseDetial;
 	}
 
 	public String getTel() {
@@ -134,68 +207,52 @@ public class HouseNews implements java.io.Serializable {
 		this.tel = tel;
 	}
 
-	public Integer getNewsType() {
-		return this.newsType;
+	public String getImg1() {
+		return this.img1;
 	}
 
-	public void setNewsType(Integer newsType) {
-		this.newsType = newsType;
+	public void setImg1(String img1) {
+		this.img1 = img1;
 	}
 
-	public String getHouseStruct() {
-		return this.houseStruct;
+	public String getImg2() {
+		return this.img2;
 	}
 
-	public void setHouseStruct(String houseStruct) {
-		this.houseStruct = houseStruct;
+	public void setImg2(String img2) {
+		this.img2 = img2;
 	}
 
-	public String getHouseLook() {
-		return this.houseLook;
+	public String getImg3() {
+		return this.img3;
 	}
 
-	public void setHouseLook(String houseLook) {
-		this.houseLook = houseLook;
+	public void setImg3(String img3) {
+		this.img3 = img3;
 	}
 
-	public String getBuildtype() {
-		return this.buildtype;
+	public String getImg4() {
+		return this.img4;
 	}
 
-	public void setBuildtype(String buildtype) {
-		this.buildtype = buildtype;
+	public void setImg4(String img4) {
+		this.img4 = img4;
 	}
 
-	public String getBuildtime() {
-		return this.buildtime;
+	public String getImg5() {
+		return this.img5;
 	}
 
-	public void setBuildtime(String buildtime) {
-		this.buildtime = buildtime;
+	public void setImg5(String img5) {
+		this.img5 = img5;
 	}
 
-	public String getVillagetype() {
-		return this.villagetype;
+	public String getImg6() {
+		return this.img6;
 	}
 
-	public void setVillagetype(String villagetype) {
-		this.villagetype = villagetype;
-	}
-
-	public String getSpecial() {
-		return this.special;
-	}
-
-	public void setSpecial(String special) {
-		this.special = special;
-	}
-
-	public String getPhoto() {
-		return this.photo;
-	}
-
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setImg6(String img6) {
+		this.img6 = img6;
 	}
 
 }

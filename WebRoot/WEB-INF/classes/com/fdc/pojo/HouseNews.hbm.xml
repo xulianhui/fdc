@@ -10,8 +10,20 @@
             <column name="id" />
             <generator class="native" />
         </id>
-        <property name="houseAddr" type="java.lang.String">
-            <column name="houseAddr" length="50" not-null="true" />
+        <property name="userId" type="java.lang.Integer">
+            <column name="userId" not-null="true" />
+        </property>
+        <property name="newsType" type="java.lang.Integer">
+            <column name="newsType" not-null="true" />
+        </property>
+        <property name="houseReg" type="java.lang.String">
+            <column name="houseReg" length="50" not-null="true" />
+        </property>
+        <property name="houseAddDetail" type="java.lang.String">
+            <column name="houseAddDetail" length="500" not-null="true" />
+        </property>
+        <property name="houseTitle" type="java.lang.String">
+            <column name="houseTitle" length="150" not-null="true" />
         </property>
         <property name="houseFloor" type="java.lang.Integer">
             <column name="houseFloor" not-null="true" />
@@ -19,41 +31,44 @@
         <property name="housePrice" type="java.lang.Integer">
             <column name="housePrice" not-null="true" />
         </property>
-        <property name="houseTitle" type="java.lang.String">
-            <column name="houseTitle" length="40" not-null="true" />
+        <property name="houseHall" type="java.lang.Integer">
+            <column name="houseHall" not-null="true" />
+        </property>
+        <property name="hosueWc" type="java.lang.Integer">
+            <column name="hosueWc" not-null="true" />
+        </property>
+        <property name="houseRoom" type="java.lang.Integer">
+            <column name="houseRoom" not-null="true" />
         </property>
         <property name="houseArea" type="java.lang.Integer">
             <column name="houseArea" not-null="true" />
         </property>
-        <property name="houseStatus" type="java.lang.String">
-            <column name="houseStatus" length="20" not-null="true" />
+        <property name="buildType" type="java.lang.String">
+            <column name="buildType" length="50" not-null="true" />
+        </property>
+        <property name="houseDetial" type="java.lang.String">
+            <column name="houseDetial" length="5000" />
         </property>
         <property name="tel" type="java.lang.String">
-            <column name="tel" length="11" not-null="true" />
+            <column name="tel" length="20" not-null="true" />
         </property>
-        <property name="newsType" type="java.lang.Integer">
-            <column name="newsType" not-null="true" />
+        <property name="img1" type="java.lang.String">
+            <column name="img1" length="50" />
         </property>
-        <property name="houseStruct" type="java.lang.String">
-            <column name="houseStruct" length="20" />
+        <property name="img2" type="java.lang.String">
+            <column name="img2" length="50" />
         </property>
-        <property name="houseLook" type="java.lang.String">
-            <column name="houseLook" length="20" />
+        <property name="img3" type="java.lang.String">
+            <column name="img3" length="50" />
         </property>
-        <property name="buildtype" type="java.lang.String">
-            <column name="buildtype" length="20" />
+        <property name="img4" type="java.lang.String">
+            <column name="img4" length="50" />
         </property>
-        <property name="buildtime" type="java.lang.String">
-            <column name="buildtime" length="20" />
+        <property name="img5" type="java.lang.String">
+            <column name="img5" length="50" />
         </property>
-        <property name="villagetype" type="java.lang.String">
-            <column name="villagetype" length="20" />
-        </property>
-        <property name="special" type="java.lang.String">
-            <column name="special" length="400" />
-        </property>
-        <property name="photo" type="java.lang.String">
-            <column name="photo" length="500" />
+        <property name="img6" type="java.lang.String">
+            <column name="img6" length="50" />
         </property>
     </class>
 </hibernate-mapping>

@@ -193,24 +193,10 @@
 				</div>
 				<!--我的发布-->
 				<div role="tabpanel" class="tab-pane" id="wdfb">
-					<%-- 					<table class="table" >
-						<jstl:forEach var="e" items="${houseNewsRecords }">
-							<tr>
-								<td>${e.houseAddr }</td>
-								<td>${e.houseFloor }</td>
-								<td>${e.housePrice }</td>
-								<td>${e.houseTitle }</td>
-								<td>${e.houseArea }</td>
-								<td>${e.houseStatus }</td>
-								<td>${e.newsType }</td>
-								<td>${e.houseNewsId }</td>
-								<td>${e.houseUserId }</td>
-								<td>${e.recordState }</td>
-								<td>${e.recordReqTime }</td>
-								<td>${e.recordType }</td>
-							</tr>
-						</jstl:forEach>
-					</table> --%>
+					<h3>我的房屋</h3>
+					<p>--------------------------------------------------------------------------------</p>
+					<h3>我的订单</h3>
+					<p>--------------------------------------------------------------------------------</p>
 				</div>
 			</div>
 		</div>
