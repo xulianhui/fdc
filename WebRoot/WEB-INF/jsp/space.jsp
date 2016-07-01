@@ -5,7 +5,7 @@
 <%-- <%@page import="com.fdc.pojo.HouseNews"%> --%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <%@ page import="com.xue.VisualUser"%>
 <%@ page import="com.fdc.pojo.Users"%>
 <%
@@ -13,7 +13,7 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-Users thisUsr = VisualUser.CreateVisualUser();
+	Users thisUsr = VisualUser.CreateVisualUser();
 %>
 
 
@@ -45,6 +45,7 @@ Users thisUsr = VisualUser.CreateVisualUser();
 
 <body>
 	<%@ include file="head.jsp"%>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-2">
@@ -158,71 +159,19 @@ Users thisUsr = VisualUser.CreateVisualUser();
 					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="wdxx">
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<p>---------------------历史消息---------------------</p>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
-					<div class="message">
-						<h3>新的消息</h3>
-						<p>消息的内容消息的内容消息的内容消息的内容消息的内容消息的内容</p>
-						<p>
-							<a class="btn btn-primary btn-sm" href="jsfw.html" role="button">Learn
-								more</a>
-						</p>
-					</div>
+					<jstl:forEach var="e" items="${mails }">
+						<div class="message">
+							<h3>${e.title }</h3>
+							<p>发送时间:${e.sendTime }</p>
+							<p>${e.mailContent }</p>
+							<p>
+								<a class="btn btn-primary btn-sm" href="jsfw" role="button">Learn
+									more</a>
+							</p>
+						</div>
+					</jstl:forEach>
+<!-- 					<p>---------------------历史消息---------------------</p> -->
+					
 				</div>
 				<!--租购记录-->
 				<div role="tabpanel" class="tab-pane" id="zgjl">
@@ -235,21 +184,16 @@ Users thisUsr = VisualUser.CreateVisualUser();
 							</div>
 							<div class="media-body">
 								<h4 class="media-heading">${e.houseTitle }</h4>
-								房屋地址：${e.houseAddr }
-								房屋楼层：${e.houseFloor }
-								房租价格：${e.housePrice }
-								房屋面积：${e.houseArea }
-								装修状况：${e.houseStatus }
-								联系电话：${e.tel }<br>
-								记录状态：${e.recordState }
-								记录时间：${e.recordReqTime }
+								房屋地址：${e.houseAddr } 房屋楼层：${e.houseFloor } 房租价格：${e.housePrice }
+								房屋面积：${e.houseArea } 装修状况：${e.houseStatus } 联系电话：${e.tel }<br>
+								记录状态：${e.recordState } 记录时间：${e.recordReqTime }
 							</div>
 						</div>
 					</jstl:forEach>
 				</div>
 				<!--我的发布-->
 				<div role="tabpanel" class="tab-pane" id="wdfb">
-<%-- 					<table class="table" >
+					<%-- 					<table class="table" >
 						<jstl:forEach var="e" items="${houseNewsRecords }">
 							<tr>
 								<td>${e.houseAddr }</td>

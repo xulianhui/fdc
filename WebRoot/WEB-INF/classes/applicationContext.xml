@@ -28,6 +28,7 @@
 				<value>com/fdc/pojo/Users.hbm.xml</value>
 				<value>com/fdc/pojo/RecordRent.hbm.xml</value>
 				<value>com/fdc/pojo/HouseNews.hbm.xml</value>
+				<value>com/fdc/pojo/Mails.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -64,10 +65,16 @@
 			<ref bean="RecordRentDAO" />
 		</property>
 	</bean>
-	
+
 	<bean id="HouseNewsService" class="com.fdc.service.HouseNewsService">
 		<property name="houseNewsDAO">
-			<ref bean="HouseNewsDAO"/>
+			<ref bean="HouseNewsDAO" />
+		</property>
+	</bean>
+
+	<bean id="MailsService" class="com.fdc.service.MailsService">
+		<property name="mailsDAO">
+			<ref bean="MailsDAO" />
 		</property>
 	</bean>
 
@@ -79,7 +86,15 @@
 			<ref bean="UsersService" />
 		</property>
 		<property name="houseNewsService">
-			<ref bean="HouseNewsService"/>
+			<ref bean="HouseNewsService" />
+		</property>
+		<property name="mailsService">
+			<ref bean="MailsService" />
+		</property>
+	</bean>
+	<bean id="MailsDAO" class="com.fdc.dao.MailsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 </beans>

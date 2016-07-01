@@ -5,19 +5,27 @@ import java.util.List;
 
 import org.hibernate.engine.query.ReturnMetadata;
 
+import com.fdc.dao.MailsDAO;
 import com.fdc.po.HouseNewsRecord;
 import com.fdc.pojo.HouseNews;
+import com.fdc.pojo.Mails;
 import com.fdc.pojo.RecordRent;
 import com.fdc.pojo.Users;
 import com.fdc.service.HouseNewsService;
+import com.fdc.service.MailsService;
 import com.fdc.service.RecordRentService;
 import com.fdc.service.UsersService;
+import com.opensymphony.xwork2.ActionContext;
 
 public class ToSpaceAction {
 	UsersService usersService;
 	RecordRentService recordRentService;
 	HouseNewsService houseNewsService;
+	MailsService mailsService;
+	
+	
 	ArrayList<HouseNewsRecord> houseNewsRecords;
+	ArrayList<Mails> mails;
 	
 	public ArrayList<HouseNewsRecord> getHouseNewsRecords() {
 		return houseNewsRecords;
@@ -61,6 +69,22 @@ public class ToSpaceAction {
 		this.recordRentService = recordRentService;
 	}
 
+	public MailsService getMailsService() {
+		return mailsService;
+	}
+
+	public void setMailsService(MailsService mailsService) {
+		this.mailsService = mailsService;
+	}
+
+	public ArrayList<Mails> getMails() {
+		return mails;
+	}
+
+	public void setMails(ArrayList<Mails> mails) {
+		this.mails = mails;
+	}
+	
 	public String loadPageInfo() {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
 		Users thisUsers = usersService.getUserById(1);
@@ -83,7 +107,23 @@ public class ToSpaceAction {
 			HouseNews houseNews = houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
 			HouseNewsRecord tmp = new HouseNewsRecord();
 			
-			
+	
+// .'"'.        ___,,,___        .'``.'
+// : (\  `."'"```         ```"'"-'  /) ;'
+//  :  \                         `./  .''
+//  `.                            :.''
+//	 /        _         _        \)
+//   |         0}       {0         |
+//   |         /         \         |
+//   |        /           \        |
+//   |       /             \       |
+//    \     |      .-.      |     /
+// 	   `.   | . . /   \ . . |   .''
+//	     `-._\.'.(     ).'./_.-''
+//	        `\'  `._.'  '/' 
+//             `. --'-- .'
+//              `-...-'¡£'
+
 			tmp.setId(houseNews.getId());
 			tmp.setHouseAddr(houseNews.getHouseAddr());
 			tmp.setHouseFloor(houseNews.getHouseFloor());
@@ -104,7 +144,10 @@ public class ToSpaceAction {
 			
 			houseNewsRecords.add(tmp);
 		}
-		System.out.printf("-------------------------------> %d\n", houseNewsRecords.size());
+
+		
+		mails = (ArrayList<Mails>) mailsService.getMailsByUserToIdList(thisUsers.getId());
 		return "success";
 	}
+
 }
