@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url"
+			value="jdbc:sqlserver://127.0.0.1:1433;databaseName=fdc">
+		</property>
+		<property name="username" value="sa"></property>
+		<property name="password" value="sa123"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.SQLServerDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/fdc/pojo/Users.hbm.xml</value>
+				<value>com/fdc/pojo/RecordRent.hbm.xml</value>
+				<value>com/fdc/pojo/HouseNews.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="UsersDAO" class="com.fdc.dao.UsersDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="RecordRentDAO" class="com.fdc.dao.RecordRentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="HouseNewsDAO" class="com.fdc.dao.HouseNewsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<bean id="UsersService" class="com.fdc.service.UsersService">
+		<property name="usersDAO">
+			<ref bean="UsersDAO"/>
+		</property>
+	</bean>
+	
+	<bean id="SpaceAction" class="com.fdc.action.SpaceActoin">
+		<property name="usersService">
+			<ref bean="UsersService"/>
+		</property>
+	</bean>
+	<bean id="RecordRentService" class="com.fdc.service.RecordRentService">
+		<property name="recordRentDAO">
+			<ref bean="RecordRentDAO"/>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
