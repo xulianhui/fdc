@@ -1,5 +1,7 @@
 package com.fdc.service;
 
+import java.util.List;
+
 import com.fdc.dao.HouseNewsDAO;
 import com.fdc.pojo.HouseNews;
 
@@ -16,5 +18,9 @@ public class HouseNewsService {
 	
 	public HouseNews getHouseNewsById(int id) {
 		return houseNewsDAO.findById(id);
+	}
+	
+	public List getHouseNewsByUserId(int userId) {
+		return houseNewsDAO.findByUserId(userId);
 	}
 }

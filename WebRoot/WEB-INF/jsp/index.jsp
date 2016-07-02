@@ -24,6 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<center>
     <a href="ToSpace!loadPageInfo">Space</a>
+    <a href="action?xxx=xx"></a>
     </center>
   </body>
 </html>

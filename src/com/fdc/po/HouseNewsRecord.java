@@ -1,5 +1,8 @@
 package com.fdc.po;
 
+import com.fdc.pojo.HouseNews;
+import com.fdc.pojo.RecordRent;
+
 public class HouseNewsRecord {
 	private String houseAddr;
 	private Integer houseFloor;
@@ -330,5 +333,28 @@ public class HouseNewsRecord {
 		result = 37 * result + (getId() == null ? 0 : this.getId().hashCode());
 		return result;
 	}
+	
+	
+	public static HouseNewsRecord setHouseNewsRecord(RecordRent recordRent, HouseNews houseNews) {
+		HouseNewsRecord tmp = new HouseNewsRecord();
 
+		tmp.setId(houseNews.getId());
+		tmp.setHouseAddr(houseNews.getHouseAddDetail());
+		tmp.setHouseFloor(houseNews.getHouseFloor());
+		tmp.setHousePrice(houseNews.getHousePrice());
+		tmp.setHouseTitle(houseNews.getHouseTitle());
+		tmp.setHouseArea(houseNews.getHouseArea());
+		tmp.setHouseStatus(houseNews.getBuildType());
+		tmp.setTel(houseNews.getTel());
+		tmp.setNewsType(houseNews.getNewsType());
+		// photo
+		tmp.setHouseNewsId(recordRent.getHouseNewsId());
+		tmp.setHouseUserId(recordRent.getHouseNewsId());
+		tmp.setRecordState(recordRent.getRecordState());
+		tmp.setRecordReqTime(recordRent.getRecordReqTime());
+		tmp.setRecordType(recordRent.getRecordType());
+		tmp.setRecordId(recordRent.getRecordId());
+		
+		return tmp;
+	}
 }

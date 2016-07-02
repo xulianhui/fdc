@@ -15,4 +15,8 @@ public class RecordRentService {
 	public List getRecordListByHouseUserId (int _id) {
 		return recordRentDAO.findByHouseUserId(_id);
 	}
+	
+	public List getRecordListByHouseNewsId (int _id) {
+		return recordRentDAO.findByHouseUserId(_id);
+	}
 }

@@ -44,9 +44,9 @@
 </head>
 
 <body>
-	<%@ include file="head.jsp"%>
-
 	<div class="container">
+		<%@ include file="head.jsp"%>
+
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="row">
@@ -170,8 +170,8 @@
 							</p>
 						</div>
 					</jstl:forEach>
-<!-- 					<p>---------------------历史消息---------------------</p> -->
-					
+					<!-- 					<p>---------------------历史消息---------------------</p> -->
+
 				</div>
 				<!--租购记录-->
 				<div role="tabpanel" class="tab-pane" id="zgjl">
@@ -193,44 +193,75 @@
 				</div>
 				<!--我的发布-->
 				<div role="tabpanel" class="tab-pane" id="wdfb">
-<!-- 					<h3>我的房屋</h3> -->
-<!-- 					<p>--------------------------------------------------------------------------------</p> -->
-<!-- 					<h3>我的订单</h3> -->
-<!-- 					<p>--------------------------------------------------------------------------------</p> -->
-					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-					  <div class="panel panel-default">
-					    <div class="panel-heading" role="tab" id="headingOne">
-					      <h4 class="panel-title">
-					        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-				         		 我的房屋
-					        </a>
-					      </h4>
-					    </div>
-					    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-					      <div class="panel-body">
-					        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					      </div>
-					    </div>
-					  </div>
-					  <div class="panel panel-default">
-					    <div class="panel-heading" role="tab" id="headingTwo">
-					      <h4 class="panel-title">
-					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-				          		我的订单
-					        </a>
-					      </h4>
-					    </div>
-					    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-					      <div class="panel-body">
-					        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					      </div>
-					    </div>
-					  </div>
+					<!-- 					<h3>我的房屋</h3> -->
+					<!-- 					<p>--------------------------------------------------------------------------------</p> -->
+					<!-- 					<h3>我的订单</h3> -->
+					<!-- 					<p>--------------------------------------------------------------------------------</p> -->
+					<div class="panel-group" id="accordion" role="tablist"
+						aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne"> 我的房屋 </a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in"
+								role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									<!-- myHouseNewsmyHouseNewsRecords -->
+									<jstl:forEach var="e" items="${myHouseNews }">
+										<div class="media">
+											<div class="media-left">
+												<a href="#"> <img class="media-object" src="img/剪刀.png"
+													alt="..." style="height: 100px; width: 100px;">
+												</a>
+											</div>
+											<div class="media-body">
+												<h4 class="media-heading">${e.houseTitle }</h4>
+												<p>地址：${e.houseAddDetail }楼层：${e.houseFloor }价格：${e.housePrice }电话：${e.tel }</p>
+												<a href="#"  class="btn btn-default">查看详情</a> <a href="#" class="btn btn-default">修改信息</a>
+											</div>
+										</div>
+									</jstl:forEach><p></p>
+									<a href="#" class="btn btn-default">添加房屋</a>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseTwo"
+										aria-expanded="false" aria-controls="collapseTwo"> 我的订单 </a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									<jstl:forEach var="e" items="${myHouseNewsRecords }">
+										<div class="media">
+											<div class="media-left">
+												<a href="#"> <img class="media-object" src="img/剪刀.png"
+													alt="..." style="height: 100px; width: 100px;">
+												</a>
+											</div>
+											<div class="media-body">
+												<h4 class="media-heading">${e.houseTitle }</h4>
+												<p>时间：${e.recordReqTime }</p>
+											</div>
+										</div>
+									</jstl:forEach>
+								</div>
+							</div>
+						</div>
 					</div>
-					
 				</div>
+
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

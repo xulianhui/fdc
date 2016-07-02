@@ -19,18 +19,17 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class ToSpaceAction {
 	String msg;
-	
+
 	UsersService usersService;
 	RecordRentService recordRentService;
 	HouseNewsService houseNewsService;
 	MailsService mailsService;
-	
-	
-	ArrayList<HouseNewsRecord> houseNewsRecords;//我租购的房屋记录
-	ArrayList<Mails> mails;//我的邮件列表
-	ArrayList<HouseNews> myHouseNews;//我发布的租售房信息
-	ArrayList<HouseNewsRecord> myHouseNewsRecords;//我的租售房屋记录
-	
+
+	ArrayList<HouseNewsRecord> houseNewsRecords;// 我租购的房屋记录
+	ArrayList<Mails> mails;// 我的邮件列表
+	ArrayList<HouseNews> myHouseNews;// 我发布的租售房信息
+	ArrayList<HouseNewsRecord> myHouseNewsRecords;// 我的租售房屋记录
+
 	public ArrayList<HouseNewsRecord> getHouseNewsRecords() {
 		return houseNewsRecords;
 	}
@@ -86,7 +85,7 @@ public class ToSpaceAction {
 	public void setMails(ArrayList<Mails> mails) {
 		this.mails = mails;
 	}
-	
+
 	public ArrayList<HouseNews> getMyHouseNews() {
 		return myHouseNews;
 	}
@@ -99,72 +98,97 @@ public class ToSpaceAction {
 		return myHouseNewsRecords;
 	}
 
-	public void setMyHouseNewsRecords(ArrayList<HouseNewsRecord> myHouseNewsRecords) {
+	public void setMyHouseNewsRecords(
+			ArrayList<HouseNewsRecord> myHouseNewsRecords) {
 		this.myHouseNewsRecords = myHouseNewsRecords;
 	}
-
-// .'"'.        ___,,,___        .'``.'
-// : (\  `."'"```         ```"'"-'  /) ;'
-//  :  \                         `./  .''
-//  `.                            :.''
-//	 /        _         _        \)
-//   |         0}       {0         |
-//   |         /         \         |
-//   |        /           \        |
-//   |       /             \       |
-//    \     |      .-.      |     /
-// 	   `.   | . . /   \ . . |   .''
-//	     `-._\.'.(     ).'./_.-''
-//	        `\'  `._.'  '/' 
-//             `. --'-- .'
-//              `-...-'。'
-
-	public String loadPageInfo() {
+	/*
+	.'"'.        ___,,,___        .'``.'
+	: (\  `."'"```         ```"'"-'  /) ;'
+	 :  \                         `./  .''
+	 `.                            :.''
+	   /        _         _        \)
+	  |         0}       {0         |
+	  |         /         \         |
+	  |        /           \        |
+	  |       /             \       |
+	   \     |      .-.      |     /
+	    `.   | . . /   \ . . |   .''
+	      `-._\.'.(     ).'./_.-''
+	          `\'  `._.'  '/' 
+	            `. --'-- .'
+	             `-...-''
+	*/
+	public String loadPageInfo()    {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
+		myHouseNewsRecords = new ArrayList<HouseNewsRecord>();
 		Users thisUsers = usersService.getUserById(1);
 		/*
 		 * 用户部分先模拟实现，后面通过session查找。
-		 * */
+		 */
 		if (thisUsers == null) {
 			msg = "thisUsers pointer null error";
 			return "error";
 		}
+		
+		//用户的租购记录
 		List recordList = recordRentService
 				.getRecordListByHouseUserId(thisUsers.getId());
-
 		for (int i = 0; i < recordList.size(); ++i) {
 			RecordRent recordRent = (RecordRent) recordList.get(i);
-			System.out.println(recordRent.getRecordId() + " "
-					+ recordRent.getHouseNewsId() + " "
-					+ recordRent.getHouseUserId() + " "
-					+ recordRent.getRecordReqTime());
-			HouseNews houseNews = houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
-			HouseNewsRecord tmp = new HouseNewsRecord();
-
-			tmp.setId(houseNews.getId());
-			tmp.setHouseAddr(houseNews.getHouseAddDetail());
-			tmp.setHouseFloor(houseNews.getHouseFloor());
-			tmp.setHousePrice(houseNews.getHousePrice());
-			tmp.setHouseTitle(houseNews.getHouseTitle());
-			tmp.setHouseArea(houseNews.getHouseArea());
-			tmp.setHouseStatus(houseNews.getBuildType());
-			tmp.setTel(houseNews.getTel());
-			tmp.setNewsType(houseNews.getNewsType());
-//			photo
-			tmp.setHouseNewsId(recordRent.getHouseNewsId());
-			tmp.setHouseUserId(recordRent.getHouseNewsId());
-			tmp.setRecordState(recordRent.getRecordState());
-			tmp.setRecordReqTime(recordRent.getRecordReqTime());
-			tmp.setRecordType(recordRent.getRecordType());
-			tmp.setRecordId(recordRent.getRecordId());
-			
-			
-			houseNewsRecords.add(tmp);
+			HouseNews houseNews = (HouseNews) houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
+			houseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent, houseNews));
 		}
+		System.out.println("houseNewsRecords.size: " + houseNewsRecords.size());
 
+		mails = (ArrayList<Mails>) mailsService
+				.getMailsByUserToIdList(thisUsers.getId());
+
+		myHouseNews = (ArrayList<HouseNews>) houseNewsService
+				.getHouseNewsByUserId(thisUsers.getId());
 		
-		mails = (ArrayList<Mails>) mailsService.getMailsByUserToIdList(thisUsers.getId());
+		List<HouseNews> houseNewsList = houseNewsService.getHouseNewsByUserId(thisUsers.getId());
+		System.out.println("houseNewsList.size: " + houseNewsList.size());
+		for (HouseNews houseNews : houseNewsList) {
+			List<RecordRent> recordRentList = recordRentService.getRecordListByHouseNewsId(houseNews.getId());
+			System.out.println("recordList.size: " + recordList.size());
+			if (recordRentList == null) {
+				System.out.println("--------------------------------------------------------------> NullPointerException");
+			} else {
+				for (RecordRent recordRent : recordRentList) {
+					if (recordRent == null) {
+						System.out.print("recordRent Error\n");
+					}
+					if (houseNews == null) {
+						System.out.print("houseNews Error\n");
+					}
+					myHouseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent, houseNews));
+				}
+			}
+		}
+		
+
 		return "success";
 	}
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

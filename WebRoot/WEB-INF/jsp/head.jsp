@@ -1,9 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-<div class="header_box">
-	<div class="container">
+	<div class="header_box">
 		<div class="collapse navbar-collapse">
-
 			<ul class="nav navbar-nav">
 				<li><a href="#"
 					style="width:100px;height:50px;background:no-repeat;background-image:url(img/bd.png);background-size:contain;"></a></li>
@@ -18,4 +16,3 @@
 			</ul>
 		</div>
 	</div>
-</div>

@@ -16,7 +16,6 @@ public class MailsService {
 	}
 	
 	public List getMailsByUserToIdList (int id) {
-		System.out.println("getMailsByUserToIdList id: " + id);
 		return mailsDAO.findByUserToId(id);
 	}
 }
