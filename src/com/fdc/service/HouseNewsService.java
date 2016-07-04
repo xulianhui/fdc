@@ -29,4 +29,10 @@ public class HouseNewsService {
 		tmp.setHouseNewsStatus(1);
 		houseNewsDAO.update(tmp);
 	}
+	public String add(HouseNews housenew) {
+		String result=houseNewsDAO.savenew(housenew);
+		if (result!=null)
+			return "success";
+		return "fail";
+	}
 }

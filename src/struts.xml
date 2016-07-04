@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+	<package name="usersManage" namespace="/"
+		extends="json-default,struts-default">
+		<action name="um" class="UsersAction">
+			<result name="success">/WEB-INF/jsp/index.jsp</result>
+			<result name="error">/WEB-INF/jsp/index.jsp</result>
+			<result name="ok">/WEB-INF/jsp/regeditresult.jsp</result>
+			<result name="no">/WEB-INF/jsp/regeditresult.jsp</result>
+			<result type="json" name="checked">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		<action name="mp" class="HomepageAction">
+			<result name="success">/WEB-INF/jsp/index.jsp</result>
+			<result name="error">/WEB-INF/jsp/index.jsp</result>
+		</action>
+		<action name="addnew" class="HouseNewsAction">
+			<result name="success">/WEB-INF/jsp/pubresult.jsp</result>
+		</action>
+	</package>
 	<package name="xue" namespace="/" extends="struts-default">
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>
@@ -13,8 +32,8 @@
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</action>
 		<action name="shelves" class="SpaceAction" method="shelves">
-<!-- 			<result name="success">/WEB-INF/jsp/space.jsp</result> -->
 			<result type="redirectAction">ToSpace!loadPageInfo</result>
 		</action>
 	</package>
+
 </struts>    

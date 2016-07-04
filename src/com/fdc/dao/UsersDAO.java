@@ -196,4 +196,38 @@ public class UsersDAO extends HibernateDaoSupport {
 	public static UsersDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (UsersDAO) ctx.getBean("UsersDAO");
 	}
+//	--------------------------------------------------------------------------------------------
+	public List findByEmailPwd(Users instance) {
+		try {
+			String queryString = "from Users as model where model.email=? and password=?";
+			return getHibernateTemplate().find(queryString, instance.getEmail(),instance.getPassword());
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	public Users queryByemail(String email) {   //根据用户名查找  
+        @SuppressWarnings("unchecked")  
+        List<Users> list = this.getHibernateTemplate().  
+                find("from Users where email = ?",email);  
+        if(list.size() == 0){                           //判断查询集合是否为空  
+            return null;  
+        }else {  
+            return list.get(0);                         //返回第一个用户  
+        }  
+    }  
+	
+	public String savenew(Users transientInstance) {
+		log.debug("saving Users instance");
+		String addstate;
+		try {
+			getHibernateTemplate().save(transientInstance);
+			log.debug("save successful");
+			addstate="ok";
+		} catch (RuntimeException re) {
+			log.error("save failed", re);
+			throw re;
+		}
+		return addstate;
+	}
 }

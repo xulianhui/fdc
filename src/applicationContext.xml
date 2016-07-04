@@ -29,6 +29,7 @@
 				<value>com/fdc/pojo/RecordRent.hbm.xml</value>
 				<value>com/fdc/pojo/HouseNews.hbm.xml</value>
 				<value>com/fdc/pojo/Mails.hbm.xml</value>
+				<value>com/fdc/pojo/Homepage.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -48,7 +49,6 @@
 		</property>
 	</bean>
 
-
 	<bean id="UsersService" class="com.fdc.service.UsersService">
 		<property name="usersDAO">
 			<ref bean="UsersDAO" />
@@ -60,7 +60,7 @@
 			<ref bean="UsersService" />
 		</property>
 		<property name="houseNewsService">
-			<ref bean="HouseNewsService"/>
+			<ref bean="HouseNewsService" />
 		</property>
 	</bean>
 	<bean id="RecordRentService" class="com.fdc.service.RecordRentService">
@@ -98,6 +98,37 @@
 	<bean id="MailsDAO" class="com.fdc.dao.MailsDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="HomepageDAO" class="com.fdc.dao.HomepageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="HomepageService" class="com.fdc.service.HomepageService">
+		<property name="homepageDAO">
+			<ref bean="HomepageDAO" />
+		</property>
+	</bean>
+	<bean id="HomepageAction" class="com.fdc.action.HomepageAction">
+		<property name="service">
+			<ref bean="HomepageService" />
+		</property>
+	</bean>
+	<bean id="HouseNewsAction" class="com.fdc.action.HouseNewsAction">
+		<property name="houseNewsService">
+			<ref bean="HouseNewsService" />
+		</property>
+		<property name="service">
+			<ref bean="UsersService" />
+		</property>
+	</bean>
+	<bean id="UsersAction" class="com.fdc.action.UsersAction">
+		<property name="service">
+			<ref bean="UsersService" />
+		</property>
+		<property name="mservice">
+			<ref bean="HomepageService" />
 		</property>
 	</bean>
 </beans>

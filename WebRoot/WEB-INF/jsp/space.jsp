@@ -47,7 +47,7 @@
 
 <body>
 	<div class="container">
-		<%@ include file="head.jsp"%>
+		<%@ include file="header.jsp"%>
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="row">

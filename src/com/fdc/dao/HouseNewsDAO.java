@@ -254,4 +254,18 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 	public static HouseNewsDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (HouseNewsDAO) ctx.getBean("HouseNewsDAO");
 	}
+	
+	public String savenew(HouseNews housenew) {
+        log.debug("saving HouseNews instance");
+        String add_state;
+        try {
+            getHibernateTemplate().save(housenew);
+            log.debug("save successful");
+            add_state="ok";
+        } catch (RuntimeException re) {
+            log.error("save failed", re);
+            throw re;
+        }
+        return add_state;
+	}
 }

@@ -1,0 +1,36 @@
+.wrapper {
+	position: relative;
+	padding-top:50px;
+}
+body{
+	background-image: url(../img/bg.jpg);
+	background-size:cover;
+}
+.footer {
+	font-family: "Î¢ÈíÑÅºÚ";
+	position: relative;
+	margin: 0 auto;
+	font-size:24px;
+	
+}
+.footer a {
+	color: #FFFFFF;
+}
+.footer p {
+	color: #FCF8E3;
+	padding: 95px 0 0;
+	font: 1em ;
+	text-align: center;
+}
+.footer p.copyright {
+	padding: 1em 0 0;
+	color: #0060b9;
+	font-size: 0.8em;
+}
+.content{
+	height:800px;
+	opacity: 30
+}
+.navbar-brand a{
+	font-size:large;
+}

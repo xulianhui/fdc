@@ -3,28 +3,217 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html>
 <html>
-  <head>
-    
-    <title>My JSP 'MyJsp.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 
-  </head>
-  
-  <body>
-  	<center>
-    <a href="ToSpace!loadPageInfo">Space</a>
-    <a href="action?xxx=xx"></a>
-    </center>
-  </body>
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function goregedit(){
+		window.location.href("regedit.jsp");
+	}
+	function checkmail(){
+		var email = document.getElementById("useremail");
+		var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+		if (!myreg.test(email.value)) {
+			alert("请输入正确的用户邮箱！");
+		}
+	}
+</script>
+<title></title>
+</head>
+
+<body>
+	<jsp:include page="header.jsp"></jsp:include>
+	<!--header end here-->
+
+	<div class="wrapper">
+		<div class="container">
+			<!-- 清除浮动 -->
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="bs-example" data-example-id="simple-carousel">
+						<div id="carousel-example-generic" class="carousel slide"
+							data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example-generic" data-slide-to="0"
+									class="active"></li>
+								<li data-target="#carousel-example-generic" data-slide-to="1"
+									class=""></li>
+								<li data-target="#carousel-example-generic" data-slide-to="2"
+									class=""></li>
+							</ol>
+							<div class="carousel-inner" role="listbox">
+								<div class="item active" style="background-size:cover;">
+									<img
+										data-src="holder.js/900x500/auto/#777:#555/text:First slide"
+										alt="First slide [900x500]" src=" ${homepage[0].picadd}"
+										data-holder-rendered="true">
+								</div>
+								<div class="item" style="background-size:cover;">
+									<img
+										data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
+										alt="Second slide [900x500]" src="${homepage[1].picadd}"
+										data-holder-rendered="true">
+								</div>
+								<div class="item" style="background-size:cover;">
+									<img
+										data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
+										alt="Third slide [900x500]" src="${homepage[2].picadd}"
+										data-holder-rendered="true">
+								</div>
+							</div>
+							<a class="left carousel-control" href="#carousel-example-generic"
+								role="button" data-slide="prev"> <span
+								class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a> <a class="right carousel-control"
+								href="#carousel-example-generic" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"
+								aria-hidden="true"></span> <span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- /.col-lg-8 -->
+				<div class="col-lg-4">
+					<div class="container-fluid">
+						<form>
+							<div class="form-group">
+								<label for="">地区</label> <select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="">房屋类型</label> <select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="">价格区间</label> <select class="form-control">
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input class="form-control input-lg" type="text"
+									placeholder="楼盘名">
+							</div>
+							<div class="form-group">
+								<input style="width:100%;font-size:20px;" type="submit" class="btn btn-default" value="提        交 &nbsp; &nbsp;  " />
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.col-lg-4 -->
+			</div>
+			<!-- /.row -->
+			<div class="clearfix" style="margin-bottom: 10px;"></div>
+			<!-- 清除浮动 -->
+			<div class="row">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[3].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[4].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[5].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[6].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[7].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[8].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[9].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[10].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[11].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[12].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[13].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<a href="#" class="thumbnail"> <img
+								src="${homepage[14].picadd}"
+								class="img-responsive">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+		<div class="footer">
+			<p>
+				Any problem? Email to me <strong>1151324240@qq.com</strong>
+			</p>
+			<p class="copyright">
+				Copyright © 2016 <a href="http://121.42.216.198/2048/"
+					title="CCNU_Cs_Zq">ZQ</a>
+			</p>
+		</div>
+</body>
 </html>
+
