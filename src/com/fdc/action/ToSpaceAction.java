@@ -1,6 +1,8 @@
 package com.fdc.action;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.hibernate.engine.query.ReturnMetadata;
@@ -143,7 +145,7 @@ public class ToSpaceAction {
 
 		mails = (ArrayList<Mails>) mailsService
 				.getMailsByUserToIdList(thisUsers.getId());
-
+		
 		myHouseNews = (ArrayList<HouseNews>) houseNewsService
 				.getHouseNewsByUserId(thisUsers.getId());
 		
@@ -167,8 +169,6 @@ public class ToSpaceAction {
 				}
 			}
 		}
-		
-
 		return "success";
 	}
 }

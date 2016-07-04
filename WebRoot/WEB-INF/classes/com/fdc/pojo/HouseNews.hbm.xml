@@ -34,8 +34,8 @@
         <property name="houseHall" type="java.lang.Integer">
             <column name="houseHall" not-null="true" />
         </property>
-        <property name="hosueWc" type="java.lang.Integer">
-            <column name="hosueWc" not-null="true" />
+        <property name="houseWc" type="java.lang.Integer">
+            <column name="houseWc" not-null="true" />
         </property>
         <property name="houseRoom" type="java.lang.Integer">
             <column name="houseRoom" not-null="true" />
@@ -46,8 +46,8 @@
         <property name="buildType" type="java.lang.String">
             <column name="buildType" length="50" not-null="true" />
         </property>
-        <property name="houseDetial" type="java.lang.String">
-            <column name="houseDetial" length="5000" />
+        <property name="houseDetail" type="java.lang.String">
+            <column name="houseDetail" length="5000" />
         </property>
         <property name="tel" type="java.lang.String">
             <column name="tel" length="20" not-null="true" />

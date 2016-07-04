@@ -32,11 +32,11 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 	public static final String HOUSE_FLOOR = "houseFloor";
 	public static final String HOUSE_PRICE = "housePrice";
 	public static final String HOUSE_HALL = "houseHall";
-	public static final String HOSUE_WC = "hosueWc";
+	public static final String HOUSE_WC = "houseWc";
 	public static final String HOUSE_ROOM = "houseRoom";
 	public static final String HOUSE_AREA = "houseArea";
 	public static final String BUILD_TYPE = "buildType";
-	public static final String HOUSE_DETIAL = "houseDetial";
+	public static final String HOUSE_DETAIL = "houseDetail";
 	public static final String TEL = "tel";
 	public static final String IMG1 = "img1";
 	public static final String IMG2 = "img2";
@@ -62,7 +62,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 	}
 	
 	public void update(HouseNews transientInstance) {
-		log.debug("update HouseNews instance");
+		log.debug("updating HouseNews instance");
 		try {
 			getHibernateTemplate().update(transientInstance);
 			log.debug("update successful");
@@ -153,8 +153,8 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		return findByProperty(HOUSE_HALL, houseHall);
 	}
 
-	public List findByHosueWc(Object hosueWc) {
-		return findByProperty(HOSUE_WC, hosueWc);
+	public List findByHouseWc(Object houseWc) {
+		return findByProperty(HOUSE_WC, houseWc);
 	}
 
 	public List findByHouseRoom(Object houseRoom) {
@@ -169,8 +169,8 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		return findByProperty(BUILD_TYPE, buildType);
 	}
 
-	public List findByHouseDetial(Object houseDetial) {
-		return findByProperty(HOUSE_DETIAL, houseDetial);
+	public List findByHouseDetail(Object houseDetail) {
+		return findByProperty(HOUSE_DETAIL, houseDetail);
 	}
 
 	public List findByTel(Object tel) {

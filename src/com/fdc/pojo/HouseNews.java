@@ -17,11 +17,11 @@ public class HouseNews implements java.io.Serializable {
 	private Integer houseFloor;
 	private Integer housePrice;
 	private Integer houseHall;
-	private Integer hosueWc;
+	private Integer houseWc;
 	private Integer houseRoom;
 	private Integer houseArea;
 	private String buildType;
-	private String houseDetial;
+	private String houseDetail;
 	private String tel;
 	private String img1;
 	private String img2;
@@ -40,7 +40,7 @@ public class HouseNews implements java.io.Serializable {
 	/** minimal constructor */
 	public HouseNews(Integer userId, Integer newsType, String houseReg,
 			String houseAddDetail, String houseTitle, Integer houseFloor,
-			Integer housePrice, Integer houseHall, Integer hosueWc,
+			Integer housePrice, Integer houseHall, Integer houseWc,
 			Integer houseRoom, Integer houseArea, String buildType, String tel,
 			Integer houseNewsStatus) {
 		this.userId = userId;
@@ -51,7 +51,7 @@ public class HouseNews implements java.io.Serializable {
 		this.houseFloor = houseFloor;
 		this.housePrice = housePrice;
 		this.houseHall = houseHall;
-		this.hosueWc = hosueWc;
+		this.houseWc = houseWc;
 		this.houseRoom = houseRoom;
 		this.houseArea = houseArea;
 		this.buildType = buildType;
@@ -62,9 +62,9 @@ public class HouseNews implements java.io.Serializable {
 	/** full constructor */
 	public HouseNews(Integer userId, Integer newsType, String houseReg,
 			String houseAddDetail, String houseTitle, Integer houseFloor,
-			Integer housePrice, Integer houseHall, Integer hosueWc,
+			Integer housePrice, Integer houseHall, Integer houseWc,
 			Integer houseRoom, Integer houseArea, String buildType,
-			String houseDetial, String tel, String img1, String img2,
+			String houseDetail, String tel, String img1, String img2,
 			String img3, String img4, String img5, String img6,
 			Integer houseNewsStatus) {
 		this.userId = userId;
@@ -75,11 +75,11 @@ public class HouseNews implements java.io.Serializable {
 		this.houseFloor = houseFloor;
 		this.housePrice = housePrice;
 		this.houseHall = houseHall;
-		this.hosueWc = hosueWc;
+		this.houseWc = houseWc;
 		this.houseRoom = houseRoom;
 		this.houseArea = houseArea;
 		this.buildType = buildType;
-		this.houseDetial = houseDetial;
+		this.houseDetail = houseDetail;
 		this.tel = tel;
 		this.img1 = img1;
 		this.img2 = img2;
@@ -164,12 +164,12 @@ public class HouseNews implements java.io.Serializable {
 		this.houseHall = houseHall;
 	}
 
-	public Integer getHosueWc() {
-		return this.hosueWc;
+	public Integer getHouseWc() {
+		return this.houseWc;
 	}
 
-	public void setHosueWc(Integer hosueWc) {
-		this.hosueWc = hosueWc;
+	public void setHouseWc(Integer houseWc) {
+		this.houseWc = houseWc;
 	}
 
 	public Integer getHouseRoom() {
@@ -196,12 +196,12 @@ public class HouseNews implements java.io.Serializable {
 		this.buildType = buildType;
 	}
 
-	public String getHouseDetial() {
-		return this.houseDetial;
+	public String getHouseDetail() {
+		return this.houseDetail;
 	}
 
-	public void setHouseDetial(String houseDetial) {
-		this.houseDetial = houseDetial;
+	public void setHouseDetail(String houseDetail) {
+		this.houseDetail = houseDetail;
 	}
 
 	public String getTel() {

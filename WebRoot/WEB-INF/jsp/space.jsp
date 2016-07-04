@@ -217,7 +217,7 @@
 											</div>
 											<div class="media-body">
 												<h4 class="media-heading">${e.houseTitle }</h4>
-												<p>地址：${e.houseAddDetail }楼层：${e.houseFloor }价格：${e.housePrice }电话：${e.tel }<br>详情：${e.houseDetial }</p>
+												<p>地址：${e.houseAddDetail }楼层：${e.houseFloor }价格：${e.housePrice }电话：${e.tel }<br>详情：${e.houseDetail }</p>
 												
 												<a href="#" class="btn btn-default">查看详情</a>
 												<a href="#" class="btn btn-default">修改信息</a> 
