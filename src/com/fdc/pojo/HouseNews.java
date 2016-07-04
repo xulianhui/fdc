@@ -29,6 +29,7 @@ public class HouseNews implements java.io.Serializable {
 	private String img4;
 	private String img5;
 	private String img6;
+	private Integer houseNewsStatus;
 
 	// Constructors
 
@@ -40,7 +41,8 @@ public class HouseNews implements java.io.Serializable {
 	public HouseNews(Integer userId, Integer newsType, String houseReg,
 			String houseAddDetail, String houseTitle, Integer houseFloor,
 			Integer housePrice, Integer houseHall, Integer hosueWc,
-			Integer houseRoom, Integer houseArea, String buildType, String tel) {
+			Integer houseRoom, Integer houseArea, String buildType, String tel,
+			Integer houseNewsStatus) {
 		this.userId = userId;
 		this.newsType = newsType;
 		this.houseReg = houseReg;
@@ -54,6 +56,7 @@ public class HouseNews implements java.io.Serializable {
 		this.houseArea = houseArea;
 		this.buildType = buildType;
 		this.tel = tel;
+		this.houseNewsStatus = houseNewsStatus;
 	}
 
 	/** full constructor */
@@ -62,7 +65,8 @@ public class HouseNews implements java.io.Serializable {
 			Integer housePrice, Integer houseHall, Integer hosueWc,
 			Integer houseRoom, Integer houseArea, String buildType,
 			String houseDetial, String tel, String img1, String img2,
-			String img3, String img4, String img5, String img6) {
+			String img3, String img4, String img5, String img6,
+			Integer houseNewsStatus) {
 		this.userId = userId;
 		this.newsType = newsType;
 		this.houseReg = houseReg;
@@ -83,6 +87,7 @@ public class HouseNews implements java.io.Serializable {
 		this.img4 = img4;
 		this.img5 = img5;
 		this.img6 = img6;
+		this.houseNewsStatus = houseNewsStatus;
 	}
 
 	// Property accessors
@@ -253,6 +258,14 @@ public class HouseNews implements java.io.Serializable {
 
 	public void setImg6(String img6) {
 		this.img6 = img6;
+	}
+
+	public Integer getHouseNewsStatus() {
+		return this.houseNewsStatus;
+	}
+
+	public void setHouseNewsStatus(Integer houseNewsStatus) {
+		this.houseNewsStatus = houseNewsStatus;
 	}
 
 }

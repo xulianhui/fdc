@@ -23,4 +23,10 @@ public class HouseNewsService {
 	public List getHouseNewsByUserId(int userId) {
 		return houseNewsDAO.findByUserId(userId);
 	}
+	
+	public void shelvesHouseById (int id) {
+		HouseNews tmp = houseNewsDAO.findById(id);
+		tmp.setHouseNewsStatus(1);
+		houseNewsDAO.update(tmp);
+	}
 }

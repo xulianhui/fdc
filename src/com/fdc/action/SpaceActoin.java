@@ -2,11 +2,27 @@ package com.fdc.action;
 
 
 import com.fdc.pojo.Users;
+import com.fdc.service.HouseNewsService;
 import com.fdc.service.UsersService;
 
 public class SpaceActoin{
 	UsersService usersService;
+	HouseNewsService houseNewsService;
+	public HouseNewsService getHouseNewsService() {
+		return houseNewsService;
+	}
+	public void setHouseNewsService(HouseNewsService houseNewsService) {
+		this.houseNewsService = houseNewsService;
+	}
+
 	Users users;
+	int houseNewsId;
+	public int getHouseNewsId() {
+		return houseNewsId;
+	}
+	public void setHouseNewsId(int houseNewsId) {
+		this.houseNewsId = houseNewsId;
+	}
 	public UsersService getUsersService() {
 		return usersService;
 	}
@@ -35,6 +51,11 @@ public class SpaceActoin{
 		users.setId(1);
 		
 		usersService.UpdateUserInfo(users);
+		return "success";
+	}
+	
+	public String shelves() {
+		houseNewsService.shelvesHouseById(houseNewsId);
 		return "success";
 	}
 }

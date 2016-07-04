@@ -36,6 +36,8 @@
 	-->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/main.css" />
+
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <link href="css/mystyle.css" rel="stylesheet">
@@ -46,7 +48,6 @@
 <body>
 	<div class="container">
 		<%@ include file="head.jsp"%>
-
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="row">
@@ -173,7 +174,7 @@
 					<!-- 					<p>---------------------历史消息---------------------</p> -->
 
 				</div>
-				<!--租购记录-->
+
 				<div role="tabpanel" class="tab-pane" id="zgjl">
 					<jstl:forEach var="e" items="${houseNewsRecords }">
 						<div class="media">
@@ -191,12 +192,8 @@
 						</div>
 					</jstl:forEach>
 				</div>
-				<!--我的发布-->
+
 				<div role="tabpanel" class="tab-pane" id="wdfb">
-					<!-- 					<h3>我的房屋</h3> -->
-					<!-- 					<p>--------------------------------------------------------------------------------</p> -->
-					<!-- 					<h3>我的订单</h3> -->
-					<!-- 					<p>--------------------------------------------------------------------------------</p> -->
 					<div class="panel-group" id="accordion" role="tablist"
 						aria-multiselectable="true">
 						<div class="panel panel-default">
@@ -220,8 +217,16 @@
 											</div>
 											<div class="media-body">
 												<h4 class="media-heading">${e.houseTitle }</h4>
-												<p>地址：${e.houseAddDetail }楼层：${e.houseFloor }价格：${e.housePrice }电话：${e.tel }</p>
-												<a href="#"  class="btn btn-default">查看详情</a> <a href="#" class="btn btn-default">修改信息</a>
+												<p>地址：${e.houseAddDetail }楼层：${e.houseFloor }价格：${e.housePrice }电话：${e.tel }<br>详情：${e.houseDetial }</p>
+												
+												<a href="#" class="btn btn-default">查看详情</a>
+												<a href="#" class="btn btn-default">修改信息</a> 
+												<jstl:if test="${e.houseNewsStatus == 0 }" >
+												<a href="shelves?houseNewsId=${e.id }" class="btn btn-default">下架</a>
+												</jstl:if> 
+												<jstl:if test="${e.houseNewsStatus == 1 }">
+												<spn>已下架</spn>
+												</jstl:if>
 											</div>
 										</div>
 									</jstl:forEach><p></p>
@@ -249,7 +254,11 @@
 											</div>
 											<div class="media-body">
 												<h4 class="media-heading">${e.houseTitle }</h4>
-												<p>时间：${e.recordReqTime }</p>
+												<p>时间：${e.recordReqTime }
+												状态：${e.recordState }
+												客户id ${e.recordId }
+												</p>
+												<a class="btn btn-default">同意交易</a> <a class="btn btn-default">放弃交易</a>
 											</div>
 										</div>
 									</jstl:forEach>

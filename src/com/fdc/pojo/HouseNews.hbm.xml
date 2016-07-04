@@ -70,5 +70,8 @@
         <property name="img6" type="java.lang.String">
             <column name="img6" length="50" />
         </property>
+        <property name="houseNewsStatus" type="java.lang.Integer">
+            <column name="houseNewsStatus" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

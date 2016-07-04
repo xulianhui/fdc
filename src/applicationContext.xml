@@ -59,6 +59,9 @@
 		<property name="usersService">
 			<ref bean="UsersService" />
 		</property>
+		<property name="houseNewsService">
+			<ref bean="HouseNewsService"/>
+		</property>
 	</bean>
 	<bean id="RecordRentService" class="com.fdc.service.RecordRentService">
 		<property name="recordRentDAO">

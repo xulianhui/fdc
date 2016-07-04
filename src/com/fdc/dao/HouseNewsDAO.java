@@ -44,6 +44,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 	public static final String IMG4 = "img4";
 	public static final String IMG5 = "img5";
 	public static final String IMG6 = "img6";
+	public static final String HOUSE_NEWS_STATUS = "houseNewsStatus";
 
 	protected void initDao() {
 		// do nothing
@@ -56,6 +57,17 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
+			throw re;
+		}
+	}
+	
+	public void update(HouseNews transientInstance) {
+		log.debug("update HouseNews instance");
+		try {
+			getHibernateTemplate().update(transientInstance);
+			log.debug("update successful");
+		} catch (RuntimeException re) {
+			log.error("update failed", re);
 			throw re;
 		}
 	}
@@ -187,6 +199,10 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 
 	public List findByImg6(Object img6) {
 		return findByProperty(IMG6, img6);
+	}
+
+	public List findByHouseNewsStatus(Object houseNewsStatus) {
+		return findByProperty(HOUSE_NEWS_STATUS, houseNewsStatus);
 	}
 
 	public List findAll() {

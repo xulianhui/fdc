@@ -122,7 +122,7 @@ public class ToSpaceAction {
 	public String loadPageInfo()    {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
 		myHouseNewsRecords = new ArrayList<HouseNewsRecord>();
-		Users thisUsers = usersService.getUserById(1);
+		Users thisUsers = usersService.getUserById(2);
 		/*
 		 * 用户部分先模拟实现，后面通过session查找。
 		 */
@@ -148,6 +148,7 @@ public class ToSpaceAction {
 				.getHouseNewsByUserId(thisUsers.getId());
 		
 		List<HouseNews> houseNewsList = houseNewsService.getHouseNewsByUserId(thisUsers.getId());
+		System.out.println("thisUsers.getId: " + thisUsers.getId());
 		System.out.println("houseNewsList.size: " + houseNewsList.size());
 		for (HouseNews houseNews : houseNewsList) {
 			List<RecordRent> recordRentList = recordRentService.getRecordListByHouseNewsId(houseNews.getId());
