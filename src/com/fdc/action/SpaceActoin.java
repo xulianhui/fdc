@@ -2,8 +2,11 @@ package com.fdc.action;
 
 
 import java.io.File;
+import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.validator.Msg;
+import org.apache.struts2.ServletActionContext;
 
 import com.fdc.pojo.Users;
 import com.fdc.service.HouseNewsService;
@@ -14,11 +17,27 @@ public class SpaceActoin{
 	UsersService usersService;
 	HouseNewsService houseNewsService;
 	
-	File headImgFile;
+	File headImg;
+	String headImgFileName;
+	String headImgContentType;
 	Users users;
 	String oldPass;
 	String passRe;
 	String msg;
+	
+	public String getHeadImgFileName() {
+		return headImgFileName;
+	}
+	public void setHeadImgFileName(String headImgFileName) {
+		this.headImgFileName = headImgFileName;
+	}
+
+	public String getHeadImgContentType() {
+		return headImgContentType;
+	}
+	public void setHeadImgContentType(String headImgContentType) {
+		this.headImgContentType = headImgContentType;
+	}
 	public HouseNewsService getHouseNewsService() {
 		return houseNewsService;
 	}
@@ -26,11 +45,11 @@ public class SpaceActoin{
 		this.houseNewsService = houseNewsService;
 	}
 
-	public File getHeadImgFile() {
-		return headImgFile;
+	public File getHeadImg() {
+		return headImg;
 	}
-	public void setHeadImgFile(File headImgFile) {
-		this.headImgFile = headImgFile;
+	public void setHeadImg(File headImg) {
+		this.headImg = headImg;
 	}
 	public String getPassRe() {
 		return passRe;
@@ -71,7 +90,7 @@ public class SpaceActoin{
 		this.users = users;
 	}
 	
-	public String updateUserInfo() {
+	public String updateUserInfo() throws IOException {
 //		
 //		System.out.println(users.getNickName());
 //		System.out.println(users.getRealName());
@@ -113,9 +132,17 @@ public class SpaceActoin{
 		if (users.getTel().equals("") == false) {
 			thisUsers.setTel(users.getTel());
 		}
-		if (getHeadImgFile() != null) {
-			msg="头像上传";
-			return "error";
+		if (getHeadImgFileName().equals(null) == false) {
+			String realpath = ServletActionContext.getServletContext().getRealPath("/upload");
+			File savefile = new File(new File(realpath), System.currentTimeMillis()+thisUsers.getId()+headImgFileName);
+			System.out.println(savefile.getPath());
+			if (!savefile.getParentFile().exists()) {
+				savefile.getParentFile().mkdirs();
+			}
+			FileUtils.copyFile(headImg, savefile);
+			ActionContext.getContext().put("message", "文件上传成功");
+			thisUsers.setHeadImg("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
+			msg = savefile.getPath().replace(realpath, "");
 		}
 		usersService.UpdateUserInfo(thisUsers);
 		System.out.print("用户信息修改成功");

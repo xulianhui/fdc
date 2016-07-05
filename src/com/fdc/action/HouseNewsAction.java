@@ -19,6 +19,8 @@ public class HouseNewsAction {
 	private UsersService service;
 	private String addstate;
 	private List<File> image; // 上传的文件
+	private List<String> imageFileName; // 文件名称
+	private List<String> imageContentType; // 文件类型
 	public List<File> getImage() {
 		return image;
 	}
@@ -43,8 +45,6 @@ public class HouseNewsAction {
 		this.imageContentType = imageContentType;
 	}
 
-	private List<String> imageFileName; // 文件名称
-	private List<String> imageContentType; // 文件类型
 
 	public HouseNews getHousenews() {
 		return housenews;
@@ -84,22 +84,22 @@ public class HouseNewsAction {
 				ActionContext.getContext().put("message", "文件上传成功");
 				switch (i) {
 				case 0:
-					housenews.setImg1(savefile.getPath().replace(realpath,""));
+					housenews.setImg1("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
 					break;
 				case 1:
-					housenews.setImg2(savefile.getPath().replace(realpath,""));
+					housenews.setImg2("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
 					break;
 				case 2:
-					housenews.setImg3(savefile.getPath().replace(realpath,""));
+					housenews.setImg3("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
 					break;
 				case 3:
-					housenews.setImg4(savefile.getPath().replace(realpath,""));
+					housenews.setImg4("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
 					break;
 				case 4:
-					housenews.setImg5(savefile.getPath().replace(realpath,""));
+					housenews.setImg5("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
 					break;
 				case 5:
-					housenews.setImg6(savefile.getPath().replace(realpath,""));
+					housenews.setImg6("upload" + savefile.getPath().replace(realpath,"").replace("\\", "/"));
 					break;
 				default:
 					break;
