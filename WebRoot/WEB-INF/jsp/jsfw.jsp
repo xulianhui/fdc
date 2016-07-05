@@ -85,6 +85,8 @@
 							<td>${housenews.houseArea }</td>
 						</tr>
 					</table>
+					
+					<a href="lx?toId=${housenews.userId }">联系卖家</a>
 				</div>
 			</div>
 		</div>

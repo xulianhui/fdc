@@ -164,4 +164,19 @@ public class MailsDAO extends HibernateDaoSupport {
 	public static MailsDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (MailsDAO) ctx.getBean("MailsDAO");
 	}
+	
+	public boolean savenew(Mails mail) {
+		// TODO Auto-generated method stub
+		log.debug("saving Mails instance");
+		boolean state=false;
+		try {
+			getHibernateTemplate().save(mail);
+			log.debug("save successful");
+			state=true;
+		} catch (RuntimeException re) {
+			log.error("save failed", re);
+			throw re;
+		}
+		return state;
+	}
 }

@@ -19,6 +19,10 @@
 		<action name="addnew" class="HouseNewsAction">
 			<result name="success">/WEB-INF/jsp/pubresult.jsp</result>
 		</action>
+		<action name="sendMS" class="MailsAction">
+			<result name="success">sendMessage.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
 	</package>
 	<package name="xue" namespace="/" extends="struts-default">
 		<action name="updateUserInfo" class="SpaceAction">
@@ -34,6 +38,9 @@
 		</action>	
 		<action name="zs" class="DetailAction" method="show"> 
 			<result name="success">/WEB-INF/jsp/jsfw.jsp</result>
+		</action>
+		<action name="lx" class="MailsAction" method="sendMessage">
+			<result name="success">/WEB-INF/jsp/sendMessage.jsp</result>
 		</action>
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>

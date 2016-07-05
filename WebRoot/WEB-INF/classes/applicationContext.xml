@@ -31,6 +31,7 @@
 				<value>com/fdc/pojo/Mails.hbm.xml</value>
 				<value>com/fdc/pojo/Homepage.hbm.xml</value>
 				<value>com/fdc/pojo/Comments.hbm.xml</value>
+				<value>com/fdc/pojo/Wanted.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -148,9 +149,19 @@
 			<ref bean="UsersDAO" />
 		</property>
 	</bean>
-		<bean id="DetailAction" class="com.fdc.action.DetailAction">
+	<bean id="DetailAction" class="com.fdc.action.DetailAction">
 		<property name="service">
 			<ref bean="DetailService" />
+		</property>
+	</bean>
+	<bean id="WantedDAO" class="com.fdc.pojo.WantedDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="MailsAction" class="com.fdc.action.MailsAction">
+		<property name="mailsService">
+			<ref bean="MailsService" />
 		</property>
 	</bean>
 </beans>
