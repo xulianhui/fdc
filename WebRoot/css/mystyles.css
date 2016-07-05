@@ -3,8 +3,10 @@
 	padding-top:50px;
 }
 body{
+	height: 1000px;
 	background-image: url(../img/bg.jpg);
 	background-size:cover;
+	background-attachment: fixed;
 }
 .footer {
 	font-family: "Î¢ÈíÑÅºÚ";

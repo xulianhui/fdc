@@ -9,21 +9,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="css/bootstrap.css" />
-<link rel="stylesheet" href="css/mystyles.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	function goregedit(){
-		window.location.href("regedit.jsp");
-	}
-	function checkmail(){
-		var email = document.getElementById("useremail");
-		var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-		if (!myreg.test(email.value)) {
-			alert("请输入正确的用户邮箱！");
-		}
-	}
-</script>
+
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
+
 <title></title>
 </head>
 
@@ -205,15 +196,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="push"></div>
 		</div>
-		<div class="footer">
-			<p>
-				Any problem? Email to me <strong>1151324240@qq.com</strong>
-			</p>
-			<p class="copyright">
-				Copyright © 2016 <a href="http://121.42.216.198/2048/"
-					title="CCNU_Cs_Zq">ZQ</a>
-			</p>
-		</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
 

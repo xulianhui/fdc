@@ -1,7 +1,5 @@
 package com.fdc.pojo;
 
-import java.security.PublicKey;
-
 /**
  * Users entity. @author MyEclipse Persistence Tools
  */
@@ -21,6 +19,7 @@ public class Users implements java.io.Serializable {
 	private Boolean sex;
 	private Integer age;
 	private String icNumber;
+	private String headImg;
 
 	// Constructors
 
@@ -30,7 +29,7 @@ public class Users implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Users(String nickName, String realName, String password, String tel,
-			String email, Boolean checked, Boolean type) {
+			String email, Boolean checked, Boolean type, String headImg) {
 		this.nickName = nickName;
 		this.realName = realName;
 		this.password = password;
@@ -38,12 +37,13 @@ public class Users implements java.io.Serializable {
 		this.email = email;
 		this.checked = checked;
 		this.type = type;
+		this.headImg = headImg;
 	}
 
 	/** full constructor */
 	public Users(String nickName, String realName, String password, String tel,
 			String email, Boolean checked, Boolean type, Boolean sex,
-			Integer age, String icNumber) {
+			Integer age, String icNumber, String headImg) {
 		this.nickName = nickName;
 		this.realName = realName;
 		this.password = password;
@@ -54,6 +54,7 @@ public class Users implements java.io.Serializable {
 		this.sex = sex;
 		this.age = age;
 		this.icNumber = icNumber;
+		this.headImg = headImg;
 	}
 
 	// Property accessors
@@ -125,11 +126,6 @@ public class Users implements java.io.Serializable {
 	public Boolean getSex() {
 		return this.sex;
 	}
-	
-	public String getSexString() {
-		if (this.sex == true) return "ÄÐ";
-		else return "Å®";
-	}
 
 	public void setSex(Boolean sex) {
 		this.sex = sex;
@@ -149,6 +145,14 @@ public class Users implements java.io.Serializable {
 
 	public void setIcNumber(String icNumber) {
 		this.icNumber = icNumber;
+	}
+
+	public String getHeadImg() {
+		return this.headImg;
+	}
+
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
 	}
 
 }

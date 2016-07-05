@@ -6,14 +6,14 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
-<%@ page import="com.xue.VisualUser"%>
 <%@ page import="com.fdc.pojo.Users"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	Users thisUsr = VisualUser.CreateVisualUser();
+// 	Users thisUsr = VisualUser.CreateVisualUser();
+	
 %>
 
 
@@ -43,11 +43,18 @@
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
+
+
 </head>
 
 <body>
+	
+	<jsp:include page="header.jsp"></jsp:include>
+	
+	<div class="wrapper">
 	<div class="container">
-		<%@ include file="header.jsp"%>
 		<div class="row">
 			<div class="col-lg-2">
 				<div class="row">
@@ -56,23 +63,24 @@
 				</div>
 			</div>
 			<div class="col-lg-10">
-				<h3>
-					撒旦法的落泪<br /> <small>个人用户</small>
-				</h3>
+				<h3>${thisUsers.nickName }</h3>
 				<p class="col-lg-6 text-center">
-					真实姓名: <span><%=thisUsr.getRealName()%></span>
+					真实姓名: <span>${thisUsers.realName }</span>
 				</p>
 				<p class="col-lg-6 text-center">
-					性别: <span><%=thisUsr.getSexString()%></span>
+					性别: <span>
+					<jstl:if test="${thisUsers.sex == false }">女</jstl:if>
+					<jstl:if test="${thisUsers.sex == true }">男</jstl:if>
+					</span>
 				</p>
 				<p class="col-lg-6 text-center">
-					年龄: <span><%=thisUsr.getAge()%></span>
+					年龄: <span>${thisUsers.age }</span>
 				</p>
 				<p class="col-lg-6 text-center">
-					联系邮箱: <span><%=thisUsr.getEmail()%></span>
+					联系邮箱: <span>${thisUsers.email }</span>
 				</p>
 				<p class="col-lg-6 text-center">
-					联系电话: <span><%=thisUsr.getTel()%></span>
+					联系电话: <span>${thisUsers.tel }</span>
 				</p>
 			</div>
 		</div>
@@ -93,16 +101,16 @@
 				<div role="tabpanel" class="tab-pane active" id="xgzl">
 					<div class="row">
 						<div class="col-lg-6">
-							<form action="updateUserInfo!updateUserInfo" method="post">
+							<form action="updateUserInfo!updateUserInfo" method="post" enctype="multipart/form-data">
 								<div class="form-group">
 									<label for="exampleInputEmail1">用户名</label> <input type="text"
 										class="form-control" name="users.nickName"
-										placeholder="<%=thisUsr.getNickName()%>">
+										placeholder="${thisUsers.nickName }">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">真实姓名</label> <input
 										type="text" class="form-control" name="users.realName"
-										placeholder="<%=thisUsr.getRealName()%>">
+										placeholder="${thisUsers.realName }">
 								</div>
 								<%-- 							  	<div class="form-group">
 							    	<input type="text" class="form-control" placeholder="<%=thisUsr.getSexString() %>">
@@ -117,41 +125,41 @@
 								<div class="form-group">
 									<label for="exampleInputPassword1">年龄</label> <input
 										type="text" class="form-control" name="users.age"
-										placeholder="<%=thisUsr.getAge()%>">
+										placeholder="${thisUsers.age }">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">身份证号</label> <input
 										type="text" class="form-control" name="users.icNumber"
-										placeholder="<%=thisUsr.getIcNumber()%>">
+										placeholder="${thisUsers.icNumber }">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">联系邮箱</label> <input
 										type="text" class="form-control" name="users.email"
-										placeholder="<%=thisUsr.getEmail()%>">
+										placeholder="${thisUsers.email }">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">联系电话</label> <input
 										type="text" class="form-control" name="users.tel"
-										placeholder="<%=thisUsr.getTel()%>">
+										placeholder="${thisUsers.tel }">
 								</div>
 								<div class="form-group">
-									<label for="exampleInputFile">上传头像</label> <input type="file"
-										id="exampleInputFile">
+									<label for="exampleInputFile">上传头像</label> 
+									<input type="file" id="exampleInputFile" name="headImgFile">
 									<p class="help-block">图片大小不得超过200kb</p>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">旧密码&nbsp;<font
 										color="red">*</font></label> <input type="password"
-										class="form-control" placeholder="Old Password">
+										class="form-control" placeholder="Old Password" name="oldPass">
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">新密码</label> <input
-										type="password" class="form-control"
+									<label for="exampleInputPassword1">新密码</label> 
+									<input type="password" class="form-control" name="users.password"
 										placeholder="New Password">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputPassword1">新密码重复</label> <input
-										type="password" class="form-control" name="users.password"
+										type="password" class="form-control" name="passRe"
 										placeholder="Ner Password re">
 								</div>
 								<button type="submit" class="btn btn-danger">保存</button>
@@ -219,7 +227,7 @@
 												<h4 class="media-heading">${e.houseTitle }</h4>
 												<p>地址：${e.houseAddDetail }楼层：${e.houseFloor }价格：${e.housePrice }电话：${e.tel }<br>详情：${e.houseDetail }</p>
 												
-												<a href="#" class="btn btn-default">查看详情</a>
+												<a href="zs?newsId=${e.id }" class="btn btn-default">查看详情</a>
 												<a href="#" class="btn btn-default">修改信息</a> 
 												<jstl:if test="${e.houseNewsStatus == 0 }" >
 												<a href="shelves?houseNewsId=${e.id }" class="btn btn-default">下架</a>
@@ -270,7 +278,7 @@
 
 			</div>
 		</div>
-	</div>
-	</div>
+	</div></div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

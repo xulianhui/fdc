@@ -14,22 +14,22 @@
             <column name="nickName" length="20" not-null="true" />
         </property>
         <property name="realName" type="java.lang.String">
-            <column name="realName" length="20" not-null="true" />
+            <column name="realName" length="20" />
         </property>
         <property name="password" type="java.lang.String">
             <column name="password" length="50" not-null="true" />
         </property>
         <property name="tel" type="java.lang.String">
-            <column name="tel" length="11" not-null="true" />
+            <column name="tel" length="11" />
         </property>
         <property name="email" type="java.lang.String">
             <column name="email" length="20" not-null="true" />
         </property>
         <property name="checked" type="java.lang.Boolean">
-            <column name="checked" not-null="true" />
+            <column name="checked"  />
         </property>
         <property name="type" type="java.lang.Boolean">
-            <column name="type" not-null="true" />
+            <column name="type" />
         </property>
         <property name="sex" type="java.lang.Boolean">
             <column name="sex" />
@@ -39,6 +39,9 @@
         </property>
         <property name="icNumber" type="java.lang.String">
             <column name="icNumber" length="20" />
+        </property>
+        <property name="headImg" type="java.lang.String">
+            <column name="headImg" length="50" />
         </property>
     </class>
 </hibernate-mapping>

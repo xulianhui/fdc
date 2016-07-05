@@ -26,7 +26,8 @@ public class ToSpaceAction {
 	RecordRentService recordRentService;
 	HouseNewsService houseNewsService;
 	MailsService mailsService;
-
+	
+	Users thisUsers;// 当前用户
 	ArrayList<HouseNewsRecord> houseNewsRecords;// 我租购的房屋记录
 	ArrayList<Mails> mails;// 我的邮件列表
 	ArrayList<HouseNews> myHouseNews;// 我发布的租售房信息
@@ -100,6 +101,14 @@ public class ToSpaceAction {
 		return myHouseNewsRecords;
 	}
 
+	public Users getThisUsers() {
+		return thisUsers;
+	}
+
+	public void setThisUsers(Users thisUsers) {
+		this.thisUsers = thisUsers;
+	}
+
 	public void setMyHouseNewsRecords(
 			ArrayList<HouseNewsRecord> myHouseNewsRecords) {
 		this.myHouseNewsRecords = myHouseNewsRecords;
@@ -121,20 +130,22 @@ public class ToSpaceAction {
 	            `. --'-- .'
 	             `-...-''
 	*/
+	@SuppressWarnings("unchecked")
 	public String loadPageInfo()    {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
 		myHouseNewsRecords = new ArrayList<HouseNewsRecord>();
-		Users thisUsers = usersService.getUserById(2);
-		/*
-		 * 用户部分先模拟实现，后面通过session查找。
-		 */
+		thisUsers = new Users();
+		
+		// 获取session中用户id
+		int userid = (int) ActionContext.getContext().getSession().get("userid");
+		thisUsers = usersService.getUserById(userid);
 		if (thisUsers == null) {
-			msg = "thisUsers pointer null error";
+			msg = "Please sign in first!";
 			return "error";
 		}
 		
 		//用户的租购记录
-		List recordList = recordRentService
+		List<?> recordList = recordRentService
 				.getRecordListByHouseUserId(thisUsers.getId());
 		for (int i = 0; i < recordList.size(); ++i) {
 			RecordRent recordRent = (RecordRent) recordList.get(i);
@@ -142,14 +153,18 @@ public class ToSpaceAction {
 			houseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent, houseNews));
 		}
 		System.out.println("houseNewsRecords.size: " + houseNewsRecords.size());
-
+		
+		//用户消息
 		mails = (ArrayList<Mails>) mailsService
 				.getMailsByUserToIdList(thisUsers.getId());
 		
+		//用户发布的房屋
 		myHouseNews = (ArrayList<HouseNews>) houseNewsService
 				.getHouseNewsByUserId(thisUsers.getId());
 		
+		//用户收到的订单
 		List<HouseNews> houseNewsList = houseNewsService.getHouseNewsByUserId(thisUsers.getId());
+		
 		System.out.println("thisUsers.getId: " + thisUsers.getId());
 		System.out.println("houseNewsList.size: " + houseNewsList.size());
 		for (HouseNews houseNews : houseNewsList) {

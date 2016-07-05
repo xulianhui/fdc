@@ -21,11 +21,9 @@
 		</action>
 	</package>
 	<package name="xue" namespace="/" extends="struts-default">
-		<action name="*">
-			<result>/WEB-INF/jsp/{1}.jsp</result>
-		</action>
 		<action name="updateUserInfo" class="SpaceAction">
-			<result name="success">/WEB-INF/jsp/space.jsp</result>
+			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</action>
 		<action name="ToSpace" class="ToSpaceAction">
 			<result name="success">/WEB-INF/jsp/space.jsp</result>
@@ -33,6 +31,9 @@
 		</action>
 		<action name="shelves" class="SpaceAction" method="shelves">
 			<result type="redirectAction">ToSpace!loadPageInfo</result>
+		</action>	
+		<action name="*">
+			<result>/WEB-INF/jsp/{1}.jsp</result>
 		</action>
 	</package>
 

@@ -34,6 +34,7 @@ public class UsersDAO extends HibernateDaoSupport {
 	public static final String SEX = "sex";
 	public static final String AGE = "age";
 	public static final String IC_NUMBER = "icNumber";
+	public static final String HEAD_IMG = "headImg";
 
 	protected void initDao() {
 		// do nothing
@@ -46,14 +47,6 @@ public class UsersDAO extends HibernateDaoSupport {
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
-			throw re;
-		}
-	}
-	
-	public void update(Users users) {
-		try {
-			getHibernateTemplate().update(users);
-		} catch (RuntimeException re) {
 			throw re;
 		}
 	}
@@ -147,6 +140,10 @@ public class UsersDAO extends HibernateDaoSupport {
 		return findByProperty(IC_NUMBER, icNumber);
 	}
 
+	public List findByHeadImg(Object headImg) {
+		return findByProperty(HEAD_IMG, headImg);
+	}
+
 	public List findAll() {
 		log.debug("finding all Users instances");
 		try {
@@ -196,7 +193,7 @@ public class UsersDAO extends HibernateDaoSupport {
 	public static UsersDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (UsersDAO) ctx.getBean("UsersDAO");
 	}
-//	--------------------------------------------------------------------------------------------
+	
 	public List findByEmailPwd(Users instance) {
 		try {
 			String queryString = "from Users as model where model.email=? and password=?";
@@ -206,6 +203,7 @@ public class UsersDAO extends HibernateDaoSupport {
 			throw re;
 		}
 	}
+	
 	public Users queryByemail(String email) {   //根据用户名查找  
         @SuppressWarnings("unchecked")  
         List<Users> list = this.getHibernateTemplate().  
@@ -229,5 +227,16 @@ public class UsersDAO extends HibernateDaoSupport {
 			throw re;
 		}
 		return addstate;
+	}
+	
+	public void update(Users transientInstance) {
+		log.debug("updating Users instance");
+		try {
+			getHibernateTemplate().update(transientInstance);
+			log.debug("update successful");
+		} catch (RuntimeException re) {
+			log.error("update failed", re);
+			throw re;
+		}
 	}
 }
