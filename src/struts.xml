@@ -32,6 +32,9 @@
 		<action name="shelves" class="SpaceAction" method="shelves">
 			<result type="redirectAction">ToSpace!loadPageInfo</result>
 		</action>	
+		<action name="zs" class="DetailAction" method="show"> 
+			<result name="success">/WEB-INF/jsp/jsfw.jsp</result>
+		</action>
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>
 		</action>

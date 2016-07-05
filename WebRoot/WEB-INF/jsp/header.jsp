@@ -11,7 +11,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="um">首页</a>
+				<a class="navbar-brand" href="um">某大型房屋交易中心</a>
 				<a class="navbar-brand" href="">我要租房</a>
 				<a class="navbar-brand" href="">我要买房</a>
 				<a class="navbar-brand" href="pubnews">发布房源</a>

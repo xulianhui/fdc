@@ -16,8 +16,14 @@
 <link rel="stylesheet" type="text/css" href="./css/main.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
+	
+	<div class="wrapper">
 	<div class="container" style="height: auto;">
 		<div class="row">
 			<div class="col-lg-12" style="height: 300px;">
@@ -92,18 +98,18 @@
 					role="tab" data-toggle="tab">用户评论</a>
 				</li>
 			</ul>
-			<div class="tab-content col-lg-10">
+			<div class="tab-content col-lg-10" >
 				<div role="tabpanel" class="tab-pane active" id="xxxx">
-					<div class="row">
-						<ul class="list-group">
-							<li class="list-group-item">
+					<div class="row"  >
+						<ul class="list-group" >
+							<li class="list-group-item" style="background-color:transparent;">
 								<h3>基本信息</h3>
 								<div class="row" align="center">
 									<p class="col-lg-3">
 										客厅个数：<span>${housenews.houseHall }</span>
 									</p>
 									<p class="col-lg-3">
-										卫生间数：<span>${housenews.hosueWc }</span>
+										卫生间数：<span>${housenews.houseWc }</span>
 									</p>
 									<p class="col-lg-3">
 										房间个数：<span>${housenews.houseRoom }</span>
@@ -119,13 +125,13 @@
 									</p>
 								</div>
 							</li>
-							<li class="list-group-item">
+							<li class="list-group-item" style="background-color:transparent;">
 								<h3>房源特色</h3>
 								<div class="row">
-									<p>${housenews.houseDetial }</p>
+									<p>${housenews.houseDetail }</p>
 								</div>
 							</li>
-							<li class="list-group-item">
+							<li class="list-group-item" style="background-color:transparent;">
 								<h3>房源照片</h3>
 								<div class="row" align="center">
 									<img src="${housenews.img4 }" class="img-auto">
@@ -133,14 +139,13 @@
 									<img src="${housenews.img5 }" class="img-auto">
 									<hr>
 									<img src="${housenews.img6 }" class="img-auto">
-									<hr>
 								</div>
 							</li>
 						</ul>
 					</div>
 				</div>
 
-				<div role="tabpanel" class="tab-pane cmt-list" id="ykpl">
+				<div role="tabpanel" class="tab-pane" id="ykpl">
 
 					<hr />
 					<c:forEach var="pair" items="${list}">
@@ -159,12 +164,14 @@
 								</div>
 							</div>
 						</div>
+						<hr />
 					</c:forEach>
-					<hr />
 				</div>
 			</div>
 		</div>
 	</div>
+	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
 
