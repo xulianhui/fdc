@@ -8,7 +8,7 @@ import com.fdc.pojo.Mails;
 public class MailsService {
 	MailsDAO mailsDAO;
 	private int toId;
-	
+
 	public int getToId() {
 		return toId;
 	}
@@ -24,19 +24,19 @@ public class MailsService {
 	public void setMailsDAO(MailsDAO mailsDAO) {
 		this.mailsDAO = mailsDAO;
 	}
-	
-	public List getMailsByUserToIdList (int id) {
+
+	public List getMailsByUserToIdList(int id) {
 		return mailsDAO.findByUserToId(id);
 	}
-	
-	public  boolean sendMail(Mails mail){
-		if(mailsDAO.savenew(mail))
+
+	public boolean sendMail(Mails mail) {
+		if (mailsDAO.savenew(mail))
 			return true;
 		return false;
 	}
-	
+
 	public String sendMessage() {
-		
+
 		return "success";
 	}
 

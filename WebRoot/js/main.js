@@ -5,6 +5,6 @@ function checkmail(){
 	var email = document.getElementById("useremail");
 	var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 	if (!myreg.test(email.value)) {
-		alert("请输入正确的用户邮箱！");
+		alert("璇疯緭鍏ユ纭殑閭鍦板潃");
 	}
 }

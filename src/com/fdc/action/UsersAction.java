@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.fdc.pojo.Homepage;
 import com.fdc.pojo.Users;
 import com.fdc.service.HomepageService;
@@ -53,7 +55,7 @@ public class UsersAction {
 
 	public String execute() {
 		setHomepage(getMservice().show());
-		
+
 		return "success";
 	}
 
@@ -63,17 +65,14 @@ public class UsersAction {
 		Users users1 = service.login(getUsers());
 		if (users1 != null) {
 			login_state = "操作成功";
-			ActionContext.getContext().getSession().put("useremail", users1.getEmail());
-			ActionContext.getContext().getSession().put("userid", users1.getId());
-			ActionContext.getContext().getSession().put("usernickname", users1.getNickName());
-			ActionContext.getContext().getSession().put("login_state", login_state);
-			System.out.println(users1.getNickName()+"login 成功");
+			ServletActionContext.getRequest().getSession()
+					.setAttribute("user", users1);
+			System.out.println(users1.getNickName() + "login 成功");
 			return "success";
 		} else {
+			ServletActionContext.getRequest().getSession()
+					.setAttribute("user", null);
 			login_state = "操作失败";
-			ActionContext.getContext().getSession().clear();
-			ActionContext.getContext().getSession()
-					.put("login_state", login_state);
 			return "error";
 		}
 	}
@@ -82,46 +81,50 @@ public class UsersAction {
 		execute();
 		System.out.println("loginout action执行");
 		login_state = "未登录";
-		ActionContext.getContext().getSession().clear();
-		ActionContext.getContext().getSession().put("login_state", login_state);
+		ServletActionContext.getRequest().getSession().setAttribute("user", null);
+		ServletActionContext.getRequest().getSession()
+				.setAttribute("login_state", login_state);
 		return "success";
 	}
+
 	public String regedit() {
 		if (service.regedit(users)) {// 调用增加用户业务方法，判断是否增加成功
 			regedit_state = "用户注册成功!";
-			ActionContext.getContext().getSession().put("useremail", users.getEmail());
-			ActionContext.getContext().getSession().put("userid", users.getId());
-			ActionContext.getContext().getSession().put("usernickname", users.getNickName());
-		}
-		else
+			ServletActionContext.getRequest().getSession()
+					.setAttribute("user", users);
+		} else
 			regedit_state = "用户被占用，请重新注册";
 		return "ok";
 	}
-	private Map<String,Object> dataMap;  
+
+	private Map<String, Object> dataMap;
+
 	public Map<String, Object> getDataMap() {
 		return dataMap;
 	}
+
 	public void setDataMap(Map<String, Object> dataMap) {
 		this.dataMap = dataMap;
 	}
-	public String checkemail() {  
+
+	public String checkemail() {
 		System.out.println("执行");
 		try {
-			
-			// dataMap中的数据将会被Struts2转换成JSON字符串，所以这里要先清空其中的数据  
-			dataMap = new HashMap<String, Object>();  
-			String checkresult="邮箱已存在";
-			if(service .checkemail(email))
-				checkresult="ok";
-			dataMap.put("checkresult", checkresult);  
-			// 放入一个是否操作成功的标识  
-			dataMap.put("success", true);  
+
+			// dataMap中的数据将会被Struts2转换成JSON字符串，所以这里要先清空其中的数据
+			dataMap = new HashMap<String, Object>();
+			String checkresult = "邮箱已存在";
+			if (service.checkemail(email))
+				checkresult = "ok";
+			dataMap.put("checkresult", checkresult);
+			// 放入一个是否操作成功的标识
+			dataMap.put("success", true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-        // 返回结果  
-        return "checked";  
-    }  
+		// 返回结果
+		return "checked";
+	}
 
 	public List<Homepage> getHomepage() {
 		return homepage;

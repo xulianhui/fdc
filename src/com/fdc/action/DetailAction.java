@@ -3,6 +3,8 @@ package com.fdc.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.fdc.pojo.Collections;
 import com.fdc.pojo.Comments;
 import com.fdc.pojo.HouseNews;
@@ -22,7 +24,7 @@ public class DetailAction {
 	int collect;
 
 	CollectService collectService;
-	
+
 	public int getCollect() {
 		return collect;
 	}
@@ -88,24 +90,28 @@ public class DetailAction {
 	}
 
 	public String show() {
-		
-		System.out.println("----------------------------------------------------------------------");
+
+		System.out
+				.println("----------------------------------------------------------------------");
 		housenews = service.show(newsId);
 		comments = service.shows(newsId);
 		allUsers = new ArrayList<Users>();
 		for (int i = 0; i < comments.size(); ++i) {
 			allUsers.add(service.getUser(comments.get(i).getComterId()));
 		}
-		
+
 		list = new ArrayList<Pair<Comments, Users>>();
 		for (int i = 0; i < allUsers.size(); ++i) {
 			list.add(new Pair<Comments, Users>(comments.get(i), allUsers.get(i)));
 		}
+
+		int userId = ((Users)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		
-		int userId = (int) ActionContext.getContext().getSession().get("userid");
 		int houseNewsId = housenews.getId();
-		collect = collectService.checkCollect(new Collections(userId, houseNewsId));
-		System.out.printf("----------------%d %d %d\n", userId, houseNewsId, collect);
+		collect = collectService.checkCollect(new Collections(userId,
+				houseNewsId));
+		System.out.printf("----------------%d %d %d\n", userId, houseNewsId,
+				collect);
 		return "success";
 	}
 

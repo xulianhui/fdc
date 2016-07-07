@@ -170,6 +170,7 @@
 							</div>
 						</div>
 					</div>
+
 					<div role="tabpanel" class="tab-pane" id="wdxx">
 						<jstl:forEach var="e" items="${mails }">
 							<div class="message">
@@ -177,8 +178,7 @@
 								<p>发送时间:${e.sendTime }</p>
 								<p>${e.mailContent }</p>
 								<p>
-									<a class="btn btn-primary btn-sm" href="jsfw" role="button">Learn
-										more</a>
+									<a href="lx?toId=${e.userFromId}" class="btn btn-primary btn-sm" href="jsfw" role="button">回复</a>
 								</p>
 							</div>
 						</jstl:forEach>

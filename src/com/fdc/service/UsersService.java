@@ -15,15 +15,15 @@ public class UsersService {
 	public void setUsersDAO(UsersDAO usersDAO) {
 		this.usersDAO = usersDAO;
 	}
-//	--------------------------------------------------------------------
-	public void UpdateUserInfo (Users usr) {
+
+	// --------------------------------------------------------------------
+	public void UpdateUserInfo(Users usr) {
 		usersDAO.update(usr);
 	}
-	
+
 	public Users getUserById(int _id) {
 		return usersDAO.findById(_id);
 	}
-	
 
 	public Users login(Users users) {
 		System.out.println("service执行");
@@ -34,7 +34,7 @@ public class UsersService {
 			return null;
 		}
 	}
-	
+
 	public int getid(String email) {
 		System.out.println("service执行");
 		List<Users> list = usersDAO.findByEmail(email);
@@ -45,23 +45,23 @@ public class UsersService {
 		}
 	}
 
-
 	public boolean regedit(Users users) {
 		// TODO Auto-generated method stub
-		 if(usersDAO.queryByemail(users.getEmail()) == null) {      //判断用户名是否被占用  
-			 usersDAO.savenew(users);         //保存用户  
-	            return true;                    //保存成功  
-	        }else{  
-	            return false;                   //保存失败  
-	        }  
+		if (usersDAO.queryByemail(users.getEmail()) == null) { // 判断用户名是否被占用
+			usersDAO.savenew(users); // 保存用户
+			return true; // 保存成功
+		} else {
+			return false; // 保存失败
+		}
 	}
+
 	public boolean checkemail(String email) {
 		// TODO Auto-generated method stub
-		 if(usersDAO.queryByemail(email) == null) {      //判断用户名是否被占用  
-	            return true;                    //check成功  
-	        }else{  
-	            return false;                   //check失败  
-	        }  
+		if (usersDAO.queryByemail(email) == null) { // 判断用户名是否被占用
+			return true; // check成功
+		} else {
+			return false; // check失败
+		}
 	}
 
 }

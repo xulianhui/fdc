@@ -8,7 +8,7 @@ public class Pair<T, R> {
 		this.first = first;
 		this.second = second;
 	}
-	
+
 	public T getFirst() {
 		return first;
 	}

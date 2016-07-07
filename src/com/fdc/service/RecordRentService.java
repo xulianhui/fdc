@@ -6,17 +6,20 @@ import java.util.*;
 
 public class RecordRentService {
 	RecordRentDAO recordRentDAO;
+
 	public RecordRentDAO getRecordRentDAO() {
 		return recordRentDAO;
 	}
+
 	public void setRecordRentDAO(RecordRentDAO recordRentDAO) {
 		this.recordRentDAO = recordRentDAO;
 	}
-	public List getRecordListByHouseUserId (int _id) {
+
+	public List getRecordListByHouseUserId(int _id) {
 		return recordRentDAO.findByHouseUserId(_id);
 	}
-	
-	public List getRecordListByHouseNewsId (int _id) {
+
+	public List getRecordListByHouseNewsId(int _id) {
 		return recordRentDAO.findByHouseUserId(_id);
 	}
 }

@@ -10,6 +10,7 @@ public class MailsAction {
 	private MailsService mailsService;
 	int toId;
 	String msg;
+
 	public String getMsg() {
 		return msg;
 	}
@@ -46,19 +47,19 @@ public class MailsAction {
 		java.util.Date date = new java.util.Date();
 		Timestamp addtime = new Timestamp(date.getTime());
 		if (mail == null) {
-			msg="mail null pointer error";
+			msg = "mail null pointer error";
 			return "error";
 		}
 		mail.setSendTime(addtime);
-		mail.setUserFromId(1 );
+		mail.setUserFromId(1);
 		if (mailsService.sendMail(mail))
 			return "success";
 		else {
-			msg="ÓÊ¼ş·¢ËÍÊ§°Ü";
+			msg = "ÓÊ¼ş·¢ËÍÊ§°Ü";
 			return "error";
 		}
 	}
-	
+
 	public String toMails() {
 		return "success";
 	}

@@ -17,7 +17,38 @@
 <link rel="stylesheet" type="text/css" href="./css/main.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
+<script>
+function collect(houseId) {
+	if (houseId == null)
+		alert("房屋信息错误");
+	else {
+		$.ajax({
+			url : 'collect!addCollect',
+			type : 'post',
+			data : {
+				houseNewsId : houseId
+			},
+			async : false, //默认为true 异步   
+			error : function() {
+				alert('error');
+			},
+			success : function(data) {
+//  				alert(data.collectstate);
+				if(data.collectstate=="0"){
+					document.getElementById("collect").innerHTML = "加入收藏";
+				}
+				else
+					document.getElementById("collect").innerHTML ="取消收藏";
+			}
+		});
+	}
+}
+</script>
+<style>
+	.textarea  {
+		background-color:transparent;
+	}
+</style>
 <link rel="stylesheet" href="css/mystyles.css" />
 <script src="js/main.js"></script>
 </head>
@@ -88,12 +119,7 @@
 					</table>
 					
 					<a class="btn btn-default" href="lx?toId=${housenews.userId }">联系卖家</a>
-					<jstl:if test="${collect == -1 }">
-						<a class="btn btn-default" href="collect?houseNewsId=${housenews.id }&op=0">收藏</a>
-					</jstl:if>
-					<jstl:if test="${collect != -1 }">
-						<a class="btn btn-default" href="collect?collectId=${collect }&op=1">取消收藏</a>
-					</jstl:if>
+				    <a class="btn btn-default" onclick="collect(${housenews.id});" id="collect">加入收藏</a> 
 				</div>
 			</div>
 		</div>
@@ -155,7 +181,22 @@
 				</div>
 
 				<div role="tabpanel" class="tab-pane" id="ykpl">
-
+					<div class="media" style="margin-top: 10px">
+						<div class="media-left">
+							<a href="#"> <img class="media-object img-circle" src="${sessionScope.user.headImg }" style="width: 64px; height: 64px;">
+							</a>
+						</div>
+						<div class="media-body" >
+							<div class="input-append">
+								<form action="sendComment!sendComment" method="post">
+									<input type="hidden" name="comments.comterId" value="${sessionScope.user.id }">
+									<input type="hidden" name="comments.comtedId" value="${housenews.id}">
+									<textarea rows="3" class="col-md-11 col-md-offset-0" name="comments.content"></textarea>
+									<input type="submit" value="提交" class="col-md-1 btn btn btn-default" style="height: 65px;"/>
+								</form>
+							</div>
+						</div>
+					</div>
 					<hr />
 					<c:forEach var="pair" items="${list}">
 						<div class="media">

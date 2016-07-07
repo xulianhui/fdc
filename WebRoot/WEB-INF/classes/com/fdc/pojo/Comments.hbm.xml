@@ -19,8 +19,8 @@
         <property name="content" type="java.lang.String">
             <column name="content" length="400" not-null="true" />
         </property>
-        <property name="conTime" type="java.lang.String">
-            <column name="conTime" length="20" not-null="true" />
+        <property name="conTime" type="java.sql.Timestamp">
+            <column name="conTime" length="23" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

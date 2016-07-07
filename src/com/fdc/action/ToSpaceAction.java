@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.engine.query.ReturnMetadata;
 
 import com.fdc.dao.MailsDAO;
@@ -26,12 +27,12 @@ public class ToSpaceAction {
 	RecordRentService recordRentService;
 	HouseNewsService houseNewsService;
 	MailsService mailsService;
-	
-	Users thisUsers;// µ±Ç°ÓÃ»§
-	ArrayList<HouseNewsRecord> houseNewsRecords;// ÎÒ×â¹ºµÄ·¿ÎÝ¼ÇÂ¼
-	ArrayList<Mails> mails;// ÎÒµÄÓÊ¼þÁÐ±í
-	ArrayList<HouseNews> myHouseNews;// ÎÒ·¢²¼µÄ×âÊÛ·¿ÐÅÏ¢
-	ArrayList<HouseNewsRecord> myHouseNewsRecords;// ÎÒµÄ×âÊÛ·¿ÎÝ¼ÇÂ¼
+
+	Users thisUsers;// ï¿½ï¿½Ç°ï¿½Ã»ï¿½
+	ArrayList<HouseNewsRecord> houseNewsRecords;// ï¿½ï¿½ï¿½â¹ºï¿½Ä·ï¿½ï¿½Ý¼ï¿½Â¼
+	ArrayList<Mails> mails;// ï¿½Òµï¿½ï¿½Ê¼ï¿½ï¿½Ð±ï¿½
+	ArrayList<HouseNews> myHouseNews;// ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û·ï¿½ï¿½ï¿½Ï¢
+	ArrayList<HouseNewsRecord> myHouseNewsRecords;// ï¿½Òµï¿½ï¿½ï¿½ï¿½Û·ï¿½ï¿½Ý¼ï¿½Â¼
 
 	public ArrayList<HouseNewsRecord> getHouseNewsRecords() {
 		return houseNewsRecords;
@@ -113,65 +114,59 @@ public class ToSpaceAction {
 			ArrayList<HouseNewsRecord> myHouseNewsRecords) {
 		this.myHouseNewsRecords = myHouseNewsRecords;
 	}
+
 	/*
-	.'"'.        ___,,,___        .'``.'
-	: (\  `."'"```         ```"'"-'  /) ;'
-	 :  \                         `./  .''
-	 `.                            :.''
-	   /        _         _        \)
-	  |         0}       {0         |
-	  |         /         \         |
-	  |        /           \        |
-	  |       /             \       |
-	   \     |      .-.      |     /
-	    `.   | . . /   \ . . |   .''
-	      `-._\.'.(     ).'./_.-''
-	          `\'  `._.'  '/' 
-	            `. --'-- .'
-	             `-...-''
-	*/
+	 * .'"'. ___,,,___ .'``.' : (\ `."'"``` ```"'"-' /) ;' : \ `./ .'' `. :.'' /
+	 * _ _ \) | 0} {0 | | / \ | | / \ | | / \ | \ | .-. | / `. | . . / \ . . |
+	 * .'' `-._\.'.( ).'./_.-'' `\' `._.' '/' `. --'-- .' `-...-''
+	 */
 	@SuppressWarnings("unchecked")
-	public String loadPageInfo()    {
+	public String loadPageInfo() {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
 		myHouseNewsRecords = new ArrayList<HouseNewsRecord>();
 		thisUsers = new Users();
-		
-		// »ñÈ¡sessionÖÐÓÃ»§id
-		int userid = (int) ActionContext.getContext().getSession().get("userid");
+
+		// ï¿½ï¿½È¡sessionï¿½ï¿½ï¿½Ã»ï¿½id
+		int userid = ((Users)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		thisUsers = usersService.getUserById(userid);
 		if (thisUsers == null) {
 			msg = "Please sign in first!";
 			return "error";
 		}
-		
-		//ÓÃ»§µÄ×â¹º¼ÇÂ¼
+
+		// ï¿½Ã»ï¿½ï¿½ï¿½ï¿½â¹ºï¿½ï¿½Â¼
 		List<?> recordList = recordRentService
 				.getRecordListByHouseUserId(thisUsers.getId());
 		for (int i = 0; i < recordList.size(); ++i) {
 			RecordRent recordRent = (RecordRent) recordList.get(i);
-			HouseNews houseNews = (HouseNews) houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
-			houseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent, houseNews));
+			HouseNews houseNews = (HouseNews) houseNewsService
+					.getHouseNewsById(recordRent.getHouseNewsId());
+			houseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent,
+					houseNews));
 		}
 		System.out.println("houseNewsRecords.size: " + houseNewsRecords.size());
-		
-		//ÓÃ»§ÏûÏ¢
+
+		// ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 		mails = (ArrayList<Mails>) mailsService
 				.getMailsByUserToIdList(thisUsers.getId());
-		
-		//ÓÃ»§·¢²¼µÄ·¿ÎÝ
+
+		// ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 		myHouseNews = (ArrayList<HouseNews>) houseNewsService
 				.getHouseNewsByUserId(thisUsers.getId());
-		
-		//ÓÃ»§ÊÕµ½µÄ¶©µ¥
-		List<HouseNews> houseNewsList = houseNewsService.getHouseNewsByUserId(thisUsers.getId());
-		
+
+		// ï¿½Ã»ï¿½ï¿½Õµï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
+		List<HouseNews> houseNewsList = houseNewsService
+				.getHouseNewsByUserId(thisUsers.getId());
+
 		System.out.println("thisUsers.getId: " + thisUsers.getId());
 		System.out.println("houseNewsList.size: " + houseNewsList.size());
 		for (HouseNews houseNews : houseNewsList) {
-			List<RecordRent> recordRentList = recordRentService.getRecordListByHouseNewsId(houseNews.getId());
+			List<RecordRent> recordRentList = recordRentService
+					.getRecordListByHouseNewsId(houseNews.getId());
 			System.out.println("recordList.size: " + recordList.size());
 			if (recordRentList == null) {
-				System.out.println("--------------------------------------------------------------> NullPointerException");
+				System.out
+						.println("--------------------------------------------------------------> NullPointerException");
 			} else {
 				for (RecordRent recordRent : recordRentList) {
 					if (recordRent == null) {
@@ -180,31 +175,11 @@ public class ToSpaceAction {
 					if (houseNews == null) {
 						System.out.print("houseNews Error\n");
 					}
-					myHouseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent, houseNews));
+					myHouseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(
+							recordRent, houseNews));
 				}
 			}
 		}
 		return "success";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

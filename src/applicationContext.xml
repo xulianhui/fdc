@@ -185,6 +185,16 @@
 			<ref bean="CollectService" />
 		</property>
 	</bean>
+	<bean id="CommentService" class="com.fdc.service.CommentService">
+		<property name="commentsDAO">
+			<ref bean="CommentsDAO" />
+		</property>
+	</bean>
+	<bean id="CommentAction" class="com.fdc.action.CommentAction">
+		<property name="commentService">
+			<ref bean="CommentService" />
+		</property>
+	</bean>
 </beans>
 
 

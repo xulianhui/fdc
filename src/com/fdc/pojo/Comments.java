@@ -1,5 +1,7 @@
 package com.fdc.pojo;
 
+import java.sql.Timestamp;
+
 /**
  * Comments entity. @author MyEclipse Persistence Tools
  */
@@ -12,7 +14,7 @@ public class Comments implements java.io.Serializable {
 	private Integer comterId;
 	private Integer comtedId;
 	private String content;
-	private String conTime;
+	private Timestamp conTime;
 
 	// Constructors
 
@@ -22,7 +24,7 @@ public class Comments implements java.io.Serializable {
 
 	/** full constructor */
 	public Comments(Integer comterId, Integer comtedId, String content,
-			String conTime) {
+			Timestamp conTime) {
 		this.comterId = comterId;
 		this.comtedId = comtedId;
 		this.content = content;
@@ -63,11 +65,11 @@ public class Comments implements java.io.Serializable {
 		this.content = content;
 	}
 
-	public String getConTime() {
+	public Timestamp getConTime() {
 		return this.conTime;
 	}
 
-	public void setConTime(String conTime) {
+	public void setConTime(Timestamp conTime) {
 		this.conTime = conTime;
 	}
 

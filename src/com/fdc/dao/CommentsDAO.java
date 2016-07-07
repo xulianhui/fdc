@@ -1,5 +1,6 @@
 package com.fdc.dao;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -27,7 +28,6 @@ public class CommentsDAO extends HibernateDaoSupport {
 	public static final String COMTER_ID = "comterId";
 	public static final String COMTED_ID = "comtedId";
 	public static final String CONTENT = "content";
-	public static final String CON_TIME = "conTime";
 
 	protected void initDao() {
 		// do nothing
@@ -103,10 +103,6 @@ public class CommentsDAO extends HibernateDaoSupport {
 
 	public List findByContent(Object content) {
 		return findByProperty(CONTENT, content);
-	}
-
-	public List findByConTime(Object conTime) {
-		return findByProperty(CON_TIME, conTime);
 	}
 
 	public List findAll() {

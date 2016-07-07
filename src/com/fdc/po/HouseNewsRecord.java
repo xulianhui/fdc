@@ -15,7 +15,7 @@ public class HouseNewsRecord {
 	private String photo;
 	private Integer houseNewsId;
 	private Integer houseUserId;
-	
+
 	private Integer recordState;
 	private String recordReqTime;
 	private Boolean recordType;
@@ -333,9 +333,9 @@ public class HouseNewsRecord {
 		result = 37 * result + (getId() == null ? 0 : this.getId().hashCode());
 		return result;
 	}
-	
-	
-	public static HouseNewsRecord setHouseNewsRecord(RecordRent recordRent, HouseNews houseNews) {
+
+	public static HouseNewsRecord setHouseNewsRecord(RecordRent recordRent,
+			HouseNews houseNews) {
 		HouseNewsRecord tmp = new HouseNewsRecord();
 
 		tmp.setId(houseNews.getId());
@@ -354,7 +354,7 @@ public class HouseNewsRecord {
 		tmp.setRecordReqTime(recordRent.getRecordReqTime());
 		tmp.setRecordType(recordRent.getRecordType());
 		tmp.setRecordId(recordRent.getRecordId());
-		
+
 		return tmp;
 	}
 }

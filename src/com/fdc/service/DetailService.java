@@ -60,7 +60,7 @@ public class DetailService {
 	public Users getUser(Integer comterId) {
 		// TODO Auto-generated method stub
 		Users name = usersDAO.findById(comterId);
-		//System.out.println(name.getNickName());
+		// System.out.println(name.getNickName());
 		if (name != null)
 			return name;
 		System.out.println("NULL users");
