@@ -86,7 +86,8 @@
 						</tr>
 					</table>
 					
-					<a href="lx?toId=${housenews.userId }">联系卖家</a>
+					<a class="btn btn-default" href="lx?toId=${housenews.userId }">联系卖家</a>
+					<a class="btn btn-default" href="collect?houseNewsId=${housenews.id }">收藏</a>
 				</div>
 			</div>
 		</div>

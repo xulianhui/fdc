@@ -19,9 +19,9 @@
 		<action name="addnew" class="HouseNewsAction">
 			<result name="success">/WEB-INF/jsp/pubresult.jsp</result>
 		</action>
-		<action name="sendMS" class="MailsAction">
-			<result name="success">sendMessage.jsp</result>
-			<result name="error">index.jsp</result>
+		<action name="sendMS" class="MailsAction" method="sendMessage">
+ 			<result name="success">/WEB-INF/jsp/sendResult.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</action>
 	</package>
 	<package name="xue" namespace="/" extends="struts-default">
@@ -39,8 +39,11 @@
 		<action name="zs" class="DetailAction" method="show"> 
 			<result name="success">/WEB-INF/jsp/jsfw.jsp</result>
 		</action>
-		<action name="lx" class="MailsAction" method="sendMessage">
+		<action name="lx" class="MailsAction" method="toMails"><!-- 联系 -->
 			<result name="success">/WEB-INF/jsp/sendMessage.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="collect" class="CollectAction" method="addCollect">
 		</action>
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>
