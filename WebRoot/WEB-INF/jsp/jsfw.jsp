@@ -6,6 +6,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="jstl"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,7 +88,12 @@
 					</table>
 					
 					<a class="btn btn-default" href="lx?toId=${housenews.userId }">联系卖家</a>
-					<a class="btn btn-default" href="collect?houseNewsId=${housenews.id }">收藏</a>
+					<jstl:if test="${collect == -1 }">
+						<a class="btn btn-default" href="collect?houseNewsId=${housenews.id }&op=0">收藏</a>
+					</jstl:if>
+					<jstl:if test="${collect != -1 }">
+						<a class="btn btn-default" href="collect?collectId=${collect }&op=1">取消收藏</a>
+					</jstl:if>
 				</div>
 			</div>
 		</div>

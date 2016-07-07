@@ -3,11 +3,14 @@ package com.fdc.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fdc.pojo.Collections;
 import com.fdc.pojo.Comments;
 import com.fdc.pojo.HouseNews;
 import com.fdc.pojo.Users;
+import com.fdc.service.CollectService;
 import com.fdc.service.DetailService;
 import com.fdc.util.Pair;
+import com.opensymphony.xwork2.ActionContext;
 
 public class DetailAction {
 	private HouseNews housenews;
@@ -16,8 +19,26 @@ public class DetailAction {
 	List<Pair<Comments, Users>> list;
 	private int newsId;
 	private DetailService service;
+	int collect;
 
+	CollectService collectService;
 	
+	public int getCollect() {
+		return collect;
+	}
+
+	public void setCollect(int collect) {
+		this.collect = collect;
+	}
+
+	public CollectService getCollectService() {
+		return collectService;
+	}
+
+	public void setCollectService(CollectService collectService) {
+		this.collectService = collectService;
+	}
+
 	public List<Pair<Comments, Users>> getList() {
 		return list;
 	}
@@ -80,6 +101,11 @@ public class DetailAction {
 		for (int i = 0; i < allUsers.size(); ++i) {
 			list.add(new Pair<Comments, Users>(comments.get(i), allUsers.get(i)));
 		}
+		
+		int userId = (int) ActionContext.getContext().getSession().get("userid");
+		int houseNewsId = housenews.getId();
+		collect = collectService.checkCollect(new Collections(userId, houseNewsId));
+		System.out.printf("----------------%d %d %d\n", userId, houseNewsId, collect);
 		return "success";
 	}
 

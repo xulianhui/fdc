@@ -48,10 +48,10 @@ public class CollectAction {
 		if (op == 0) {
 			userId = (int) ActionContext.getContext().getSession().get("userid");
 			int collectionsId = collectService.addCollect(new Collections(userId, houseNewsId));
+			System.out.print(" ’≤ÿ≥…π¶\n");
 		} else {
 			collectService.rmCollectById(collectId);
 		}
-		
 		return null;
 	}
 	

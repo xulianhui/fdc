@@ -32,7 +32,8 @@
 				<value>com/fdc/pojo/Homepage.hbm.xml</value>
 				<value>com/fdc/pojo/Comments.hbm.xml</value>
 				<value>com/fdc/pojo/Wanted.hbm.xml</value>
-				<value>com/fdc/pojo/Collections.hbm.xml</value></list>
+				<value>com/fdc/pojo/Collections.hbm.xml</value>
+			</list>
 		</property>
 	</bean>
 	<bean id="UsersDAO" class="com.fdc.dao.UsersDAO">
@@ -138,6 +139,11 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="CollectService" class="com.fdc.service.CollectService">
+		<property name="collectionsDAO">
+			<ref bean="CollectionsDAO" />
+		</property>
+	</bean>
 	<bean id="DetailService" class="com.fdc.service.DetailService">
 		<property name="houseNewsDAO">
 			<ref bean="HouseNewsDAO" />
@@ -152,6 +158,9 @@
 	<bean id="DetailAction" class="com.fdc.action.DetailAction">
 		<property name="service">
 			<ref bean="DetailService" />
+		</property>
+		<property name="collectService">
+			<ref bean="CollectService" />
 		</property>
 	</bean>
 	<bean id="WantedDAO" class="com.fdc.pojo.WantedDAO">
@@ -169,12 +178,8 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-		
-	<bean id="CollectService" class="com.fdc.service.CollectService">
-		<property name="collectionsDAO">
-			<ref bean="CollectionsDAO" />
-		</property>
-	</bean>
+
+
 	<bean id="CollectAction" class="com.fdc.action.CollectAction">
 		<property name="collectService">
 			<ref bean="CollectService" />
