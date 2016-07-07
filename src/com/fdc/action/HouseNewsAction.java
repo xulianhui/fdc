@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.fdc.pojo.HouseNews;
+import com.fdc.pojo.Users;
 import com.fdc.service.HouseNewsService;
 import com.fdc.service.UsersService;
 
@@ -62,8 +63,8 @@ public class HouseNewsAction {
 	}
 
 	public String execute() throws IOException {
-		String email = ActionContext.getContext().getSession().get("useremail")
-				.toString();
+		String email =((Users) ServletActionContext.getRequest().getSession()
+				.getAttribute("user")).getEmail();
 		int id = service.getid(email);
 		// 从users表中取出email 对应的ID
 		// id 为0 说明email 对应的用户不存在，强制用户重新登陆

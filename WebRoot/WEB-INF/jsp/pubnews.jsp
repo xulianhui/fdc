@@ -23,7 +23,7 @@
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<% if(session.getAttribute("usernickname")==null) response.sendRedirect("pubresult");%>
+	<% if(session.getAttribute("user")==null) response.sendRedirect("pubresult");%>
 	<!--header end here-->
 	<div class="wrapper">
 		<div class="container">
@@ -78,11 +78,11 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<select name="housenews.houseReg" class="form-control">
-								<option value="0">1</option>
-								<option value="1">2</option>
-								<option value="2">3</option>
-								<option value="3">4</option>
-								<option value="4">5</option>
+								<option value="洪山区">洪山区</option>
+								<option value="武昌区">武昌区</option>
+								<option value="江夏区">江夏区</option>
+								<option value="青山区">青山区</option>
+								<option value="其他">其他</option>
 							</select>
 						</div>
 						<div class="col-lg-8">
