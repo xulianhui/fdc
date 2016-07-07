@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="css/mystyles.css" />
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
 <script type="text/javascript">
     var nickname_state = false;
     var email_state = false;

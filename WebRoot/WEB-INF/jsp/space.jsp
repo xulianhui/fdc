@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-lg-2">
 					<div class="row">
-						<img src="${thisUsers.headImg }" class="img-circle center-block" style="width: 100%"
+						<img src="${thisUsers.headImg }" class="img-circle center-block" style="width: 100%; height: 200px;"
 							alt="Headimg" /><br />
 					</div>
 				</div>
@@ -96,7 +96,9 @@
 					<li role="presentation"><a href="#zgjl" aria-controls="zgjl"
 						role="tab" data-toggle="tab">租购记录</a></li>
 					<li role="presentation"><a href="#wdfb" aria-controls="wdfb"
-						role="tab" data-toggle="tab">我的发布</a></li>
+						role="tab" data-toggle="tab">我的发布</a></li>						
+					<li role="presentation"><a href="#wdsc" aria-controls="wdsc"
+						role="tab" data-toggle="tab">我的收藏</a></li>
 				</ul>
 				<div class="tab-content col-lg-10">
 					<div role="tabpanel" class="tab-pane active" id="xgzl">
@@ -282,6 +284,40 @@
 						</div>
 					</div>
 
+					<div role="tabpanel" class="tab-pane" id="wdsc">
+						<jstl:forEach var="e" items="${CollectHouses }">
+							<div class="row list-group-item">
+								<div class="col-lg-3 house-img">
+									<a href="zs?newsId=${e.id }"> <img src="${e.img1 }" alt="no picture!"
+										class="img-rounded"/></a>
+								</div>
+								<div class="col-lg-9 house-info-table">
+									<table class="table table-bordered house-info">
+										<tr>
+											<td style="width:10%">地址</td>
+											<td>${e.houseReg }${e.houseAddDetail }</td>
+										</tr>
+										<tr>
+											<td style="width:10%">楼层</td>
+											<td>${e.houseFloor }</td>
+										</tr>
+										<tr>
+											<td style="width:10%">价格</td>
+											<td>${e.housePrice }元</td>
+										</tr>
+										<tr>
+											<td style="width:10%">住房面积</td>
+											<td>${e.houseArea }平米</td>
+										</tr>
+										<tr>
+											<td style="width:10%">房屋描述</td>
+											<td>${e.houseDetail }</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</jstl:forEach>
+					</div>
 				</div>
 			</div>
 		</div>

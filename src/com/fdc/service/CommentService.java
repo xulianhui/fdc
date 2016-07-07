@@ -6,7 +6,7 @@ import com.fdc.pojo.Comments;
 
 public class CommentService {
 	CommentsDAO commentsDAO;
-	
+
 	public CommentsDAO getCommentsDAO() {
 		return commentsDAO;
 	}

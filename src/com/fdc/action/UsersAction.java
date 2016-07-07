@@ -81,7 +81,8 @@ public class UsersAction {
 		execute();
 		System.out.println("loginout action执行");
 		login_state = "未登录";
-		ServletActionContext.getRequest().getSession().setAttribute("user", null);
+		ServletActionContext.getRequest().getSession()
+				.setAttribute("user", null);
 		ServletActionContext.getRequest().getSession()
 				.setAttribute("login_state", login_state);
 		return "success";

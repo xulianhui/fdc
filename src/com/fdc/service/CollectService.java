@@ -47,5 +47,13 @@ public class CollectService {
 	public int checkCollect(Collections collections) {
 		return getCollectionsId(collections);
 	}
+	
+	public List<?> findHouseNews(int _usrId) {
+		
+		List res = collectionsDAO.findByUserId(_usrId);
+		
+		
+		return res;
+	}
 
 }

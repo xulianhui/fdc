@@ -105,13 +105,16 @@ public class DetailAction {
 			list.add(new Pair<Comments, Users>(comments.get(i), allUsers.get(i)));
 		}
 
-		int userId = ((Users)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
-		
+		int userId = ((Users) ServletActionContext.getRequest().getSession()
+				.getAttribute("user")).getId();
+
 		int houseNewsId = housenews.getId();
 		collect = collectService.checkCollect(new Collections(userId,
 				houseNewsId));
 		System.out.printf("----------------%d %d %d\n", userId, houseNewsId,
 				collect);
+		
+		
 		return "success";
 	}
 

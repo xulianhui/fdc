@@ -97,7 +97,12 @@
 		<property name="mailsService">
 			<ref bean="MailsService" />
 		</property>
+		<property name="collectService">
+			<ref bean="CollectService" />
+		</property>
 	</bean>
+
+
 	<bean id="MailsDAO" class="com.fdc.dao.MailsDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />

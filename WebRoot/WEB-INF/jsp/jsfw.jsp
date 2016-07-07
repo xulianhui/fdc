@@ -17,6 +17,9 @@
 <link rel="stylesheet" type="text/css" href="./css/main.css" />
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
+
 <script>
 function collect(houseId) {
 	if (houseId == null)
@@ -119,7 +122,10 @@ function collect(houseId) {
 					</table>
 					
 					<a class="btn btn-default" href="lx?toId=${housenews.userId }">联系卖家</a>
-				    <a class="btn btn-default" onclick="collect(${housenews.id});" id="collect">加入收藏</a> 
+				    <a class="btn btn-default" onclick="collect(${housenews.id});" id="collect">
+				    <jstl:if test="${collect == -1 }">加入收藏</jstl:if>
+				    <jstl:if test="${collect != -1 }">取消收藏</jstl:if>
+				    </a> 
 				</div>
 			</div>
 		</div>

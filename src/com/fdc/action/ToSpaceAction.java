@@ -1,24 +1,21 @@
 package com.fdc.action;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.engine.query.ReturnMetadata;
 
-import com.fdc.dao.MailsDAO;
 import com.fdc.po.HouseNewsRecord;
+import com.fdc.pojo.Collections;
 import com.fdc.pojo.HouseNews;
 import com.fdc.pojo.Mails;
 import com.fdc.pojo.RecordRent;
 import com.fdc.pojo.Users;
+import com.fdc.service.CollectService;
 import com.fdc.service.HouseNewsService;
 import com.fdc.service.MailsService;
 import com.fdc.service.RecordRentService;
 import com.fdc.service.UsersService;
-import com.opensymphony.xwork2.ActionContext;
 
 public class ToSpaceAction {
 	String msg;
@@ -27,13 +24,31 @@ public class ToSpaceAction {
 	RecordRentService recordRentService;
 	HouseNewsService houseNewsService;
 	MailsService mailsService;
+	CollectService collectService;
 
 	Users thisUsers;// ��ǰ�û�
 	ArrayList<HouseNewsRecord> houseNewsRecords;// ���⹺�ķ��ݼ�¼
 	ArrayList<Mails> mails;// �ҵ��ʼ��б�
 	ArrayList<HouseNews> myHouseNews;// �ҷ��������۷���Ϣ
 	ArrayList<HouseNewsRecord> myHouseNewsRecords;// �ҵ����۷��ݼ�¼
+	ArrayList<HouseNews> collectHouses;
+	
 
+	public ArrayList<HouseNews> getCollectHouses() {
+		return collectHouses;
+	}
+
+	public void setCollectHouses(ArrayList<HouseNews> collectHouses) {
+		this.collectHouses = collectHouses;
+	}
+
+	public CollectService getCollectService() {
+		return collectService;
+	}
+
+	public void setCollectService(CollectService collectService) {
+		this.collectService = collectService;
+	}
 	public ArrayList<HouseNewsRecord> getHouseNewsRecords() {
 		return houseNewsRecords;
 	}
@@ -127,14 +142,19 @@ public class ToSpaceAction {
 		thisUsers = new Users();
 
 		// ��ȡsession���û�id
-		int userid = ((Users)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
+		if (((Users) ServletActionContext.getRequest().getSession()
+				.getAttribute("user")) == null) {
+			msg ="请重新登录！";
+			return  "error";
+		}
+		int userid = ((Users) ServletActionContext.getRequest().getSession()
+				.getAttribute("user")).getId();
 		thisUsers = usersService.getUserById(userid);
 		if (thisUsers == null) {
 			msg = "Please sign in first!";
 			return "error";
 		}
-
-		// �û����⹺��¼
+		
 		List<?> recordList = recordRentService
 				.getRecordListByHouseUserId(thisUsers.getId());
 		for (int i = 0; i < recordList.size(); ++i) {
@@ -180,6 +200,17 @@ public class ToSpaceAction {
 				}
 			}
 		}
+		
+//		collectHouses collectService.findHouseNews(userid);
+		
+		List<?> collectsList =  collectService.findHouseNews(userid);
+		collectHouses = new ArrayList<HouseNews>();
+		for (Object e : collectsList) {
+			Collections collections = (Collections) e;
+			HouseNews tmpHouseNews = houseNewsService.getHouseNewsById(collections.getHouseNewsId());
+			collectHouses.add(tmpHouseNews);
+		}
+		
 		return "success";
 	}
 }

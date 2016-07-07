@@ -8,6 +8,7 @@ import org.apache.commons.validator.Msg;
 import org.apache.struts2.ServletActionContext;
 
 import com.fdc.pojo.Users;
+import com.fdc.service.CollectService;
 import com.fdc.service.HouseNewsService;
 import com.fdc.service.UsersService;
 import com.opensymphony.xwork2.ActionContext;
@@ -15,7 +16,7 @@ import com.opensymphony.xwork2.ActionContext;
 public class SpaceActoin {
 	UsersService usersService;
 	HouseNewsService houseNewsService;
-
+	
 	File headImg;
 	String headImgFileName;
 	String headImgContentType;
@@ -117,8 +118,8 @@ public class SpaceActoin {
 		// System.out.println(users.getTel());
 		//
 		Users thisUsers = new Users();
-		int userid = (int) ActionContext.getContext().getSession()
-				.get("userid");
+		int userid = ((Users) ServletActionContext.getRequest().getSession()
+				.getAttribute("user")).getId();
 		thisUsers = usersService.getUserById(userid);
 		// System.out.print("userId: " + userid);
 

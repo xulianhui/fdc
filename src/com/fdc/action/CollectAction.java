@@ -85,7 +85,8 @@ public class CollectAction {
 		try {
 
 			System.out.println("checkemail11");
-			userId = ((Users)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
+			userId = ((Users) ServletActionContext.getRequest().getSession()
+					.getAttribute("user")).getId();
 			collectId = collectService.checkCollect(new Collections(userId,
 					houseNewsId));
 			if (-1 == collectId) {
