@@ -3,6 +3,10 @@
 <struts>
 	<package name="usersManage" namespace="/"
 		extends="json-default,struts-default">
+		<interceptors>
+			<interceptor name="LoginConfim" class="com.fdc.interceptor.LoginInterceptor">
+			</interceptor>
+		</interceptors>
 		<action name="um" class="UsersAction">
 			<result name="success">/WEB-INF/jsp/index.jsp</result>
 			<result name="error">/WEB-INF/jsp/index.jsp</result>
@@ -23,8 +27,18 @@
  			<result name="success">/WEB-INF/jsp/sendResult.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</action>
+		
+		<action name="ToPubnews">
+			<result>/WEB-INF/jsp/pubnews.jsp</result>
+ 			<result name="login" >/WEB-INF/jsp/pubresult.jsp</result>
+			<interceptor-ref name="LoginConfim"></interceptor-ref>
+		</action>
 	</package>
 	<package name="xue" namespace="/"  extends="json-default,struts-default">
+		<interceptors>
+			<interceptor name="LoginConfim" class="com.fdc.interceptor.LoginInterceptor">
+			</interceptor>
+		</interceptors>
 		<action name="updateUserInfo" class="SpaceAction">
 			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
@@ -32,6 +46,8 @@
 		<action name="ToSpace" class="ToSpaceAction">
 			<result name="success">/WEB-INF/jsp/space.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<result name="login" type="redirectAction">um</result>
+			<interceptor-ref name="LoginConfim"></interceptor-ref>
 		</action>
 		<action name="shelves" class="SpaceAction" method="shelves">
 			<result type="redirectAction">ToSpace!loadPageInfo</result>

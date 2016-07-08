@@ -69,9 +69,9 @@ function checkrpwd(){
 }
 function setsubmit(){
 		if(psw_state&&psw2_state&&nickname_state&&email_state)
-		${"btsubmit"}.disabled = false;
+		  return true;
 		else
-		${"btsubmit"}.disabled = true;
+		  return false;
 }
 	function  checkmail() {
 		email_state = false;
@@ -117,7 +117,7 @@ function setsubmit(){
 	<div class="wrapper">
 		<div class="container">
 			<form action="um!regedit" class="col-md-6 col-md-offset-3"
-				method="post" style="background-color: #f2f2f2;padding-top: 20px;">
+				method="post" style="padding-top: 20px;">
 				<div class="form-group">
 					<div class="row">
 						<div class="col-lg-2">
@@ -152,7 +152,7 @@ function setsubmit(){
 							<label for="">密码</label>
 						</div>
 						<div class="col-lg-6">
-							<input type="text" class="form-control" placeholder="密码" id="userpwd" onblur="checkpwd();setsubmit();"
+							<input type="password" class="form-control" placeholder="密码" id="userpwd" onblur="checkpwd();setsubmit();"
 								name="users.password" />
 						</div>
 						<div class="col-lg-4">
@@ -166,7 +166,7 @@ function setsubmit(){
 							<label for="">确认密码</label>
 						</div>
 						<div class="col-lg-6">
-							<input type="text" class="form-control" placeholder="确认密码"  id="userrpwd"  onblur="checkrpwd();setsubmit();" onkeyup="setsubmit();"/>
+							<input type="password" class="form-control" placeholder="确认密码"  id="userrpwd"  onchange="checkrpwd();setsubmit();" onkeyup="setsubmit();"/>
 						</div>
 						<div class="col-lg-4">
 							<label id="labelrpwd"></label>
@@ -188,7 +188,7 @@ function setsubmit(){
 					<div class="row">
 						<div class="col-lg-4  form-inline col-lg-offset-3">
 							<input type="submit" class="btn btn-default pull-right"
-								id="btsubmit" disabled="true" value="注册" /> <input type="reset"
+								id="btsubmit" value="注册"  onclick="return setsubmit();" /> <input type="reset"
 								class="btn btn-default pull-left" value="重置" />
 						</div>
 						<div class="col-lg-3 "></div>

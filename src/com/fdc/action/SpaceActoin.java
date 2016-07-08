@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionContext;
 public class SpaceActoin {
 	UsersService usersService;
 	HouseNewsService houseNewsService;
-	
+
 	File headImg;
 	String headImgFileName;
 	String headImgContentType;
@@ -149,7 +149,7 @@ public class SpaceActoin {
 		if (users.getTel().equals("") == false) {
 			thisUsers.setTel(users.getTel());
 		}
-		if (getHeadImgFileName().equals(null) == false) {
+		if (getHeadImg() != null) {
 			String realpath = ServletActionContext.getServletContext()
 					.getRealPath("/upload");
 			File savefile = new File(new File(realpath),

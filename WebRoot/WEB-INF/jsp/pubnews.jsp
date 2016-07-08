@@ -23,7 +23,7 @@
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<% if(session.getAttribute("user")==null) response.sendRedirect("pubresult");%>
+ 	<%/* if(session.getAttribute("user")==null) response.sendRedirect("pubresult");*/%> 
 	<!--header end here-->
 	<div class="wrapper">
 		<div class="container">

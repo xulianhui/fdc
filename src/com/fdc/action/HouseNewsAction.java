@@ -63,7 +63,7 @@ public class HouseNewsAction {
 	}
 
 	public String execute() throws IOException {
-		String email =((Users) ServletActionContext.getRequest().getSession()
+		String email = ((Users) ServletActionContext.getRequest().getSession()
 				.getAttribute("user")).getEmail();
 		int id = service.getid(email);
 		// 从users表中取出email 对应的ID

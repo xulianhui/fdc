@@ -113,8 +113,7 @@ public class DetailAction {
 				houseNewsId));
 		System.out.printf("----------------%d %d %d\n", userId, houseNewsId,
 				collect);
-		
-		
+
 		return "success";
 	}
 

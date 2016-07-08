@@ -90,9 +90,10 @@ public class UsersAction {
 
 	public String regedit() {
 		if (service.regedit(users)) {// 调用增加用户业务方法，判断是否增加成功
+			Users users1 = service.getUsersByEmail(users.getEmail());
 			regedit_state = "用户注册成功!";
 			ServletActionContext.getRequest().getSession()
-					.setAttribute("user", users);
+					.setAttribute("user", users1);
 		} else
 			regedit_state = "用户被占用，请重新注册";
 		return "ok";

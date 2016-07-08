@@ -26,7 +26,7 @@ public class UsersService {
 	}
 
 	public Users login(Users users) {
-		System.out.println("serviceÖ´ÐÐ");
+		System.out.println("serviceÖ´ï¿½ï¿½");
 		List<Users> list = usersDAO.findByEmailPwd(users);
 		if (list.size() > 0) {
 			return list.get(0);
@@ -36,7 +36,7 @@ public class UsersService {
 	}
 
 	public int getid(String email) {
-		System.out.println("serviceÖ´ÐÐ");
+		System.out.println("serviceÖ´ï¿½ï¿½");
 		List<Users> list = usersDAO.findByEmail(email);
 		if (list.size() > 0) {
 			return list.get(0).getId();
@@ -47,21 +47,29 @@ public class UsersService {
 
 	public boolean regedit(Users users) {
 		// TODO Auto-generated method stub
-		if (usersDAO.queryByemail(users.getEmail()) == null) { // ÅÐ¶ÏÓÃ»§ÃûÊÇ·ñ±»Õ¼ÓÃ
-			usersDAO.savenew(users); // ±£´æÓÃ»§
-			return true; // ±£´æ³É¹¦
+		if (usersDAO.queryByemail(users.getEmail()) == null) { // ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Õ¼ï¿½ï¿½
+			usersDAO.savenew(users); // ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
+			return true; // ï¿½ï¿½ï¿½ï¿½É¹ï¿½
 		} else {
-			return false; // ±£´æÊ§°Ü
+			return false; // ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 		}
 	}
 
 	public boolean checkemail(String email) {
 		// TODO Auto-generated method stub
-		if (usersDAO.queryByemail(email) == null) { // ÅÐ¶ÏÓÃ»§ÃûÊÇ·ñ±»Õ¼ÓÃ
-			return true; // check³É¹¦
+		if (usersDAO.queryByemail(email) == null) { // ï¿½Ð¶ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Õ¼ï¿½ï¿½
+			return true; // checkï¿½É¹ï¿½
 		} else {
-			return false; // checkÊ§°Ü
+			return false; // checkÊ§ï¿½ï¿½
 		}
+	}
+
+	public Users getUsersByEmail(String Email) {
+
+		List aList = usersDAO.findByEmail(Email);
+
+		return (Users) aList.get(0);
+
 	}
 
 }

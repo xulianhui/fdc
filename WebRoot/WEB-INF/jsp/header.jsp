@@ -12,7 +12,7 @@
 				</button>
 				<a class="navbar-brand" href="um">某大型房屋交易中心</a> <a
 					class="navbar-brand" href="">我要租房</a> <a class="navbar-brand"
-					href="">我要买房</a> <a class="navbar-brand" href="pubnews">发布房源</a> <a
+					href="">我要买房</a> <a class="navbar-brand" href="ToPubnews">发布房源</a> <a
 					class="navbar-brand" href="pubnews">房友论坛</a>
 			</div>
 

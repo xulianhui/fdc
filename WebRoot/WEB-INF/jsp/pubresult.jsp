@@ -45,7 +45,7 @@
 			</div>
 		</div>
 			<div class="container alert-danger center-block" id="failed" 
-			style="display:<%=session.getAttribute("usernickname")!=null?"none":"block"%>">
+			style="display:<%=session.getAttribute("user")!=null?"none":"block"%>">
 			<div class="row ">
 				<div class="col-lg-4 col-center-block " style="text-align:center">
 					<h3>请先登陆，再发布房源。</h3>

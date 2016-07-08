@@ -32,7 +32,6 @@ public class ToSpaceAction {
 	ArrayList<HouseNews> myHouseNews;// �ҷ��������۷���Ϣ
 	ArrayList<HouseNewsRecord> myHouseNewsRecords;// �ҵ����۷��ݼ�¼
 	ArrayList<HouseNews> collectHouses;
-	
 
 	public ArrayList<HouseNews> getCollectHouses() {
 		return collectHouses;
@@ -49,6 +48,7 @@ public class ToSpaceAction {
 	public void setCollectService(CollectService collectService) {
 		this.collectService = collectService;
 	}
+
 	public ArrayList<HouseNewsRecord> getHouseNewsRecords() {
 		return houseNewsRecords;
 	}
@@ -141,11 +141,11 @@ public class ToSpaceAction {
 		myHouseNewsRecords = new ArrayList<HouseNewsRecord>();
 		thisUsers = new Users();
 
-		// ��ȡsession���û�id
+		//
 		if (((Users) ServletActionContext.getRequest().getSession()
 				.getAttribute("user")) == null) {
-			msg ="请重新登录！";
-			return  "error";
+			msg = "请重新登录！";
+			return "error";
 		}
 		int userid = ((Users) ServletActionContext.getRequest().getSession()
 				.getAttribute("user")).getId();
@@ -154,7 +154,7 @@ public class ToSpaceAction {
 			msg = "Please sign in first!";
 			return "error";
 		}
-		
+
 		List<?> recordList = recordRentService
 				.getRecordListByHouseUserId(thisUsers.getId());
 		for (int i = 0; i < recordList.size(); ++i) {
@@ -200,17 +200,18 @@ public class ToSpaceAction {
 				}
 			}
 		}
-		
-//		collectHouses collectService.findHouseNews(userid);
-		
-		List<?> collectsList =  collectService.findHouseNews(userid);
+
+		// collectHouses collectService.findHouseNews(userid);
+
+		List<?> collectsList = collectService.findHouseNews(userid);
 		collectHouses = new ArrayList<HouseNews>();
 		for (Object e : collectsList) {
 			Collections collections = (Collections) e;
-			HouseNews tmpHouseNews = houseNewsService.getHouseNewsById(collections.getHouseNewsId());
+			HouseNews tmpHouseNews = houseNewsService
+					.getHouseNewsById(collections.getHouseNewsId());
 			collectHouses.add(tmpHouseNews);
 		}
-		
+
 		return "success";
 	}
 }
