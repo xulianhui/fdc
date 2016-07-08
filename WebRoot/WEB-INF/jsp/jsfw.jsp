@@ -126,6 +126,12 @@ function collect(houseId) {
 				    <jstl:if test="${collect == -1 }">加入收藏</jstl:if>
 				    <jstl:if test="${collect != -1 }">取消收藏</jstl:if>
 				    </a> 
+				    <jstl:if test="${housenews.houseNewsStatus == 1}">
+				    <a class="btn btn-danger" href="buy?houseNewsId=${housenews.id}">购买</a>
+				    </jstl:if>
+					<jstl:if test="${housenews.houseNewsStatus == 2}">
+				    <a class="btn btn-danger" href="#">停售</a>
+				    </jstl:if>
 				</div>
 			</div>
 		</div>

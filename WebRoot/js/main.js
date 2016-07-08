@@ -8,3 +8,23 @@ function checkmail(){
 		alert("请输入正确的邮箱地址");
 	}
 }
+function shelve(houseNewsId){
+	if(houseNewsId==null){
+		alert("错误的房屋信息");
+	}
+	else{
+	$.ajax({
+		url : 'shelves',
+		type : 'post',
+		data : {
+			houseNewsId : houseNewsId
+		},
+		async : false, //默认为true 异步   
+		error : function() {
+			alert('error');
+		},
+		success : function(data) {
+		}
+	});
+	}
+}

@@ -27,10 +27,14 @@
  			<result name="success">/WEB-INF/jsp/sendResult.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</action>
-		
+		<action name="searchHouse" class="SearchHouseAction">
+			<result name="success">/WEB-INF/jsp/search-house.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
 		<action name="ToPubnews">
 			<result>/WEB-INF/jsp/pubnews.jsp</result>
  			<result name="login" >/WEB-INF/jsp/pubresult.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 			<interceptor-ref name="LoginConfim"></interceptor-ref>
 		</action>
 	</package>
@@ -47,6 +51,7 @@
 			<result name="success">/WEB-INF/jsp/space.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
 			<result name="login" type="redirectAction">um</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 			<interceptor-ref name="LoginConfim"></interceptor-ref>
 		</action>
 		<action name="shelves" class="SpaceAction" method="shelves">
@@ -54,6 +59,10 @@
 		</action>	
 		<action name="zs" class="DetailAction" method="show"> 
 			<result name="success">/WEB-INF/jsp/jsfw.jsp</result>
+			<result name="login" type="redirectAction">um</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<interceptor-ref name="LoginConfim"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<action name="lx" class="MailsAction" method="toMails"><!-- 联系 -->
 			<result name="success">/WEB-INF/jsp/sendMessage.jsp</result>
@@ -67,6 +76,18 @@
 		<action name="sendComment" class="CommentAction">
 			<result name="success" type="redirectAction">zs?newsId=${comments.comtedId}</result>
 		</action>
+		<action name="agree" class="SpaceAction" method="agreeTran">
+			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
+		</action>
+		<action name="refuse" class="SpaceActoin" method="refuseTran">
+			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
+		</action>
+		
+		<action name="buy" class="DetailAction" method="buyHouse">
+			<result name="success">/WEB-INF/jsp/error.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>
 		</action>

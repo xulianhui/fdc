@@ -7,15 +7,19 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.validator.Msg;
 import org.apache.struts2.ServletActionContext;
 
+import com.fdc.pojo.HouseNews;
+import com.fdc.pojo.RecordRent;
 import com.fdc.pojo.Users;
 import com.fdc.service.CollectService;
 import com.fdc.service.HouseNewsService;
+import com.fdc.service.RecordRentService;
 import com.fdc.service.UsersService;
 import com.opensymphony.xwork2.ActionContext;
 
 public class SpaceActoin {
 	UsersService usersService;
 	HouseNewsService houseNewsService;
+	RecordRentService recordRentService;
 
 	File headImg;
 	String headImgFileName;
@@ -24,6 +28,22 @@ public class SpaceActoin {
 	String oldPass;
 	String passRe;
 	String msg;
+	int recordId;
+	
+	public RecordRentService getRecordRentService() {
+		return recordRentService;
+	}
+
+	public void setRecordRentService(RecordRentService recordRentService) {
+		this.recordRentService = recordRentService;
+	}
+	public int getRecordId() {
+		return recordId;
+	}
+
+	public void setRecordId(int recordId) {
+		this.recordId = recordId;
+	}
 
 	public String getHeadImgFileName() {
 		return headImgFileName;
@@ -175,4 +195,27 @@ public class SpaceActoin {
 		houseNewsService.shelvesHouseById(houseNewsId);
 		return "success";
 	}
+	
+	public String agreeTran() {
+		recordRentService.agree(recordId);
+		System.out.println(recordId);
+		RecordRent recordRent = recordRentService.getRecordRentById(recordId);
+		HouseNews houseNews = houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
+		System.err.println("recordRent & houseNews 获取成功 " + houseNews.getId());
+		if(houseNews.getHouseNewsStatus() == 1) {
+			System.err.println("进入修改");
+			houseNews.setHouseNewsStatus(2);
+			houseNewsService.update(houseNews);
+			recordRent.setRecordState(1);
+			recordRentService.update(recordRent);
+			System.out.println("成功。");
+		}
+		return "success";
+	}
+	public String refuseTran() {
+		recordRentService.refuse(recordId);
+		return "success";
+	}
+	
+	
 }

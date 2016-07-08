@@ -1,5 +1,7 @@
 package com.fdc.po;
 
+import java.sql.Timestamp;
+
 import com.fdc.pojo.HouseNews;
 import com.fdc.pojo.RecordRent;
 
@@ -17,7 +19,7 @@ public class HouseNewsRecord {
 	private Integer houseUserId;
 
 	private Integer recordState;
-	private String recordReqTime;
+	private Timestamp recordReqTime;
 	private Boolean recordType;
 	private Integer recordId;
 	private Integer id;
@@ -33,7 +35,7 @@ public class HouseNewsRecord {
 			Integer housePrice, String houseTitle, Integer houseArea,
 			String houseStatus, String tel, Integer newsType,
 			Integer houseNewsId, Integer houseUserId, Integer recordState,
-			String recordReqTime, Boolean recordType, Integer recordId,
+			Timestamp recordReqTime, Boolean recordType, Integer recordId,
 			Integer id) {
 		this.houseAddr = houseAddr;
 		this.houseFloor = houseFloor;
@@ -57,7 +59,7 @@ public class HouseNewsRecord {
 			Integer housePrice, String houseTitle, Integer houseArea,
 			String houseStatus, String tel, Integer newsType, String photo,
 			Integer houseNewsId, Integer houseUserId, Integer recordState,
-			String recordReqTime, Boolean recordType, Integer recordId,
+			Timestamp recordReqTime, Boolean recordType, Integer recordId,
 			Integer id) {
 		this.houseAddr = houseAddr;
 		this.houseFloor = houseFloor;
@@ -175,12 +177,12 @@ public class HouseNewsRecord {
 		this.recordState = recordState;
 	}
 
-	public String getRecordReqTime() {
+	public Timestamp getRecordReqTime() {
 		return this.recordReqTime;
 	}
 
-	public void setRecordReqTime(String recordReqTime) {
-		this.recordReqTime = recordReqTime;
+	public void setRecordReqTime(Timestamp timestamp) {
+		this.recordReqTime = timestamp;
 	}
 
 	public Boolean getRecordType() {

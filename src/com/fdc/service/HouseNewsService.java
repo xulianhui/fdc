@@ -24,10 +24,11 @@ public class HouseNewsService {
 		return houseNewsDAO.findByUserId(userId);
 	}
 
-	public void shelvesHouseById(int id) {
+	public boolean shelvesHouseById(int id) {
 		HouseNews tmp = houseNewsDAO.findById(id);
-		tmp.setHouseNewsStatus(1);
+		tmp.setHouseNewsStatus(2);
 		houseNewsDAO.update(tmp);
+		return true;
 	}
 
 	public String add(HouseNews housenew) {
@@ -35,5 +36,9 @@ public class HouseNewsService {
 		if (result != null)
 			return "success";
 		return "fail";
+	}
+	
+	public void update(HouseNews houseNews) {
+		houseNewsDAO.update(houseNews);
 	}
 }

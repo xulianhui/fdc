@@ -1,5 +1,6 @@
 package com.fdc.dao;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -27,7 +28,6 @@ public class RecordRentDAO extends HibernateDaoSupport {
 	public static final String HOUSE_NEWS_ID = "houseNewsId";
 	public static final String HOUSE_USER_ID = "houseUserId";
 	public static final String RECORD_STATE = "recordState";
-	public static final String RECORD_REQ_TIME = "recordReqTime";
 	public static final String RECORD_TYPE = "recordType";
 
 	protected void initDao() {
@@ -41,6 +41,17 @@ public class RecordRentDAO extends HibernateDaoSupport {
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
+			throw re;
+		}
+	}
+	
+	public void update(RecordRent transientInstance) {
+		log.debug("updating RecordRent instance");
+		try {
+			getHibernateTemplate().update(transientInstance);
+			log.debug("update successful");
+		} catch (RuntimeException re) {
+			log.error("update failed", re);
 			throw re;
 		}
 	}
@@ -104,10 +115,6 @@ public class RecordRentDAO extends HibernateDaoSupport {
 
 	public List findByRecordState(Object recordState) {
 		return findByProperty(RECORD_STATE, recordState);
-	}
-
-	public List findByRecordReqTime(Object recordReqTime) {
-		return findByProperty(RECORD_REQ_TIME, recordReqTime);
 	}
 
 	public List findByRecordType(Object recordType) {

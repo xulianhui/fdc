@@ -268,4 +268,33 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		}
 		return add_state;
 	}
+	public List FindByProperty(String propertyName[], Object value[]) {
+		log.debug("finding HouseNews instance with property: " + propertyName
+				+ ", value: " + value); 
+		
+		String queryString = "from HouseNews as model where";
+		try {
+			
+			for(int i = 0; i < propertyName.length; ++i) {
+				
+
+				if(i == 0) {
+					queryString += " model." + propertyName[i] + "= ?";
+				}
+				
+				else if(i >= 1 && i <= 3) {
+					queryString += " and model." + propertyName[i] + ">= ?";
+					queryString += " and model." + propertyName[i] + "<= ?";
+				}
+				
+				else {
+					queryString += " and model." + propertyName[i] + "= ?";	
+				}
+			}
+			return getHibernateTemplate().find(queryString, value);
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package com.fdc.pojo;
 
+import java.sql.Timestamp;
+
 /**
  * RecordRent entity. @author MyEclipse Persistence Tools
  */
@@ -12,8 +14,8 @@ public class RecordRent implements java.io.Serializable {
 	private Integer houseNewsId;
 	private Integer houseUserId;
 	private Integer recordState;
-	private String recordReqTime;
 	private Boolean recordType;
+	private Timestamp recordReqTime;
 
 	// Constructors
 
@@ -21,14 +23,23 @@ public class RecordRent implements java.io.Serializable {
 	public RecordRent() {
 	}
 
-	/** full constructor */
+	/** minimal constructor */
 	public RecordRent(Integer houseNewsId, Integer houseUserId,
-			Integer recordState, String recordReqTime, Boolean recordType) {
+			Integer recordState, Boolean recordType) {
 		this.houseNewsId = houseNewsId;
 		this.houseUserId = houseUserId;
 		this.recordState = recordState;
-		this.recordReqTime = recordReqTime;
 		this.recordType = recordType;
+	}
+
+	/** full constructor */
+	public RecordRent(Integer houseNewsId, Integer houseUserId,
+			Integer recordState, Boolean recordType, Timestamp recordReqTime) {
+		this.houseNewsId = houseNewsId;
+		this.houseUserId = houseUserId;
+		this.recordState = recordState;
+		this.recordType = recordType;
+		this.recordReqTime = recordReqTime;
 	}
 
 	// Property accessors
@@ -65,20 +76,20 @@ public class RecordRent implements java.io.Serializable {
 		this.recordState = recordState;
 	}
 
-	public String getRecordReqTime() {
-		return this.recordReqTime;
-	}
-
-	public void setRecordReqTime(String recordReqTime) {
-		this.recordReqTime = recordReqTime;
-	}
-
 	public Boolean getRecordType() {
 		return this.recordType;
 	}
 
 	public void setRecordType(Boolean recordType) {
 		this.recordType = recordType;
+	}
+
+	public Timestamp getRecordReqTime() {
+		return this.recordReqTime;
+	}
+
+	public void setRecordReqTime(Timestamp recordReqTime) {
+		this.recordReqTime = recordReqTime;
 	}
 
 }

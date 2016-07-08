@@ -58,14 +58,6 @@
 		</property>
 	</bean>
 
-	<bean id="SpaceAction" class="com.fdc.action.SpaceActoin">
-		<property name="usersService">
-			<ref bean="UsersService" />
-		</property>
-		<property name="houseNewsService">
-			<ref bean="HouseNewsService" />
-		</property>
-	</bean>
 	<bean id="RecordRentService" class="com.fdc.service.RecordRentService">
 		<property name="recordRentDAO">
 			<ref bean="RecordRentDAO" />
@@ -75,6 +67,17 @@
 	<bean id="HouseNewsService" class="com.fdc.service.HouseNewsService">
 		<property name="houseNewsDAO">
 			<ref bean="HouseNewsDAO" />
+		</property>
+	</bean>
+	<bean id="SpaceAction" class="com.fdc.action.SpaceActoin">
+		<property name="usersService">
+			<ref bean="UsersService" />
+		</property>
+		<property name="houseNewsService">
+			<ref bean="HouseNewsService" />
+		</property>
+		<property name="recordRentService">
+			<ref bean="RecordRentService" />
 		</property>
 	</bean>
 
@@ -161,11 +164,17 @@
 		</property>
 	</bean>
 	<bean id="DetailAction" class="com.fdc.action.DetailAction">
+		<property name="recordRentService">
+			<ref bean="RecordRentService"/>
+		</property>
 		<property name="service">
 			<ref bean="DetailService" />
 		</property>
 		<property name="collectService">
 			<ref bean="CollectService" />
+		</property>
+		<property name="houseNewsService">
+			<ref bean="HouseNewsService" />
 		</property>
 	</bean>
 	<bean id="WantedDAO" class="com.fdc.pojo.WantedDAO">
@@ -198,6 +207,16 @@
 	<bean id="CommentAction" class="com.fdc.action.CommentAction">
 		<property name="commentService">
 			<ref bean="CommentService" />
+		</property>
+	</bean>
+	<bean id="SearchHouseService" class="com.fdc.service.SearchHouseService">
+		<property name="houseNewsDAO">
+			<ref bean="HouseNewsDAO"/>
+		</property>
+	</bean>
+	<bean id="SearchHouseAction" class="com.fdc.action.SearchHouseAction">
+		<property name="searchHouseService">
+			<ref bean="SearchHouseService"/>
 		</property>
 	</bean>
 </beans>

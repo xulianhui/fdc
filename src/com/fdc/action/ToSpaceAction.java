@@ -181,19 +181,22 @@ public class ToSpaceAction {
 		System.out.println("thisUsers.getId: " + thisUsers.getId());
 		System.out.println("houseNewsList.size: " + houseNewsList.size());
 		for (HouseNews houseNews : houseNewsList) {
-			List<RecordRent> recordRentList = recordRentService
-					.getRecordListByHouseNewsId(houseNews.getId());
-			System.out.println("recordList.size: " + recordList.size());
+			List<RecordRent> recordRentList = recordRentService.getRecordListByHouseNewsId(houseNews.getId());
+			System.out.println("houseNews : " + houseNews.getId() + "recordRentList.size: " + recordRentList.size());
 			if (recordRentList == null) {
-				System.out
-						.println("--------------------------------------------------------------> NullPointerException");
+				System.out.println("--------------------------------------------------------------> NullPointerException");
 			} else {
 				for (RecordRent recordRent : recordRentList) {
+					System.out.println("--------------------------------------------------------------> recordRentList");
+					System.out.println("recordRent.getRecordId: " + recordRent.getRecordId());
 					if (recordRent == null) {
 						System.out.print("recordRent Error\n");
 					}
 					if (houseNews == null) {
 						System.out.print("houseNews Error\n");
+					}
+					if(houseNews.getHouseNewsStatus() == 3 && recordRent.getRecordState() != 1) {
+						recordRent.setRecordState(4);
 					}
 					myHouseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(
 							recordRent, houseNews));

@@ -1,6 +1,5 @@
 package com.fdc.service;
 
-import com.fdc.action.CommentAction;
 import com.fdc.dao.CommentsDAO;
 import com.fdc.pojo.Comments;
 

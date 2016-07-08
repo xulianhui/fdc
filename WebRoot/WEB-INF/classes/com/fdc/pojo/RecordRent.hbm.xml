@@ -19,11 +19,11 @@
         <property name="recordState" type="java.lang.Integer">
             <column name="recordState" not-null="true" />
         </property>
-        <property name="recordReqTime" type="java.lang.String">
-            <column name="recordReqTime" length="20" not-null="true" />
-        </property>
         <property name="recordType" type="java.lang.Boolean">
             <column name="recordType" not-null="true" />
+        </property>
+        <property name="recordReqTime" type="java.sql.Timestamp">
+            <column name="recordReqTime" length="23" />
         </property>
     </class>
 </hibernate-mapping>

@@ -21,31 +21,39 @@
 <head>
 
 <%-- <base href="<%=basePath%>"> --%>
-<title>My JSP 'grzx.jsp' starting page</title>
-
-<meta http-equiv="pragma" content="no-cache" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
-<meta http-equiv="description" content="This is my page" />
-<meta content="text/html; charset=utf-8" />
-
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/main.css" />
-
-<link rel="stylesheet" type="text/css" href="css/buttons.css" />
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<link href="css/mystyle.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-
-<link rel="stylesheet" href="css/mystyles.css" />
-<script src="js/main.js"></script>
-
-
+	<title>My JSP 'grzx.jsp' starting page</title>
+	
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
+	<meta http-equiv="description" content="This is my page" />
+	<meta content="text/html; charset=utf-8" />
+	
+	<!--
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		-->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/mystyle.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	
+	<link rel="stylesheet" href="css/mystyles.css" />
+	<script src="js/main.js"></script>
+	
+	<style type="text/css">
+		.tab-pane .list-group-item {
+			background-color: transparent;
+		}
+		
+		.panel-group .panel {
+			background-color: transparent;
+		}
+	</style>
 </head>
 
 <body>
@@ -237,17 +245,19 @@
 													<a href="zs?newsId=${e.id }" class="btn btn-default">查看详情</a>
 													<a href="#" class="btn btn-default">修改信息</a>
 													<jstl:if test="${e.houseNewsStatus == 0 }">
+														<spn>审核中</spn>
+													</jstl:if>
+													<jstl:if test="${e.houseNewsStatus == 1 }">
 														<a href="shelves?houseNewsId=${e.id }"
 															class="btn btn-default">下架</a>
 													</jstl:if>
-													<jstl:if test="${e.houseNewsStatus == 1 }">
+													<jstl:if test="${e.houseNewsStatus == 2 }">
 														<spn>已下架</spn>
 													</jstl:if>
 												</div>
 											</div>
 										</jstl:forEach>
 										<p></p>
-										<a href="#" class="btn btn-default">添加房屋</a>
 									</div>
 								</div>
 							</div>
@@ -273,8 +283,22 @@
 													<h4 class="media-heading">${e.houseTitle }</h4>
 													<p>时间：${e.recordReqTime } 状态：${e.recordState } 客户id
 														${e.recordId }</p>
-													<a class="btn btn-default">同意交易</a> <a
-														class="btn btn-default">放弃交易</a>
+													<jstl:if test="${e.recordState == 0 }">
+													<a href="agree?recordId=${e.recordId }" class="btn btn-default">同意交易</a>
+													<a href="refuse?recordId=${e.recordId }" class="btn btn-default">放弃交易</a>
+													<jstl:if test="${e.recordState == 1 }">
+													<p>房屋已出售</p>
+													</jstl:if>
+													<jstl:if test="${e.recordState == 2 }">
+													<p>客户取消</p>
+													</jstl:if>
+													<jstl:if test="${e.recordState == 3 }">
+													<p>已拒绝</p>
+													</jstl:if>
+													</jstl:if>
+													<jstl:if test="${e.recordState == 4 }">
+													<p>房屋已出售</p>
+													</jstl:if>
 												</div>
 											</div>
 										</jstl:forEach>
