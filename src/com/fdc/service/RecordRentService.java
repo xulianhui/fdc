@@ -21,20 +21,22 @@ public class RecordRentService {
 	}
 
 	public List getRecordListByHouseNewsId(int _id) {
-		return recordRentDAO.findByHouseUserId(_id);
+		return recordRentDAO.findByHouseNewsId(_id);
 	}
 	
 	public void agree(int _id) {
 		RecordRent recordRent = recordRentDAO.findById(_id);
-		if(recordRent == null) {
-			return ;
-		} else recordRent.setRecordState(1);
+		recordRent.setRecordState(1);
+		recordRentDAO.update(recordRent);
 		
 	}
 	
 	public void refuse(int _id) {
+		System.out.println("进入拒绝交易 in service");
 		RecordRent recordRent = recordRentDAO.findById(_id);
 		recordRent.setRecordState(3);
+		recordRentDAO.update(recordRent);
+		System.out.println("拒绝交易成功 in service");
 	}
 	
 	public RecordRent getRecordRentById(int id) {
@@ -45,6 +47,17 @@ public class RecordRentService {
 		recordRentDAO.save(recordRent);
 	}
 	public void update(RecordRent recordRent) {
+		recordRentDAO.update(recordRent);
+	}
+
+	public void cancle(int recordId) {
+		// TODO Auto-generated method stub
+		RecordRent recordRent = recordRentDAO.findById(recordId);
+		if (recordRent == null) {
+			System.err.println("recordRent 空指针");
+			return;
+		}
+		recordRent.setRecordState(2);
 		recordRentDAO.update(recordRent);
 	}
 }

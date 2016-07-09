@@ -25,7 +25,7 @@ public class ToSpaceAction {
 	HouseNewsService houseNewsService;
 	MailsService mailsService;
 	CollectService collectService;
-
+	
 	Users thisUsers;// ��ǰ�û�
 	ArrayList<HouseNewsRecord> houseNewsRecords;// ���⹺�ķ��ݼ�¼
 	ArrayList<Mails> mails;// �ҵ��ʼ��б�
@@ -184,10 +184,10 @@ public class ToSpaceAction {
 			List<RecordRent> recordRentList = recordRentService.getRecordListByHouseNewsId(houseNews.getId());
 			System.out.println("houseNews : " + houseNews.getId() + "recordRentList.size: " + recordRentList.size());
 			if (recordRentList == null) {
-				System.out.println("--------------------------------------------------------------> NullPointerException");
+				System.out.println("NullPointerException in HouseNewsList at Tospace");
 			} else {
 				for (RecordRent recordRent : recordRentList) {
-					System.out.println("--------------------------------------------------------------> recordRentList");
+					System.out.println("recordRentList");
 					System.out.println("recordRent.getRecordId: " + recordRent.getRecordId());
 					if (recordRent == null) {
 						System.out.print("recordRent Error\n");
@@ -197,9 +197,10 @@ public class ToSpaceAction {
 					}
 					if(houseNews.getHouseNewsStatus() == 3 && recordRent.getRecordState() != 1) {
 						recordRent.setRecordState(4);
+						recordRentService.update(recordRent);//更新订单数据
+						System.out.println("更新订单数据成功");
 					}
-					myHouseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(
-							recordRent, houseNews));
+					myHouseNewsRecords.add(HouseNewsRecord.setHouseNewsRecord(recordRent, houseNews));
 				}
 			}
 		}

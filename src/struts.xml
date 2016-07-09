@@ -79,13 +79,17 @@
 		<action name="agree" class="SpaceAction" method="agreeTran">
 			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
 		</action>
-		<action name="refuse" class="SpaceActoin" method="refuseTran">
+		<action name="refuse" class="SpaceAction" method="refuseTran">
 			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
 		</action>
 		
 		<action name="buy" class="DetailAction" method="buyHouse">
 			<result name="success">/WEB-INF/jsp/error.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		
+		<action name="cancle" class="SpaceAction" method="cancle">
+			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
 		</action>
 		
 		<action name="*">

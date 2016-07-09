@@ -209,6 +209,9 @@
 									房屋地址：${e.houseAddr } 房屋楼层：${e.houseFloor } 房租价格：${e.housePrice }
 									房屋面积：${e.houseArea } 装修状况：${e.houseStatus } 联系电话：${e.tel }<br>
 									记录状态：${e.recordState } 记录时间：${e.recordReqTime }
+									<jstl:if test="${e.recordState == 0}">
+										<a href="cancle?recordId=${e.recordId }" class="btn btn-default">取消订单</a>
+									</jstl:if>
 								</div>
 							</div>
 						</jstl:forEach>
@@ -281,11 +284,11 @@
 												</div>
 												<div class="media-body">
 													<h4 class="media-heading">${e.houseTitle }</h4>
-													<p>时间：${e.recordReqTime } 状态：${e.recordState } 客户id
-														${e.recordId }</p>
+													<p>时间：${e.recordReqTime } | 状态：${e.recordState } | 客户id:${e.recordId }</p>
 													<jstl:if test="${e.recordState == 0 }">
 													<a href="agree?recordId=${e.recordId }" class="btn btn-default">同意交易</a>
 													<a href="refuse?recordId=${e.recordId }" class="btn btn-default">放弃交易</a>
+													</jstl:if>
 													<jstl:if test="${e.recordState == 1 }">
 													<p>房屋已出售</p>
 													</jstl:if>
@@ -294,7 +297,6 @@
 													</jstl:if>
 													<jstl:if test="${e.recordState == 3 }">
 													<p>已拒绝</p>
-													</jstl:if>
 													</jstl:if>
 													<jstl:if test="${e.recordState == 4 }">
 													<p>房屋已出售</p>
@@ -308,7 +310,7 @@
 						</div>
 					</div>
 
-					<div role="tabpanel" class="tab-pane" id="wdsc">
+					<div role="tabpanel" class="tab-pane" id="wdsc"><!-- 我的收藏 -->
 						<jstl:forEach var="e" items="${CollectHouses }">
 							<div class="row list-group-item">
 								<div class="col-lg-3 house-img">

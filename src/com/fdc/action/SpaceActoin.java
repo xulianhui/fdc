@@ -197,25 +197,38 @@ public class SpaceActoin {
 	}
 	
 	public String agreeTran() {
-		recordRentService.agree(recordId);
-		System.out.println(recordId);
 		RecordRent recordRent = recordRentService.getRecordRentById(recordId);
 		HouseNews houseNews = houseNewsService.getHouseNewsById(recordRent.getHouseNewsId());
 		System.err.println("recordRent & houseNews 获取成功 " + houseNews.getId());
+		
 		if(houseNews.getHouseNewsStatus() == 1) {
-			System.err.println("进入修改");
+
+			System.err.println("进入订单状态修改");
+			recordRentService.agree(recordId);
+			System.out.println(recordId + " 同意购买状态修改成功");
+			
+			System.err.println("进入房屋状态修改");
 			houseNews.setHouseNewsStatus(2);
 			houseNewsService.update(houseNews);
-			recordRent.setRecordState(1);
-			recordRentService.update(recordRent);
-			System.out.println("成功。");
+			System.out.println("房屋状态修改成功。");
+			return "success";
+		} else {
+			msg="房屋状态错误";
+			return "error";
 		}
-		return "success";
 	}
 	public String refuseTran() {
+		System.out.println("进入拒绝交易 id= " + recordId);
 		recordRentService.refuse(recordId);
+		System.out.println("拒绝交易成功");
 		return "success";
 	}
 	
+	public String cancle() {
+		System.out.println("进入取消 id = " + recordId);
+		recordRentService.cancle(recordId);
+		System.out.println("取消交易成功");
+		return "success";
+	}
 	
 }
