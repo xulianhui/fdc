@@ -27,13 +27,12 @@
 <!-- 			<li class="list-group-item">按照信息ID</li> -->
 		</ul>
 		<h4>
-			/ <a href="">首页推送</a>
+			/ <a href="Homepage-load">首页推送</a>
 		</h4>
-		<ul class="list-group">
-			<li class="list-group-item"><a href="">按照用户ID</a></li>
-			<li class="list-group-item"><a href="">按照用户名</a></li>
-<!-- 			<li class="list-group-item">按照信息ID</li> -->
-		</ul>
+<!-- 		<ul class="list-group"> -->
+<!-- 			<li class="list-group-item"><a href="">按照用户ID</a></li> -->
+<!-- 			<li class="list-group-item"><a href="">按照用户名</a></li> -->
+<!-- 		</ul> -->
 	</li>
 </ul>
 <!-- end include admin-left -->

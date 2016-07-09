@@ -26,6 +26,10 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
+
 </head>
 
 <body>
@@ -39,7 +43,7 @@
 				<%@ include file="admin-left.jsp"%>
 			</div>
 			<div class="house-list col-md-10">
-				<form action="ShByID" method="post" class="form-inline">
+				<form action="ShByName" method="post" class="form-inline">
 					用户姓名：<input type="text" name="shUserNameStr" /> <input
 						type="submit" value="查找评论" class="btn btn-default" />
 					<p>${ resultMessage }</p>

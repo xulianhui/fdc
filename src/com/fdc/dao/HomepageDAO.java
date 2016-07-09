@@ -27,6 +27,16 @@ public class HomepageDAO extends HibernateDaoSupport {
 	public static final String DIVNAME = "divname";
 	public static final String PICADD = "picadd";
 	public static final String REMARKS = "remarks";
+	
+	public void update(Homepage page) {
+		try {
+			getHibernateTemplate().update(page);
+		}
+		catch(Exception exception) {
+			System.err.println(exception.getMessage());
+			throw exception;
+		}
+	}
 
 	protected void initDao() {
 		// do nothing

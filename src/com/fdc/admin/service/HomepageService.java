@@ -1,8 +1,8 @@
 package com.fdc.admin.service;
 
-import com.fdc.admin.dao.HomepageDAO;
-import com.fdc.admin.dao.HouseNewsDAO;
-import com.fdc.admin.pojo.HouseNews;
+import com.fdc.dao.HomepageDAO;
+import com.fdc.dao.HouseNewsDAO;
+import com.fdc.pojo.HouseNews;
 import com.fdc.pojo.Homepage;
 
 public class HomepageService {
@@ -24,6 +24,9 @@ public class HomepageService {
 	public void post(int houseID, int toID) {
 		HouseNews house = houseNewsDAO.findById(houseID);
 		Homepage home = homepageDAO.findById(toID);
+		System.out.println(house);
+		System.out.println(home);
+		System.out.println("%% debug %%");
 		home.setPicadd(house.getImg1());
 		home.setRemarks(house.getHouseTitle());
 		homepageDAO.update(home);

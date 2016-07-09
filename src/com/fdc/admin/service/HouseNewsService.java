@@ -2,8 +2,8 @@ package com.fdc.admin.service;
 
 import java.util.List;
 
-import com.fdc.admin.dao.HouseNewsDAO;
-import com.fdc.admin.pojo.HouseNews;
+import com.fdc.dao.HouseNewsDAO;
+import com.fdc.pojo.HouseNews;
 
 public class HouseNewsService {
 	private HouseNewsDAO houseNewsDAO;

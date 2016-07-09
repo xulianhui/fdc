@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import com.fdc.admin.pojo.Admins;
-import com.fdc.admin.pojo.Comments;
+import com.fdc.pojo.Comments;
 import com.fdc.admin.service.AdminsService;
 import com.fdc.admin.service.CommentsService;
 import com.opensymphony.xwork2.ActionContext;

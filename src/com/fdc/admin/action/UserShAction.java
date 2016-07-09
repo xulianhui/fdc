@@ -3,7 +3,7 @@ package com.fdc.admin.action;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fdc.admin.pojo.Users;
+import com.fdc.pojo.Users;
 import com.fdc.admin.service.UsersService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;

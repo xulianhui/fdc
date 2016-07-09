@@ -2,7 +2,7 @@ package com.fdc.admin.action;
 
 import java.util.List;
 
-import com.fdc.admin.pojo.HouseNews;
+import com.fdc.pojo.HouseNews;
 import com.fdc.admin.service.HomepageService;
 import com.fdc.admin.service.HouseNewsService;
 import com.opensymphony.xwork2.Action;

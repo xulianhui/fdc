@@ -38,59 +38,49 @@
 			<interceptor-ref name="LoginConfim"></interceptor-ref>
 		</action>
 	</package>
+	
 	<package name="gc" namespace="/" extends="struts-default">
-
-		<action name="LoadCmt" class="LoadCmtAction">
+		<action name="LoadCmt" class="AdminLoadCmtAction">
 			<result name="success">/WEB-INF/jsp/admin-cmt.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-
 		<action name="AdminsLogin" class="AdminLoginAction">
 			<result name="success">/WEB-INF/jsp/admin-cmt.jsp</result>
 			<result name="error">/WEB-INF/jsp/admin-login.jsp</result>
 		</action>
-
-		<action name="DelCmt" class="DelCmtAction">
+		<action name="DelCmt" class="AdminDelCmtAction">
 			<result name="success">WEB-INF/jsp/admin-cmt.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-
-		<action name="ShByID" class="ShByIDAction">
+		<action name="ShByID" class="AdminShByIDAction">
 			<result name="success">/WEB-INF/jsp/admin-cmt-userid.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-
-		<action name="ShByName" class="ShByNameAction">
+		<action name="ShByName" class="AdminShByNameAction">
 			<result name="success">/WEB-INF/jsp/admin-cmt-userName.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-
-		<action name="LoadUsers" class="LoadUsersAction">
+		<action name="LoadUsers" class="AdminLoadUsersAction">
 			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-
-		<action name="DelUser" class="DelUserAction">
+		<action name="DelUser" class="AdminDelUserAction">
 			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-
-		<action name="CheckUser" class="CheckUserAction">
+		<action name="CheckUser" class="AdminCheckUserAction">
 			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-		
-		<action name="UserSh-*" class="UserShAction" method="{1}">
+		<action name="UserSh-*" class="AdminUserShAction" method="{1}">
 			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-		
-		<action name="HouseNews-*" class="HouseNewsAction" method="{1}">
+		<action name="HouseNews-*" class="AdminHouseNewsAction" method="{1}">
 			<result name="success">/WEB-INF/jsp/admin-house.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
-		
-		<action name="Homepage-*" class="HomeAction" method="{1}">
+		<action name="Homepage-*" class="AdminHomeAction" method="{1}">
 			<result name="success">/WEB-INF/jsp/post.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
@@ -99,6 +89,7 @@
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
 	</package>
+	
 	<package name="xue" namespace="/"  extends="json-default,struts-default">
 		<interceptors>
 			<interceptor name="LoginConfim" class="com.fdc.interceptor.LoginInterceptor">

@@ -26,6 +26,9 @@
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
+
 </head>
 
 <body>

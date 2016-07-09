@@ -2,8 +2,8 @@ package com.fdc.admin.action;
 
 import java.util.List;
 
-import com.fdc.admin.dao.CommentsDAO;
-import com.fdc.admin.pojo.Comments;
+import com.fdc.dao.CommentsDAO;
+import com.fdc.pojo.Comments;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 

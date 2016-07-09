@@ -2,8 +2,8 @@ package com.fdc.admin.service;
 
 import java.util.List;
 
-import com.fdc.admin.dao.UsersDAO;
-import com.fdc.admin.pojo.Users;
+import com.fdc.dao.UsersDAO;
+import com.fdc.pojo.Users;
 
 public class UsersService {
 	private UsersDAO usersDAO;

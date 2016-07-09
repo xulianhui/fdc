@@ -2,7 +2,7 @@ package com.fdc.admin.action.cmt;
 
 import java.util.List;
 
-import com.fdc.admin.pojo.Comments;
+import com.fdc.pojo.Comments;
 import com.fdc.admin.service.CommentsService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;

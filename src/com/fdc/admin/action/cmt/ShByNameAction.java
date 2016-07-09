@@ -3,8 +3,8 @@ package com.fdc.admin.action.cmt;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fdc.admin.pojo.Comments;
-import com.fdc.admin.pojo.Users;
+import com.fdc.pojo.Comments;
+import com.fdc.pojo.Users;
 import com.fdc.admin.service.CommentsService;
 import com.fdc.admin.service.UsersService;
 import com.opensymphony.xwork2.Action;

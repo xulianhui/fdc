@@ -26,47 +26,49 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
+
 </head>
 
 <body>
 	<%@ include file="header.jsp"%>
-	<div class="wraper">
-	<div class="container">
-		<div class="clearfix"></div>
-		<div class="row">
-			<div class="col-lg-2 left">
-				<%@ include file="admin-left.jsp"%>
-			</div>
-			<div class="col-md-10">
-				<form action="ShByID" method="post" class="form-inline">
-					用户 ID：
-					<input type="text" name="shUserIdStr" class="form-control" />
-					<input type="submit" value="查找评论"
-						class="btn btn-default" />
-					<p>${ resultMessage }</p>
-				</form>
-				<!-- jstl -->
-				<jstl:forEach var="cmt" items="${ cmtList }">
-					<div class="row list-group-item">
-						<form action="DelCmt" method="post">
-							<div class="col-md-10">
-								<p>
-									<em>用户（${ cmt.comterId }）评论信息（${ cmt.comtedId }）道：</em>
-								</p>
-								${ cmt.content } @${ cmt.conTime }
-							</div>
-							<div class="col-md-2">
-								<input type="hidden" name="cmtId" value="${ cmt.id }" /> <input
-									type="submit" class="btn btn-defalut" value="删除评论" />
-							</div>
-						</form>
-					</div>
-				</jstl:forEach>
-				<!-- end jstl -->
+	<div class="wrapper">
+		<div class="container">
+			<div class="clearfix"></div>
+			<div class="row">
+				<div class="col-lg-2 left">
+					<%@ include file="admin-left.jsp"%>
+				</div>
+				<div class="col-md-10">
+					<form action="ShByID" method="post" class="form-inline">
+						用户 ID： <input type="text" name="shUserIdStr" class="form-control" />
+						<input type="submit" value="查找评论" class="btn btn-default" />
+						<p>${ resultMessage }</p>
+					</form>
+					<!-- jstl -->
+					<jstl:forEach var="cmt" items="${ cmtList }">
+						<div class="row list-group-item">
+							<form action="DelCmt" method="post">
+								<div class="col-md-10">
+									<p>
+										<em>用户（${ cmt.comterId }）评论信息（${ cmt.comtedId }）道：</em>
+									</p>
+									${ cmt.content } @${ cmt.conTime }
+								</div>
+								<div class="col-md-2">
+									<input type="hidden" name="cmtId" value="${ cmt.id }" /> <input
+										type="submit" class="btn btn-defalut" value="删除评论" />
+								</div>
+							</form>
+						</div>
+					</jstl:forEach>
+					<!-- end jstl -->
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="push"></div>
+		<div class="push"></div>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
