@@ -17,7 +17,6 @@ import com.fdc.service.DetailService;
 import com.fdc.service.HouseNewsService;
 import com.fdc.service.RecordRentService;
 import com.fdc.util.Pair;
-import com.opensymphony.xwork2.ActionContext;
 
 public class DetailAction {
 	private HouseNews housenews;

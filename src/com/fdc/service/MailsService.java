@@ -25,7 +25,7 @@ public class MailsService {
 		this.mailsDAO = mailsDAO;
 	}
 
-	public List getMailsByUserToIdList(int id) {
+	public List<Mails> getMailsByUserToIdList(int id) {
 		return mailsDAO.findByUserToId(id);
 	}
 

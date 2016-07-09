@@ -66,10 +66,11 @@ public class HomepageDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Homepage instance) {
+	@SuppressWarnings("unchecked")
+	public List<Homepage> findByExample(Homepage instance) {
 		log.debug("finding Homepage instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<Homepage> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -79,7 +80,8 @@ public class HomepageDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<Homepage> findByProperty(String propertyName, Object value) {
 		log.debug("finding Homepage instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -92,19 +94,20 @@ public class HomepageDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByDivname(Object divname) {
+	public List<Homepage> findByDivname(Object divname) {
 		return findByProperty(DIVNAME, divname);
 	}
 
-	public List findByPicadd(Object picadd) {
+	public List<Homepage> findByPicadd(Object picadd) {
 		return findByProperty(PICADD, picadd);
 	}
 
-	public List findByRemarks(Object remarks) {
+	public List<Homepage> findByRemarks(Object remarks) {
 		return findByProperty(REMARKS, remarks);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<Homepage> findAll() {
 		log.debug("finding all Homepage instances");
 		try {
 			String queryString = "from Homepage";

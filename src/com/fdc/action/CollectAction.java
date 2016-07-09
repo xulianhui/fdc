@@ -5,11 +5,9 @@ import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.fdc.dao.CollectionsDAO;
 import com.fdc.pojo.Collections;
 import com.fdc.pojo.Users;
 import com.fdc.service.CollectService;
-import com.opensymphony.xwork2.ActionContext;
 
 public class CollectAction {
 	int houseNewsId;

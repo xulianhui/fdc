@@ -1,6 +1,5 @@
 package com.fdc.dao;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -69,10 +68,11 @@ public class MailsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Mails instance) {
+	@SuppressWarnings("unchecked")
+	public List<Mails> findByExample(Mails instance) {
 		log.debug("finding Mails instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<Mails> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -82,7 +82,8 @@ public class MailsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<Mails> findByProperty(String propertyName, Object value) {
 		log.debug("finding Mails instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -95,27 +96,28 @@ public class MailsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByUserFromId(Object userFromId) {
+	public List<Mails> findByUserFromId(Object userFromId) {
 		return findByProperty(USER_FROM_ID, userFromId);
 	}
 
-	public List findByUserToId(Object userToId) {
+	public List<Mails> findByUserToId(Object userToId) {
 		return findByProperty(USER_TO_ID, userToId);
 	}
 
-	public List findByTitle(Object title) {
+	public List<Mails> findByTitle(Object title) {
 		return findByProperty(TITLE, title);
 	}
 
-	public List findByMailContent(Object mailContent) {
+	public List<Mails> findByMailContent(Object mailContent) {
 		return findByProperty(MAIL_CONTENT, mailContent);
 	}
 
-	public List findByReadFlag(Object readFlag) {
+	public List<Mails> findByReadFlag(Object readFlag) {
 		return findByProperty(READ_FLAG, readFlag);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<Mails> findAll() {
 		log.debug("finding all Mails instances");
 		try {
 			String queryString = "from Mails";

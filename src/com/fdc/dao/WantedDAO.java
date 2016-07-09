@@ -70,10 +70,11 @@ public class WantedDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Wanted instance) {
+	@SuppressWarnings("unchecked")
+	public List<Wanted> findByExample(Wanted instance) {
 		log.debug("finding Wanted instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<Wanted> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -83,7 +84,8 @@ public class WantedDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<Wanted> findByProperty(String propertyName, Object value) {
 		log.debug("finding Wanted instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -96,35 +98,36 @@ public class WantedDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByUserId(Object userId) {
+	public List<Wanted> findByUserId(Object userId) {
 		return findByProperty(USER_ID, userId);
 	}
 
-	public List findByUserTel(Object userTel) {
+	public List<Wanted> findByUserTel(Object userTel) {
 		return findByProperty(USER_TEL, userTel);
 	}
 
-	public List findByMaxPrice(Object maxPrice) {
+	public List<Wanted> findByMaxPrice(Object maxPrice) {
 		return findByProperty(MAX_PRICE, maxPrice);
 	}
 
-	public List findByMinArea(Object minArea) {
+	public List<Wanted> findByMinArea(Object minArea) {
 		return findByProperty(MIN_AREA, minArea);
 	}
 
-	public List findByMaxArea(Object maxArea) {
+	public List<Wanted> findByMaxArea(Object maxArea) {
 		return findByProperty(MAX_AREA, maxArea);
 	}
 
-	public List findByWantedType(Object wantedType) {
+	public List<Wanted> findByWantedType(Object wantedType) {
 		return findByProperty(WANTED_TYPE, wantedType);
 	}
 
-	public List findByDetails(Object details) {
+	public List<Wanted> findByDetails(Object details) {
 		return findByProperty(DETAILS, details);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<Wanted> findAll() {
 		log.debug("finding all Wanted instances");
 		try {
 			String queryString = "from Wanted";

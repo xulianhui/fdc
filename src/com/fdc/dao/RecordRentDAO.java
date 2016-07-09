@@ -1,6 +1,5 @@
 package com.fdc.dao;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -79,10 +78,11 @@ public class RecordRentDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(RecordRent instance) {
+	@SuppressWarnings("unchecked")
+	public List<RecordRent> findByExample(RecordRent instance) {
 		log.debug("finding RecordRent instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<RecordRent> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -92,7 +92,8 @@ public class RecordRentDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<RecordRent> findByProperty(String propertyName, Object value) {
 		log.debug("finding RecordRent instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -105,26 +106,29 @@ public class RecordRentDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByHouseNewsId(Object houseNewsId) {
+	public List<RecordRent> findByHouseNewsId(Object houseNewsId) {
 		return findByProperty(HOUSE_NEWS_ID, houseNewsId);
 	}
 
-	public List findByHouseUserId(Object houseUserId) {
+	public List<RecordRent> findByHouseUserId(Object houseUserId) {
 		return findByProperty(HOUSE_USER_ID, houseUserId);
 	}
 
-	public List findByRecordState(Object recordState) {
+	public List<RecordRent> findByRecordState(Object recordState) {
 		return findByProperty(RECORD_STATE, recordState);
 	}
 
-	public List findByRecordType(Object recordType) {
+	public List<RecordRent> findByRecordType(Object recordType) {
 		return findByProperty(RECORD_TYPE, recordType);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<RecordRent> findAll() {
 		log.debug("finding all RecordRent instances");
 		try {
 			String queryString = "from RecordRent";
+			
+			
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);

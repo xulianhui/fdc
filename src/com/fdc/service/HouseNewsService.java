@@ -20,7 +20,7 @@ public class HouseNewsService {
 		return houseNewsDAO.findById(id);
 	}
 
-	public List getHouseNewsByUserId(int userId) {
+	public List<HouseNews> getHouseNewsByUserId(int userId) {
 		return houseNewsDAO.findByUserId(userId);
 	}
 

@@ -16,7 +16,6 @@ public class SearchHouseService {
 		this.houseNewsDAO = houseNewsDAO;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<HouseNews> getHouse(String region, int lfloor, int rfloor, 
 			int lprice, int rprice, int larea, int rarea, int newstype) {
 		

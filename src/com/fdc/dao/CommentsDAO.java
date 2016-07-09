@@ -1,6 +1,5 @@
 package com.fdc.dao;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -67,10 +66,11 @@ public class CommentsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Comments instance) {
+	@SuppressWarnings("unchecked")
+	public List<Comments> findByExample(Comments instance) {
 		log.debug("finding Comments instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<Comments> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -80,7 +80,8 @@ public class CommentsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<Comments> findByProperty(String propertyName, Object value) {
 		log.debug("finding Comments instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -93,19 +94,20 @@ public class CommentsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByComterId(Object comterId) {
+	public List<Comments> findByComterId(Object comterId) {
 		return findByProperty(COMTER_ID, comterId);
 	}
 
-	public List findByComtedId(Object comtedId) {
+	public List<Comments> findByComtedId(Object comtedId) {
 		return findByProperty(COMTED_ID, comtedId);
 	}
 
-	public List findByContent(Object content) {
+	public List<Comments> findByContent(Object content) {
 		return findByProperty(CONTENT, content);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<Comments> findAll() {
 		log.debug("finding all Comments instances");
 		try {
 			String queryString = "from Comments";
@@ -153,5 +155,15 @@ public class CommentsDAO extends HibernateDaoSupport {
 
 	public static CommentsDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (CommentsDAO) ctx.getBean("CommentsDAO");
+	}
+	
+	public void deleteById(int id) {
+		Comments cmt = findById(id);
+		if (null != cmt) {
+			delete(cmt);
+		}
+		else {
+			System.err.println("Can not find comment with id:" + id);
+		}
 	}
 }

@@ -135,7 +135,6 @@ public class ToSpaceAction {
 	 * _ _ \) | 0} {0 | | / \ | | / \ | | / \ | \ | .-. | / `. | . . / \ . . |
 	 * .'' `-._\.'.( ).'./_.-'' `\' `._.' '/' `. --'-- .' `-...-''
 	 */
-	@SuppressWarnings("unchecked")
 	public String loadPageInfo() {
 		houseNewsRecords = new ArrayList<HouseNewsRecord>();
 		myHouseNewsRecords = new ArrayList<HouseNewsRecord>();
@@ -182,13 +181,13 @@ public class ToSpaceAction {
 		System.out.println("houseNewsList.size: " + houseNewsList.size());
 		for (HouseNews houseNews : houseNewsList) {
 			List<RecordRent> recordRentList = recordRentService.getRecordListByHouseNewsId(houseNews.getId());
-			System.out.println("houseNews : " + houseNews.getId() + "recordRentList.size: " + recordRentList.size());
+			//System.out.println("houseNews : " + houseNews.getId() + "recordRentList.size: " + recordRentList.size());
 			if (recordRentList == null) {
 				System.out.println("NullPointerException in HouseNewsList at Tospace");
 			} else {
 				for (RecordRent recordRent : recordRentList) {
 					System.out.println("recordRentList");
-					System.out.println("recordRent.getRecordId: " + recordRent.getRecordId());
+					//System.out.println("recordRent.getRecordId: " + recordRent.getRecordId());
 					if (recordRent == null) {
 						System.out.print("recordRent Error\n");
 					}

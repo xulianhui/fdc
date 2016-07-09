@@ -33,6 +33,12 @@
 				<value>com/fdc/pojo/Comments.hbm.xml</value>
 				<value>com/fdc/pojo/Wanted.hbm.xml</value>
 				<value>com/fdc/pojo/Collections.hbm.xml</value>
+				
+<!-- 				<value>com/fdc/admin/pojo/Admins.hbm.xml</value> y -->
+<!-- 				<value>com/fdc/admin/pojo/Comments.hbm.xml</value> y -->
+<!-- 				<value>com/fdc/admin/pojo/HouseNews.hbm.xml</value> y -->
+<!-- 				<value>com/fdc/admin/pojo/Users.hbm.xml</value> -->
+<!-- 				<value>com/fdc/admin/pojo/Wanted.hbm.xml</value> -->
 			</list>
 		</property>
 	</bean>

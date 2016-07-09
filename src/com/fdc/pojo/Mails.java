@@ -6,6 +6,7 @@ import java.sql.Timestamp;
  * Mails entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class Mails implements java.io.Serializable {
 
 	// Fields

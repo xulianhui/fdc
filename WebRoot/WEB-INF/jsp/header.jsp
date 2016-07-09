@@ -40,8 +40,8 @@
 					style="display:<%=session.getAttribute("user") != null ? "block" : "none"%>">
 					<div class="form-group">
 						<p>
-							<font style="color:#40e0d0">欢迎您&nbsp&nbsp<a
-								href="ToSpace!loadPageInfo">${sessionScope.user.nickName}</a></font>&nbsp&nbsp
+							<font style="color:#40e0d0">欢迎您&nbsp;&nbsp;<a
+								href="ToSpace!loadPageInfo">${sessionScope.user.nickName}</a></font>&nbsp;&nbsp;
 						</p>
 					</div>
 					<button type="submit" class="btn btn-success">Sign out</button>

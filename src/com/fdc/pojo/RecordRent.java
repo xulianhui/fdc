@@ -6,6 +6,7 @@ import java.sql.Timestamp;
  * RecordRent entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class RecordRent implements java.io.Serializable {
 
 	// Fields

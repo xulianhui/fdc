@@ -45,8 +45,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 	public static final String IMG5 = "img5";
 	public static final String IMG6 = "img6";
 	public static final String HOUSE_NEWS_STATUS = "houseNewsStatus";
-	
-	
+
 	public void update(HouseNews houseNews) {
 		getHibernateTemplate().update(houseNews);
 	}
@@ -60,8 +59,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("save failed", re);
 			throw re;
 		}
@@ -72,8 +70,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("delete failed", re);
 			throw re;
 		}
@@ -85,8 +82,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 			HouseNews instance = (HouseNews) getHibernateTemplate().get(
 					"com.fdc.admin.pojo.HouseNews", id);
 			return instance;
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;
 		}
@@ -96,12 +92,12 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 	public List<HouseNews> findByExample(HouseNews instance) {
 		log.debug("finding HouseNews instance by example");
 		try {
-			List<HouseNews> results = getHibernateTemplate().findByExample(instance);
+			List<HouseNews> results = getHibernateTemplate().findByExample(
+					instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("find by example failed", re);
 			throw re;
 		}
@@ -115,8 +111,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 			String queryString = "from HouseNews as model where model."
 					+ propertyName + "= ?";
 			return getHibernateTemplate().find(queryString, value);
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
 			throw re;
 		}
@@ -212,8 +207,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		try {
 			String queryString = "from HouseNews";
 			return getHibernateTemplate().find(queryString);
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("find all failed", re);
 			throw re;
 		}
@@ -226,8 +220,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("merge failed", re);
 			throw re;
 		}
@@ -238,8 +231,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
 			log.debug("attach successful");
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("attach failed", re);
 			throw re;
 		}
@@ -250,8 +242,7 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		try {
 			getHibernateTemplate().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
-		}
-		catch (RuntimeException re) {
+		} catch (RuntimeException re) {
 			log.error("attach failed", re);
 			throw re;
 		}

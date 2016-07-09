@@ -65,10 +65,11 @@ public class CollectionsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Collections instance) {
+	@SuppressWarnings("unchecked")
+	public List<Collections> findByExample(Collections instance) {
 		log.debug("finding Collections instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<Collections> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -78,7 +79,8 @@ public class CollectionsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<Collections> findByProperty(String propertyName, Object value) {
 		log.debug("finding Collections instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -91,15 +93,16 @@ public class CollectionsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByUserId(Object userId) {
+	public List<Collections> findByUserId(Object userId) {
 		return findByProperty(USER_ID, userId);
 	}
 
-	public List findByHouseNewsId(Object houseNewsId) {
+	public List<Collections> findByHouseNewsId(Object houseNewsId) {
 		return findByProperty(HOUSE_NEWS_ID, houseNewsId);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<Collections> findAll() {
 		log.debug("finding all Collections instances");
 		try {
 			String queryString = "from Collections";

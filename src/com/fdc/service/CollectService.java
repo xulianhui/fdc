@@ -1,6 +1,5 @@
 package com.fdc.service;
 
-import java.util.Iterator;
 import java.util.List;
 
 import com.fdc.dao.CollectionsDAO;
@@ -48,9 +47,9 @@ public class CollectService {
 		return getCollectionsId(collections);
 	}
 
-	public List<?> findHouseNews(int _usrId) {
+	public List<Collections> findHouseNews(int _usrId) {
 
-		List res = collectionsDAO.findByUserId(_usrId);
+		List<Collections> res = collectionsDAO.findByUserId(_usrId);
 
 		return res;
 	}

@@ -4,6 +4,7 @@ package com.fdc.pojo;
  * Wanted entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class Wanted implements java.io.Serializable {
 
 	// Fields

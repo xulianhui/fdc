@@ -10,7 +10,6 @@ import com.fdc.pojo.Homepage;
 import com.fdc.pojo.Users;
 import com.fdc.service.HomepageService;
 import com.fdc.service.UsersService;
-import com.opensymphony.xwork2.ActionContext;
 
 public class UsersAction {
 	private String regedit_state;

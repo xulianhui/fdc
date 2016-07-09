@@ -47,7 +47,6 @@ public class DetailService {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Comments> shows(int commentsId) {
 		List<Comments> comments = commentsDAO.findByComtedId(commentsId);
 		if (comments != null) {

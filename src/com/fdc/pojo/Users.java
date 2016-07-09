@@ -4,6 +4,7 @@ package com.fdc.pojo;
  * Users entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class Users implements java.io.Serializable {
 
 	// Fields

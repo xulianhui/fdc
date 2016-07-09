@@ -74,10 +74,11 @@ public class UsersDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(Users instance) {
+	@SuppressWarnings("unchecked")
+	public List<Users> findByExample(Users instance) {
 		log.debug("finding Users instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<Users> results = getHibernateTemplate().findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -87,7 +88,8 @@ public class UsersDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<Users> findByProperty(String propertyName, Object value) {
 		log.debug("finding Users instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -100,51 +102,52 @@ public class UsersDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByNickName(Object nickName) {
+	public List<Users> findByNickName(Object nickName) {
 		return findByProperty(NICK_NAME, nickName);
 	}
 
-	public List findByRealName(Object realName) {
+	public List<Users> findByRealName(Object realName) {
 		return findByProperty(REAL_NAME, realName);
 	}
 
-	public List findByPassword(Object password) {
+	public List<Users> findByPassword(Object password) {
 		return findByProperty(PASSWORD, password);
 	}
 
-	public List findByTel(Object tel) {
+	public List<Users> findByTel(Object tel) {
 		return findByProperty(TEL, tel);
 	}
 
-	public List findByEmail(Object email) {
+	public List<Users> findByEmail(Object email) {
 		return findByProperty(EMAIL, email);
 	}
 
-	public List findByChecked(Object checked) {
+	public List<Users> findByChecked(Object checked) {
 		return findByProperty(CHECKED, checked);
 	}
 
-	public List findByType(Object type) {
+	public List<Users> findByType(Object type) {
 		return findByProperty(TYPE, type);
 	}
 
-	public List findBySex(Object sex) {
+	public List<Users> findBySex(Object sex) {
 		return findByProperty(SEX, sex);
 	}
 
-	public List findByAge(Object age) {
+	public List<Users> findByAge(Object age) {
 		return findByProperty(AGE, age);
 	}
 
-	public List findByIcNumber(Object icNumber) {
+	public List<Users> findByIcNumber(Object icNumber) {
 		return findByProperty(IC_NUMBER, icNumber);
 	}
 
-	public List findByHeadImg(Object headImg) {
+	public List<Users> findByHeadImg(Object headImg) {
 		return findByProperty(HEAD_IMG, headImg);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<Users> findAll() {
 		log.debug("finding all Users instances");
 		try {
 			String queryString = "from Users";
@@ -194,7 +197,8 @@ public class UsersDAO extends HibernateDaoSupport {
 		return (UsersDAO) ctx.getBean("UsersDAO");
 	}
 
-	public List findByEmailPwd(Users instance) {
+	@SuppressWarnings("unchecked")
+	public List<Users> findByEmailPwd(Users instance) {
 		try {
 			String queryString = "from Users as model where model.email=? and password=?";
 			return getHibernateTemplate().find(queryString,
@@ -205,14 +209,14 @@ public class UsersDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Users queryByemail(String email) { // ¸ù¾ÝÓÃ»§Ãû²éÕÒ
+	public Users queryByemail(String email) { // ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		@SuppressWarnings("unchecked")
 		List<Users> list = this.getHibernateTemplate().find(
 				"from Users where email = ?", email);
-		if (list.size() == 0) { // ÅÐ¶Ï²éÑ¯¼¯ºÏÊÇ·ñÎª¿Õ
+		if (list.size() == 0) { // ï¿½Ð¶Ï²ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½
 			return null;
 		} else {
-			return list.get(0); // ·µ»ØµÚÒ»¸öÓÃ»§
+			return list.get(0); // ï¿½ï¿½ï¿½Øµï¿½Ò»ï¿½ï¿½ï¿½Ã»ï¿½
 		}
 	}
 

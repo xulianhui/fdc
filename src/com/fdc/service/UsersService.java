@@ -65,7 +65,7 @@ public class UsersService {
 
 	public Users getUsersByEmail(String Email) {
 
-		List aList = usersDAO.findByEmail(Email);
+		List<Users> aList = usersDAO.findByEmail(Email);
 
 		return (Users) aList.get(0);
 

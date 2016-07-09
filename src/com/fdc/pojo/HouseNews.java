@@ -4,6 +4,7 @@ package com.fdc.pojo;
  * HouseNews entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class HouseNews implements java.io.Serializable {
 
 	// Fields

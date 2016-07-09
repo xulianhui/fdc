@@ -16,11 +16,11 @@ public class RecordRentService {
 		this.recordRentDAO = recordRentDAO;
 	}
 
-	public List getRecordListByHouseUserId(int _id) {
+	public List<RecordRent> getRecordListByHouseUserId(int _id) {
 		return recordRentDAO.findByHouseUserId(_id);
 	}
 
-	public List getRecordListByHouseNewsId(int _id) {
+	public List<RecordRent> getRecordListByHouseNewsId(int _id) {
 		return recordRentDAO.findByHouseNewsId(_id);
 	}
 	

@@ -4,6 +4,7 @@ package com.fdc.pojo;
  * Collections entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class Collections implements java.io.Serializable {
 
 	// Fields

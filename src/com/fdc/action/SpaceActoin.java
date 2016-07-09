@@ -4,13 +4,11 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.validator.Msg;
 import org.apache.struts2.ServletActionContext;
 
 import com.fdc.pojo.HouseNews;
 import com.fdc.pojo.RecordRent;
 import com.fdc.pojo.Users;
-import com.fdc.service.CollectService;
 import com.fdc.service.HouseNewsService;
 import com.fdc.service.RecordRentService;
 import com.fdc.service.UsersService;

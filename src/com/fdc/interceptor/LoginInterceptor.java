@@ -3,10 +3,10 @@ package com.fdc.interceptor;
 import org.apache.struts2.ServletActionContext;
 
 import com.fdc.pojo.Users;
-import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
+@SuppressWarnings("serial")
 public class LoginInterceptor extends AbstractInterceptor {
 
 	@Override

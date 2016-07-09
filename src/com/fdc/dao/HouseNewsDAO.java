@@ -95,10 +95,12 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByExample(HouseNews instance) {
+	@SuppressWarnings("unchecked")
+	public List<HouseNews> findByExample(HouseNews instance) {
 		log.debug("finding HouseNews instance by example");
 		try {
-			List results = getHibernateTemplate().findByExample(instance);
+			List<HouseNews> results = getHibernateTemplate().findByExample(
+					instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -108,7 +110,8 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByProperty(String propertyName, Object value) {
+	@SuppressWarnings("unchecked")
+	public List<HouseNews> findByProperty(String propertyName, Object value) {
 		log.debug("finding HouseNews instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
@@ -121,91 +124,92 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List findByUserId(Object userId) {
+	public List<HouseNews> findByUserId(Object userId) {
 		return findByProperty(USER_ID, userId);
 	}
 
-	public List findByNewsType(Object newsType) {
+	public List<HouseNews> findByNewsType(Object newsType) {
 		return findByProperty(NEWS_TYPE, newsType);
 	}
 
-	public List findByHouseReg(Object houseReg) {
+	public List<HouseNews> findByHouseReg(Object houseReg) {
 		return findByProperty(HOUSE_REG, houseReg);
 	}
 
-	public List findByHouseAddDetail(Object houseAddDetail) {
+	public List<HouseNews> findByHouseAddDetail(Object houseAddDetail) {
 		return findByProperty(HOUSE_ADD_DETAIL, houseAddDetail);
 	}
 
-	public List findByHouseTitle(Object houseTitle) {
+	public List<HouseNews> findByHouseTitle(Object houseTitle) {
 		return findByProperty(HOUSE_TITLE, houseTitle);
 	}
 
-	public List findByHouseFloor(Object houseFloor) {
+	public List<HouseNews> findByHouseFloor(Object houseFloor) {
 		return findByProperty(HOUSE_FLOOR, houseFloor);
 	}
 
-	public List findByHousePrice(Object housePrice) {
+	public List<HouseNews> findByHousePrice(Object housePrice) {
 		return findByProperty(HOUSE_PRICE, housePrice);
 	}
 
-	public List findByHouseHall(Object houseHall) {
+	public List<HouseNews> findByHouseHall(Object houseHall) {
 		return findByProperty(HOUSE_HALL, houseHall);
 	}
 
-	public List findByHouseWc(Object houseWc) {
+	public List<HouseNews> findByHouseWc(Object houseWc) {
 		return findByProperty(HOUSE_WC, houseWc);
 	}
 
-	public List findByHouseRoom(Object houseRoom) {
+	public List<HouseNews> findByHouseRoom(Object houseRoom) {
 		return findByProperty(HOUSE_ROOM, houseRoom);
 	}
 
-	public List findByHouseArea(Object houseArea) {
+	public List<HouseNews> findByHouseArea(Object houseArea) {
 		return findByProperty(HOUSE_AREA, houseArea);
 	}
 
-	public List findByBuildType(Object buildType) {
+	public List<HouseNews> findByBuildType(Object buildType) {
 		return findByProperty(BUILD_TYPE, buildType);
 	}
 
-	public List findByHouseDetail(Object houseDetail) {
+	public List<HouseNews> findByHouseDetail(Object houseDetail) {
 		return findByProperty(HOUSE_DETAIL, houseDetail);
 	}
 
-	public List findByTel(Object tel) {
+	public List<HouseNews> findByTel(Object tel) {
 		return findByProperty(TEL, tel);
 	}
 
-	public List findByImg1(Object img1) {
+	public List<HouseNews> findByImg1(Object img1) {
 		return findByProperty(IMG1, img1);
 	}
 
-	public List findByImg2(Object img2) {
+	public List<HouseNews> findByImg2(Object img2) {
 		return findByProperty(IMG2, img2);
 	}
 
-	public List findByImg3(Object img3) {
+	public List<HouseNews> findByImg3(Object img3) {
 		return findByProperty(IMG3, img3);
 	}
 
-	public List findByImg4(Object img4) {
+	public List<HouseNews> findByImg4(Object img4) {
 		return findByProperty(IMG4, img4);
 	}
 
-	public List findByImg5(Object img5) {
+	public List<HouseNews> findByImg5(Object img5) {
 		return findByProperty(IMG5, img5);
 	}
 
-	public List findByImg6(Object img6) {
+	public List<HouseNews> findByImg6(Object img6) {
 		return findByProperty(IMG6, img6);
 	}
 
-	public List findByHouseNewsStatus(Object houseNewsStatus) {
+	public List<HouseNews> findByHouseNewsStatus(Object houseNewsStatus) {
 		return findByProperty(HOUSE_NEWS_STATUS, houseNewsStatus);
 	}
 
-	public List findAll() {
+	@SuppressWarnings("unchecked")
+	public List<HouseNews> findAll() {
 		log.debug("finding all HouseNews instances");
 		try {
 			String queryString = "from HouseNews";
@@ -268,27 +272,22 @@ public class HouseNewsDAO extends HibernateDaoSupport {
 		}
 		return add_state;
 	}
-	public List FindByProperty(String propertyName[], Object value[]) {
+
+	@SuppressWarnings("unchecked")
+	public List<HouseNews> FindByProperty(String propertyName[], Object value[]) {
 		log.debug("finding HouseNews instance with property: " + propertyName
-				+ ", value: " + value); 
-		
+				+ ", value: " + value);
+
 		String queryString = "from HouseNews as model where";
 		try {
-			
-			for(int i = 0; i < propertyName.length; ++i) {
-				
-
-				if(i == 0) {
+			for (int i = 0; i < propertyName.length; ++i) {
+				if (i == 0) {
 					queryString += " model." + propertyName[i] + "= ?";
-				}
-				
-				else if(i >= 1 && i <= 3) {
+				} else if (i >= 1 && i <= 3) {
 					queryString += " and model." + propertyName[i] + ">= ?";
 					queryString += " and model." + propertyName[i] + "<= ?";
-				}
-				
-				else {
-					queryString += " and model." + propertyName[i] + "= ?";	
+				} else {
+					queryString += " and model." + propertyName[i] + "= ?";
 				}
 			}
 			return getHibernateTemplate().find(queryString, value);

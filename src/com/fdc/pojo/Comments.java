@@ -6,6 +6,7 @@ import java.sql.Timestamp;
  * Comments entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class Comments implements java.io.Serializable {
 
 	// Fields

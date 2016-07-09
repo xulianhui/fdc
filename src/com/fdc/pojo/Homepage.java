@@ -4,6 +4,7 @@ package com.fdc.pojo;
  * Homepage entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class Homepage implements java.io.Serializable {
 
 	// Fields
