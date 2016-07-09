@@ -31,11 +31,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</ul>
 		<div id="myTabContent" class="tab-content">
 			<div class="tab-pane fade in active" id="renttab">
-				<form id="tab0" class="col-lg-10  form-horizontal" id="rent" method="post" action="sendAS">
+				<form id="tab0" class="col-lg-10  form-horizontal" id="rent" method="post" action="pubWanted">
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>用户</label>
-							<label>${usernickname}(id:${userid})</label>
+							<label>${user.nickName}(id:${user.id})</label>
 						</div>
 					</div>
 					<div class="form-group">
@@ -93,11 +93,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	时间：2016-07-05
             	描述：求售表单
             -->
-				<form  method="post"  id="tab0" class="col-lg-10  form-horizontal" id="sold" method="post" action="sendAS">
+				<form  method="post"  id="tab0" class="col-lg-10  form-horizontal" id="sold" method="post" action="pubWanted">
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>用户</label>
-							<label>${usernickname}(id:${userid})</label>
+							<label>${user.nickName}(id:${user.id})</label>
 						</div>
 					</div>
 					<div class="form-group">

@@ -27,7 +27,7 @@
 
 <body>
 
-	<p>plz login</p>
+	<h1>plz login</h1>
 
 	<form action="AdminsLogin!login" method="post">
 		<ul>

@@ -28,14 +28,21 @@
 <script src="js/bootstrap.min.js"></script>
 <link href="css/mystyle.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
-
+<link rel="stylesheet" href="css/mystyles.css" />
+<script src="js/main.js"></script>
 </head>
 
 <body>
+<jsp:include page="header.jsp"></jsp:include>
+	<!--header end here-->
+
+	<div class="wrapper">
 	<div class="container">
-		<table class="table">
+		<div class="row col-md-8 col-md-offset-2">
 			<jstl:forEach var="WUPair" items="${ WUList }">
-				<th colspan="2">
+				
+			<table class="table" style="border:solid 1px #FFF;">
+				<th colspan="2" >
 					${ WUPair.second.nickName } 要
 					<jstl:if test="${ WUPair.first.wantedType }">
 							买房
@@ -45,11 +52,11 @@
 					</jstl:if>
 				</th>
 				<tr>
-					<td>我的联系电话是</td>
+					<td style="border-right: solid 2px #FFF;">我的联系电话是</td>
 					<td>${ WUPair.first.userTel }</td>
 				</tr>
 				<tr>
-					<td>我最高能接受的价格是</td>
+					<td style="border-right: solid 2px #FFF;">我最高能接受的价格是</td>
 					<td>
 						${ WUPair.first.maxPrice } 元
 						<jstl:if test="${ !WUPair.first.wantedType }">
@@ -58,18 +65,21 @@
 					</td>
 				</tr>
 				<tr>
-					<td>我要住的地方不能小于</td>
+					<td style="border-right: solid 2px #FFF;">我要住的地方不能小于</td>
 					<td>${ WUPair.first.minArea } 平方米</td>
 				</tr>
 				<tr>
-					<td>我要住的地方不能大于</td>
+					<td style="border-right: solid 2px #FFF;">我要住的地方不能大于</td>
 					<td>${ WUPair.first.maxArea } 平方米</td>
 				</tr>							
 				<tr>
 					<td colspan="2">总而言之：${ WUPair.first.details }</td>
 				</tr>
+				</table>		
 			</jstl:forEach>
-		</table>
-	</div>
+	</div></div>
+	<div class="push"></div>
+		</div>
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -19,5 +19,8 @@
         <property name="remarks" type="java.lang.String">
             <column name="remarks" length="500" />
         </property>
+        <property name="houseNewsId" type="java.lang.Integer">
+            <column name="houseNewsId" />
+        </property>
     </class>
 </hibernate-mapping>

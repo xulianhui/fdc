@@ -358,5 +358,6 @@
 			<ref bean="AdminHouseNewsService" />
 		</property>
 	</bean>
+	
 </beans>
 

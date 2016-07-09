@@ -29,6 +29,7 @@ public class HomepageService {
 		System.out.println("%% debug %%");
 		home.setPicadd(house.getImg1());
 		home.setRemarks(house.getHouseTitle());
+		home.setHouseNewsId(houseID);
 		homepageDAO.update(home);
 	}
 

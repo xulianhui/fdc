@@ -27,6 +27,7 @@ public class HomepageDAO extends HibernateDaoSupport {
 	public static final String DIVNAME = "divname";
 	public static final String PICADD = "picadd";
 	public static final String REMARKS = "remarks";
+	public static final String HOUSE_NEWS_ID = "houseNewsId";
 	
 	public void update(Homepage page) {
 		try {
@@ -34,7 +35,6 @@ public class HomepageDAO extends HibernateDaoSupport {
 		}
 		catch(Exception exception) {
 			System.err.println(exception.getMessage());
-			throw exception;
 		}
 	}
 
@@ -114,6 +114,10 @@ public class HomepageDAO extends HibernateDaoSupport {
 
 	public List<Homepage> findByRemarks(Object remarks) {
 		return findByProperty(REMARKS, remarks);
+	}
+
+	public List<Homepage> findByHouseNewsId(Object houseNewsId) {
+		return findByProperty(HOUSE_NEWS_ID, houseNewsId);
 	}
 
 	@SuppressWarnings("unchecked")

@@ -19,4 +19,9 @@ public class WantedService {
 	public List<Wanted> getAll() {
 		return wantedDAO.findAll();
 	}
+	public  boolean sendWanted(Wanted wanted){
+		if(getWantedDAO().savenew(wanted))
+			return true;
+		return false;
+	}
 }

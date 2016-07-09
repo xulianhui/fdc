@@ -27,6 +27,10 @@
  			<result name="success">/WEB-INF/jsp/sendResult.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</action>
+		<action name="sendAS" class="WantedAction">
+			<result name="success">sendasresult.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
 		<action name="searchHouse" class="SearchHouseAction">
 			<result name="success">/WEB-INF/jsp/search-house.jsp</result>
 			<result name="error">/WEB-INF/jsp/error.jsp</result>
@@ -88,7 +92,9 @@
 			<result name="success">/WEB-INF/jsp/main.jsp</result>
 			<result name="error">/WEB-INF/jsp/500.jsp</result>
 		</action>
+
 	</package>
+	<!-- Wanted-execute  -->
 	
 	<package name="xue" namespace="/"  extends="json-default,struts-default">
 		<interceptors>
@@ -143,7 +149,16 @@
 		<action name="cancle" class="SpaceAction" method="cancle">
 			<result name="success" type="redirectAction">ToSpace!loadPageInfo</result>
 		</action>
-		
+		<action name="wanted" >
+			<result>/WEB-INF/jsp/wanted.jsp</result>
+			<result name="login" type="redirectAction">um</result>
+			<interceptor-ref name="LoginConfim"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
+		</action>
+		<action name="pubWanted" class="WantedAction">
+			<result name="success" type="redirectAction">um</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>
 		</action>

@@ -43,32 +43,35 @@
 							<div class="carousel-inner" role="listbox">
 								<div class="item active" style="background-size:cover;">
 									<img
-										data-src="holder.js/900x500/auto/#777:#555/text:First slide"
-										alt="First slide [900x500]" src=" ${homepage[0].picadd}"
+										style="width: 100%;height:360px;"
+									    src=" ${homepage[0].picadd}"
 										data-holder-rendered="true">
 										<div class="carousel-caption">
-								        <h3>郑锅集团专业锅炉10年</h3>
-								      <p>详情访问 <a>http://www.ranyouranqiguolu.com </a></p>
+								        <a href="zs?newsId=${homepage[0].houseNewsId}">
+								        <h2 style="color:#fff;">${homepage[0].remarks}</h2>
+								      </a>
 								      </div>
 								</div>
 								<div class="item" style="background-size:cover;">
 									<img
-										data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
-										alt="Second slide [900x500]" src="${homepage[1].picadd}"
+										style="width: 100%;height:360px;"
+										src="${homepage[1].picadd}"
 										data-holder-rendered="true">
 										<div class="carousel-caption">
-								        <h3>郑锅集团专业锅炉20年</h3>
-								      <p>详情访问 <a>http://www.ranyouranqiguolu.com </a></p>
+								        <a href="zs?newsId=${homepage[1].houseNewsId}">
+								        <h2 style="color:#fff;">${homepage[1].remarks}</h2>
+								      </a>
 								      </div>
 								</div>
 								<div class="item" style="background-size:cover;">
 									<img
-										data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
-										alt="Third slide [900x500]" src="${homepage[2].picadd}"
+									    style="width: 100%;height:360px;"
+										src="${homepage[2].picadd}"
 										data-holder-rendered="true">
 										<div class="carousel-caption">
-								        <h3>郑锅集团专业锅炉30年</h3>
-								      <p>详情访问 <a>http://www.ranyouranqiguolu.com </a></p>
+								        <a href="zs?newsId=${homepage[2].houseNewsId}">
+								        <h2 style="color:#fff;">${homepage[2].remarks}</h2>
+								      </a>
 								      </div>
 								</div>
 							</div>
@@ -245,75 +248,75 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[3].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[3].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[3].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[4].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[4].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[4].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[5].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[5].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[5].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[6].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[6].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[6].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[7].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[7].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[7].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[8].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[8].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[8].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[9].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[9].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[9].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[10].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[10].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[10].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[11].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[11].picadd}" class="img-responsive">
-						        <label>这里应该是一个具体的介绍</label>
+						        <label>${homepage[11].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[12].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[12].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[12].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[13].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[13].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[13].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="#" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[14].houseNewsId}" class="thumbnail"> <img
 								src="${homepage[14].picadd}" class="img-responsive">
-								<label>这里应该是一个具体的介绍</label>
+								<label>${homepage[14].remarks}</label>
 							</a>
 						</div>
 					</div>

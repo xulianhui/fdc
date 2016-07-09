@@ -176,4 +176,19 @@ public class WantedDAO extends HibernateDaoSupport {
 	public static WantedDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (WantedDAO) ctx.getBean("WantedDAO");
 	}
+	
+	public boolean savenew(Wanted wanted) {
+		// TODO Auto-generated method stub
+		log.debug("saving Wanted instance");
+		boolean state=false;
+		try {
+			getHibernateTemplate().save(wanted);
+			log.debug("save successful");
+			state=true;
+		} catch (RuntimeException re) {
+			log.error("save failed", re);
+			throw re;
+		}
+		return state;
+	}
 }

@@ -13,6 +13,7 @@ public class Homepage implements java.io.Serializable {
 	private String divname;
 	private String picadd;
 	private String remarks;
+	private Integer houseNewsId;
 
 	// Constructors
 
@@ -21,10 +22,12 @@ public class Homepage implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Homepage(String divname, String picadd, String remarks) {
+	public Homepage(String divname, String picadd, String remarks,
+			Integer houseNewsId) {
 		this.divname = divname;
 		this.picadd = picadd;
 		this.remarks = remarks;
+		this.houseNewsId = houseNewsId;
 	}
 
 	// Property accessors
@@ -59,6 +62,14 @@ public class Homepage implements java.io.Serializable {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public Integer getHouseNewsId() {
+		return this.houseNewsId;
+	}
+
+	public void setHouseNewsId(Integer houseNewsId) {
+		this.houseNewsId = houseNewsId;
 	}
 
 }
