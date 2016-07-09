@@ -15,7 +15,7 @@
 				<a class="navbar-brand" href="searchHouse!initHouse?newstype=0">我要租房</a> 
 				<a class="navbar-brand" href="searchHouse!initHouse?newstype=1">我要买房</a> 
 				<a class="navbar-brand" href="ToPubnews">发布房源</a> 
-				<a class="navbar-brand" href="pubnews">房友论坛</a>
+				<a class="navbar-brand" href="Wanted-load">房友论坛</a>
 			</div>
 
 			<div id="navbar" class="navbar-collapse collapse">

@@ -96,5 +96,65 @@
 			<result>/WEB-INF/jsp/{1}.jsp</result>
 		</action>
 	</package>
+	<package name="gc" namespace="/" extends="struts-default">
 
+		<action name="LoadCmt" class="LoadCmtAction">
+			<result name="success">/WEB-INF/jsp/admin-cmt.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+
+		<action name="AdminsLogin" class="LoginAction">
+			<result name="success">/WEB-INF/jsp/admin-cmt.jsp</result>
+			<result name="error">/WEB-INF/jsp/admin-login.jsp</result>
+		</action>
+
+		<action name="DelCmt" class="DelCmtAction">
+			<result name="success">WEB-INF/jsp/admin-cmt.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+
+		<action name="ShByID" class="ShByIDAction">
+			<result name="success">/WEB-INF/jsp/admin-cmt-userid.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+
+		<action name="ShByName" class="ShByNameAction">
+			<result name="success">/WEB-INF/jsp/admin-cmt-userName.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+
+		<action name="LoadUsers" class="LoadUsersAction">
+			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+
+		<action name="DelUser" class="DelUserAction">
+			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+
+		<action name="CheckUser" class="CheckUserAction">
+			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+		
+		<action name="UserSh-*" class="UserShAction" method="{1}">
+			<result name="success">/WEB-INF/jsp/admin-people.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+		
+		<action name="HouseNews-*" class="HouseNewsAction" method="{1}">
+			<result name="success">/WEB-INF/jsp/admin-house.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+		
+		<action name="Homepage-*" class="HomeAction" method="{1}">
+			<result name="success">/WEB-INF/jsp/post.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+		<action name="Wanted-*" class="WantedAction" method="{1}">
+			<result name="success">/WEB-INF/jsp/main.jsp</result>
+			<result name="error">/WEB-INF/jsp/500.jsp</result>
+		</action>
+	</package>
 </struts>    

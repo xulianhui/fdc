@@ -1,8 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +17,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <link rel="stylesheet" href="css/mystyles.css" />
 <script src="js/main.js"></script>
-
 <title></title>
 </head>
 
@@ -44,18 +46,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										data-src="holder.js/900x500/auto/#777:#555/text:First slide"
 										alt="First slide [900x500]" src=" ${homepage[0].picadd}"
 										data-holder-rendered="true">
+										<div class="carousel-caption">
+								        <h3>郑锅集团专业锅炉10年</h3>
+								      <p>详情访问 <a>http://www.ranyouranqiguolu.com </a></p>
+								      </div>
 								</div>
 								<div class="item" style="background-size:cover;">
 									<img
 										data-src="holder.js/900x500/auto/#666:#444/text:Second slide"
 										alt="Second slide [900x500]" src="${homepage[1].picadd}"
 										data-holder-rendered="true">
+										<div class="carousel-caption">
+								        <h3>郑锅集团专业锅炉20年</h3>
+								      <p>详情访问 <a>http://www.ranyouranqiguolu.com </a></p>
+								      </div>
 								</div>
 								<div class="item" style="background-size:cover;">
 									<img
 										data-src="holder.js/900x500/auto/#555:#333/text:Third slide"
 										alt="Third slide [900x500]" src="${homepage[2].picadd}"
 										data-holder-rendered="true">
+										<div class="carousel-caption">
+								        <h3>郑锅集团专业锅炉30年</h3>
+								      <p>详情访问 <a>http://www.ranyouranqiguolu.com </a></p>
+								      </div>
 								</div>
 							</div>
 							<a class="left carousel-control" href="#carousel-example-generic"
@@ -73,42 +87,153 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- /.col-lg-8 -->
 				<div class="col-lg-4">
 					<div class="container-fluid">
-						<form>
-							<div class="form-group">
-								<label for="">地区</label> <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="">房屋类型</label> <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="">价格区间</label> <select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<input class="form-control input-lg" type="text"
-									placeholder="楼盘名">
-							</div>
-							<div class="form-group">
-								<input style="width:100%;font-size:20px;" type="submit" class="btn btn-default" value="提        交 &nbsp; &nbsp;  " />
+						<ul id="myTab" class="nav nav-tabs">
+						<li class="active"><a href="#renttab" data-toggle="tab">租房信息查询</a></li>
+						<li><a href="#soldtab" data-toggle="tab">售房信息查询</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade in active" id="renttab">
+						<form action="searchHouse!findHouse" method="post">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>房屋地区</label> <select class="form-control" name="region">
+											<option value="0">不限</option>
+											<option value="1">洪山区</option>
+											<option value="2">武昌区</option>
+											<option value="3">江岸区</option>
+											<option value="4">东湖高新区</option>
+											<option value="5">江汉区</option>
+											<option value="6">汉阳区</option>
+											<option value="7">硚口区</option>
+											<option value="8">东西湖区</option>
+											<option value="9">青山区</option>
+											<option value="10">黄陂区</option>
+											<option value="11">沌口区</option>
+											<option value="12">江夏区</option>
+											<option value="13">蔡甸区</option>
+											<option value="14">汉南区</option>
+											<option value="15">新洲区</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>房屋楼层</label> <select class="form-control" name="floor">
+											<option value="0">不限</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13楼以上</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>面积区间(m&sup2;)</label> <select class="form-control"
+											name="area">
+											<option value="0">不限</option>
+											<option value="1">30 - 40</option>
+											<option value="2">40 - 60</option>
+											<option value="3">60 - 80</option>
+											<option value="4">80 - 100</option>
+											<option value="5">100 - 120</option>
+											<option value="6">120 - 150</option>
+											<option value="7">150以上</option>
+										</select>
+									</div>
+								</div>
+								<input type="hidden" value="0" name="price" /> <input
+									type="hidden" value="0" name="sorting" /><input type="hidden"  name="newstype"  value="0"/>
+								<div class="col-lg-12" style="margin-top:25px">
+									<button type="submit" class="btn btn-danger col-lg-6 col-lg-offset-3" 
+										name="SubmitChooseHouse">搜索</button>
+								</div>
 							</div>
 						</form>
+						</div><!-- end of rent tab -->
+						<div class="tab-pane fade" id="soldtab">
+						<form action="searchHouse!findHouse" method="post">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>房屋地区</label> <select class="form-control" name="region">
+											<option value="0">不限</option>
+											<option value="1">洪山区</option>
+											<option value="2">武昌区</option>
+											<option value="3">江岸区</option>
+											<option value="4">东湖高新区</option>
+											<option value="5">江汉区</option>
+											<option value="6">汉阳区</option>
+											<option value="7">硚口区</option>
+											<option value="8">东西湖区</option>
+											<option value="9">青山区</option>
+											<option value="10">黄陂区</option>
+											<option value="11">沌口区</option>
+											<option value="12">江夏区</option>
+											<option value="13">蔡甸区</option>
+											<option value="14">汉南区</option>
+											<option value="15">新洲区</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>房屋楼层</label> <select class="form-control" name="floor">
+											<option value="0">不限</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13楼以上</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-lg-12">
+									<div class="form-group">
+										<label>面积区间(m&sup2;)</label> <select class="form-control"
+											name="area">
+											<option value="0">不限</option>
+											<option value="1">30 - 40</option>
+											<option value="2">40 - 60</option>
+											<option value="3">60 - 80</option>
+											<option value="4">80 - 100</option>
+											<option value="5">100 - 120</option>
+											<option value="6">120 - 150</option>
+											<option value="7">150以上</option>
+										</select>
+									</div>
+								</div>
+								
+								<input type="hidden" value="0" name="price" /> <input
+									type="hidden" value="0" name="sorting" /><input type="hidden"  name="newstype"  value="1"/>
+								<div class="col-lg-12 " style="margin-top:25px ;" >
+									<button type="submit" class="btn btn-warning col-lg-6 col-lg-offset-3" 
+										name="SubmitChooseHouse">搜索</button>
+								</div>
+							</div>
+						</form>
+						</div><!-- end of sold tab -->
+						</div>
 					</div>
 				</div>
 				<!-- /.col-lg-4 -->
@@ -121,74 +246,74 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="row">
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[3].picadd}"
-								class="img-responsive">
+								src="${homepage[3].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[4].picadd}"
-								class="img-responsive">
+								src="${homepage[4].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[5].picadd}"
-								class="img-responsive">
+								src="${homepage[5].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[6].picadd}"
-								class="img-responsive">
+								src="${homepage[6].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[7].picadd}"
-								class="img-responsive">
+								src="${homepage[7].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[8].picadd}"
-								class="img-responsive">
+								src="${homepage[8].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[9].picadd}"
-								class="img-responsive">
+								src="${homepage[9].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[10].picadd}"
-								class="img-responsive">
+								src="${homepage[10].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[11].picadd}"
-								class="img-responsive">
+								src="${homepage[11].picadd}" class="img-responsive">
+						        <label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[12].picadd}"
-								class="img-responsive">
+								src="${homepage[12].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[13].picadd}"
-								class="img-responsive">
+								src="${homepage[13].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
 							<a href="#" class="thumbnail"> <img
-								src="${homepage[14].picadd}"
-								class="img-responsive">
+								src="${homepage[14].picadd}" class="img-responsive">
+								<label>这里应该是一个具体的介绍</label>
 							</a>
 						</div>
 					</div>
@@ -196,7 +321,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="push"></div>
 		</div>
-	<jsp:include page="footer.jsp"></jsp:include>
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
 

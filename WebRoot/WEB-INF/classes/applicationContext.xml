@@ -165,7 +165,7 @@
 	</bean>
 	<bean id="DetailAction" class="com.fdc.action.DetailAction">
 		<property name="recordRentService">
-			<ref bean="RecordRentService"/>
+			<ref bean="RecordRentService" />
 		</property>
 		<property name="service">
 			<ref bean="DetailService" />
@@ -177,7 +177,7 @@
 			<ref bean="HouseNewsService" />
 		</property>
 	</bean>
-	<bean id="WantedDAO" class="com.fdc.pojo.WantedDAO">
+	<bean id="WantedDAO" class="com.fdc.dao.WantedDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -211,36 +211,161 @@
 	</bean>
 	<bean id="SearchHouseService" class="com.fdc.service.SearchHouseService">
 		<property name="houseNewsDAO">
-			<ref bean="HouseNewsDAO"/>
+			<ref bean="HouseNewsDAO" />
 		</property>
 	</bean>
 	<bean id="SearchHouseAction" class="com.fdc.action.SearchHouseAction">
 		<property name="searchHouseService">
-			<ref bean="SearchHouseService"/>
+			<ref bean="SearchHouseService" />
+		</property>
+	</bean>
+
+	<bean id="WantedService" class="com.fdc.service.WantedService">
+		<property name="wantedDAO">
+			<ref bean="WantedDAO" />
+		</property>
+	</bean>
+
+	<bean id="WantedAction" class="com.fdc.action.WantedAction">
+		<property name="wantedService">
+			<ref bean="WantedService" />
+		</property>
+		<property name="usersService">
+			<ref bean="UsersService" />
+		</property>
+	</bean>
+
+	<!--  bug -->
+	<!-- Admins -->
+	<bean id="AdminAdminsDAO" class="com.fdc.admin.dao.AdminsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="AdminUsersDAO" class="com.fdc.admin.dao.UsersDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Comments -->
+	<bean id="AdminCommentsDAO" class="com.fdc.admin.dao.CommentsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="AdminAdminsService" class="com.fdc.admin.service.AdminsService">
+		<property name="adminsDAO">
+			<ref bean="AdminAdminsDAO" />
+		</property>
+	</bean>
+	<bean id="AdminLoginAction" class="com.fdc.admin.action.LoginAction">
+		<property name="adminsService">
+			<ref bean="AdminAdminsService" />
+		</property>
+		<property name="cmtService">
+			<ref bean="AdminCommentsService" />
+		</property>
+	</bean>
+
+
+
+	<bean id="AdminCommentsService" class="com.fdc.admin.service.CommentsService">
+		<property name="commentsDAO">
+			<ref bean="AdminCommentsDAO" />
+		</property>
+	</bean>
+	<bean id="AdminDelCmtAction" class="com.fdc.admin.action.DelCmtAction">
+		<property name="commentsService">
+			<ref bean="AdminCommentsService" />
+		</property>
+	</bean>
+	<bean id="AdminHouseNewsDAO" class="com.fdc.admin.dao.HouseNewsDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- cmt search -->
+	<bean id="AdminShByIDAcAdmintion" class="com.fdc.admin.action.cmt.ShByIDAction">
+		<property name="commentsService">
+			<ref bean="AdminCommentsService" />
+		</property>
+	</bean>
+
+	<bean id="AdminUsersService" class="com.fdc.admin.service.UsersService">
+		<property name="usersDAO">
+			<ref bean="AdminUsersDAO" />
+		</property>
+	</bean>
+	<bean id="AdminHomepageDAO" class="com.fdc.admin.dao.HomepageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="AdminShByNameAction" class="com.fdc.admin.action.cmt.ShByNameAction">
+		<property name="commmentsService">
+			<ref bean="AdminCommentsService" />
+		</property>
+		<property name="usersService">
+			<ref bean="AdminUsersService" />
+		</property>
+	</bean>
+	<bean id="AdminLoadUsersAction" class="com.fdc.admin.action.LoadUsersAction">
+		<property name="usersService">
+			<ref bean="AdminUsersService" />
+		</property>
+	</bean>
+	<bean id="AdminDelUserAction" class="com.fdc.admin.action.user.DelUserAction">
+		<property name="usersService">
+			<ref bean="AdminUsersService" />
+		</property>
+	</bean>
+	<bean id="AdminCheckUserAction" class="com.fdc.admin.action.user.CheckUserAction">
+		<property name="usersService">
+			<ref bean="AdminUsersService" />
+		</property>
+	</bean>
+
+	<bean id="AdminLoadCmtAction" class="com.fdc.admin.action.LoadCmtAction">
+		<property name="commentDAO">
+			<ref bean="AdminCommentsDAO" />
+		</property>
+	</bean>
+
+	<bean id="AdminUserShAction" class="com.fdc.admin.action.UserShAction">
+		<property name="usersService">
+			<ref bean="AdminUsersService" />
+		</property>
+	</bean>
+
+
+	<bean id="AdminHouseNewsService" class="com.fdc.admin.service.HouseNewsService">
+		<property name="houseNewsDAO">
+			<ref bean="AdminHouseNewsDAO" />
+		</property>
+	</bean>
+
+	<bean id="AdminHouseNewsAction" class="com.fdc.admin.action.HouseNewsAction">
+		<property name="houseNewsService">
+			<ref bean="AdminHouseNewsService" />
+		</property>
+	</bean>
+
+	<bean id="AdminHomepageService" class="com.fdc.admin.service.HomepageService">
+		<property name="homepageDAO">
+			<ref bean="AdminHomepageDAO" />
+		</property>
+	</bean>
+
+	<bean id="AdminHomeAction" class="com.fdc.admin.action.HomeAction">
+		<property name="homepageService">
+			<ref bean="AdminHomepageService" />
+		</property>
+		<property name="houseNewsService">
+			<ref bean="AdminHouseNewsService" />
 		</property>
 	</bean>
 </beans>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

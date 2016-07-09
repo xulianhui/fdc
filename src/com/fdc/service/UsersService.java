@@ -26,7 +26,6 @@ public class UsersService {
 	}
 
 	public Users login(Users users) {
-		System.out.println("serviceִ��");
 		List<Users> list = usersDAO.findByEmailPwd(users);
 		if (list.size() > 0) {
 			return list.get(0);

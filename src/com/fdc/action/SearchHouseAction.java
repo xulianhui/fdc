@@ -171,14 +171,14 @@ public class SearchHouseAction extends ActionSupport {
 		int lprice = 0, rprice = 1000000000;
 		int lfloor = 0, rfloor = 1000; 
 		int larea = 0, rarea = 1000000000;
-		priceinterval = new ArrayList<String>();
 		region = "0";
 		floor = "0";
 		price = "0";
 		area = "0";
 		sorting = "0";
 		pagenumber = 3;
-		
+
+		priceinterval = new ArrayList<String>();
 		if(newstype == 0) {
 			priceunit = "元";
 			priceinterval.add("不限");
@@ -188,10 +188,7 @@ public class SearchHouseAction extends ActionSupport {
 			priceinterval.add("2000 - 3000");
 			priceinterval.add("3000 - 5000");
 			priceinterval.add("5000以上");
-
-		}
-		
-		else {
+		} else {
 			priceunit = "万元";
 			priceinterval.add("不限");
 			priceinterval.add("50以下");
@@ -202,6 +199,7 @@ public class SearchHouseAction extends ActionSupport {
 			priceinterval.add("500以上");
 
 		}
+		
 		try {
 			list = searchHouseService.getHouse(Region, lfloor, rfloor, lprice, rprice, larea, rarea, newstype);
 			
@@ -226,6 +224,27 @@ public class SearchHouseAction extends ActionSupport {
 	}
 	
 	public String findHouse() {		
+		
+		priceinterval = new ArrayList<String>();
+		if(newstype == 0) {
+			priceunit = "元";
+			priceinterval.add("不限");
+			priceinterval.add("500以下");
+			priceinterval.add("500 - 1000");
+			priceinterval.add("1000 - 2000");
+			priceinterval.add("2000 - 3000");
+			priceinterval.add("3000 - 5000");
+			priceinterval.add("5000以上");
+		} else {
+			priceunit = "万元";
+			priceinterval.add("不限");
+			priceinterval.add("50以下");
+			priceinterval.add("50 - 100");
+			priceinterval.add("100 - 200");
+			priceinterval.add("200 - 300");
+			priceinterval.add("300 - 500");
+			priceinterval.add("500以上");
+		}
 		
 		String Region = "houseRegion";
 		int lprice = 0, rprice = 1000000000;
@@ -283,7 +302,6 @@ public class SearchHouseAction extends ActionSupport {
 		case 7	: larea = 150; rarea = 1000000000; break;
 		default : break;
 		}
-		
 		if(newstype == 0) {
 			switch(Integer.parseInt(price)) {
 			case 0 : lprice = 0;    rprice = 1000000000;    break;
@@ -295,9 +313,7 @@ public class SearchHouseAction extends ActionSupport {
 			case 6 : lprice = 5000; rprice = 1000000000;    break;
 			default: break;
 			}
-		}
-		
-		else {
+		} else {
 			switch(Integer.parseInt(price)) {
 			case 0 : lprice = 0;    	rprice = 1000000000;    break;
 			case 1 : lprice = 0;	    rprice = 500000;  	    break;
