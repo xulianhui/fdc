@@ -1,6 +1,7 @@
 package com.fdc.action;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
@@ -11,7 +12,6 @@ import com.fdc.service.UsersService;
 import com.fdc.service.WantedService;
 import com.fdc.util.Pair;
 import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionContext;
 
 public class WantedAction implements Action {
 	private WantedService wantedService;
@@ -45,6 +45,7 @@ public class WantedAction implements Action {
 				getWUList().add(new Pair<Wanted, Users>(wanted, usersService
 						.getUserById(wanted.getUserId())));
 			}
+			Collections.reverse(WUList);
 		}
 		catch (Exception exception) {
 			System.err.println(exception.getMessage());
@@ -57,6 +58,7 @@ public class WantedAction implements Action {
 	public String execute() {
 		int userid= ((Users)ServletActionContext.getRequest().getSession().getAttribute("user")).getId();
 		wanted.setUserId(userid);
+		System.out.println("=================== " + wanted.getWantedType());
 		if(wantedService.sendWanted(wanted))
 			return "success";
 		else

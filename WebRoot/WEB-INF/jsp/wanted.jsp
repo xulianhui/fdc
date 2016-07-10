@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>状态</label>
-							<label>求租</label> <input type="hidden" name="Wanted.wantedType" value="0" />
+							<label>求租</label> <input type="hidden" name="wanted.wantedType" value="false" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -56,14 +56,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>价格</label>
-							<input type="text" required="required" name="Wanted.maxPrice" />
+							<input type="text" required="required" name="wanted.maxPrice" />
 							<label>元/平米</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>联系电话</label>		
-							<input type="text" required="required" name="Wanted.userTel"/>
+							<input type="text" required="required" name="wanted.userTel"/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="form-group">
 						<div class="col-lg-12">
-							<textarea class="col-lg-12" rows="8" required="required" name="Wanted.details"></textarea>
+							<textarea class="col-lg-12" rows="8" required="required" name="wanted.details"></textarea>
 						</div>
 					</div>
 					<div class="form-group text-center">
@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>状态</label>
-							<label>求售</label> <input type="hidden" name="Wanted.wantedType" value="1" />
+							<label>求售</label> <input type="hidden" name="wanted.wantedType" value="true" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -118,14 +118,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>价格</label>
-							<input type="text" required="required"  name="Wanted.maxPrice"/>
+							<input type="text" required="required"  name="wanted.maxPrice"/>
 							<label>元/平米</label>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-lg-8">
 							<label>联系电话</label>		
-							<input type="text" required="required" name="Wanted.userTel"/>
+							<input type="text" required="required" name="wanted.userTel"/>
 						</div>
 					</div>
 					<div class="form-group">
@@ -135,7 +135,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="form-group">
 						<div class="col-lg-12">
-							<textarea class="col-lg-12" rows="8" required="required" name="Wanted.details"></textarea>
+							<textarea class="col-lg-12" rows="8" required="required" name="wanted.details"></textarea>
 						</div>
 					</div>
 					<div class="form-group text-center">

@@ -33,7 +33,7 @@
 </head>
 
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="admin-header.jsp"%>
 	<div class="wrapper">
 		<div class="container">
 			<div class="clearfix"></div>

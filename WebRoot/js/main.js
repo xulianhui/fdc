@@ -28,3 +28,13 @@ function shelve(houseNewsId){
 	});
 	}
 }
+
+function go_js(ss){
+	if(ss==null){
+		alert("请先登录，在查看相关信息！");
+		return false;
+	}else{
+		alert("11111111111111");
+		return true;
+	}
+}

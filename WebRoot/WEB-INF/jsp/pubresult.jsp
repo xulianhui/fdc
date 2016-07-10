@@ -31,7 +31,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<!--header end here-->
 	<div class="wrapper">
-		<div class="container alert-success center-block" id="success" style="display:<%=session.getAttribute("usernickname")!=null?"block":"none"%>">
+		<div class="container alert-success center-block" id="success" style="display:<%=session.getAttribute("user")!=null?"block":"none"%>">
 			<div class="row ">
 				<div class="col-lg-4 col-center-block " style="text-align:center">
 					<h3>发布成功</h3>

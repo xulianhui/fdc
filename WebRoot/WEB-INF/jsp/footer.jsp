@@ -5,7 +5,7 @@
 		Any problem? Email to me <strong>1151324240@qq.com</strong>
 	</p>
 	<p class="copyright">
-		Copyright © 2016 <a href="http://121.42.216.198/2048/"
-			title="CCNU_Cs_Zq">ZQ</a>
+		Copyright © 2016 CCNU-Fourth <a href="admin-login"
+			title="">管理员入口</a>
 	</p>
 </div>

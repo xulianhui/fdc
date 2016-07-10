@@ -111,7 +111,7 @@
 				<div class="tab-content col-lg-10">
 					<div role="tabpanel" class="tab-pane active" id="xgzl">
 						<div class="row">
-							<div class="col-lg-6">
+							<div class="col-lg-6 col-lg-offset-1">
 								<form action="updateUserInfo!updateUserInfo" method="post"
 									enctype="multipart/form-data">
 									<div class="form-group">
@@ -259,6 +259,7 @@
 													</jstl:if>
 												</div>
 											</div>
+											<hr>
 										</jstl:forEach>
 										<p></p>
 									</div>
@@ -312,36 +313,36 @@
 
 					<div role="tabpanel" class="tab-pane" id="wdsc"><!-- 我的收藏 -->
 						<jstl:forEach var="e" items="${CollectHouses }">
-							<div class="row list-group-item">
+							<div class="row">
 								<div class="col-lg-3 house-img">
 									<a href="zs?newsId=${e.id }"> <img src="${e.img1 }" alt="no picture!"
-										class="img-rounded"/></a>
+										class="img-rounded" style="display:inline;text-align: center;"/></a>
 								</div>
 								<div class="col-lg-9 house-info-table">
 									<table class="table table-bordered house-info">
 										<tr>
-											<td style="width:10%">地址</td>
+											<td style="width:20%">地址</td>
 											<td>${e.houseReg }${e.houseAddDetail }</td>
 										</tr>
 										<tr>
-											<td style="width:10%">楼层</td>
+											<td >楼层</td>
 											<td>${e.houseFloor }</td>
 										</tr>
 										<tr>
-											<td style="width:10%">价格</td>
+											<td >价格</td>
 											<td>${e.housePrice }元</td>
 										</tr>
 										<tr>
-											<td style="width:10%">住房面积</td>
+											<td >住房面积</td>
 											<td>${e.houseArea }平米</td>
 										</tr>
 										<tr>
-											<td style="width:10%">房屋描述</td>
+											<td >房屋描述</td>
 											<td>${e.houseDetail }</td>
 										</tr>
 									</table>
+								</div>	
 								</div>
-							</div>
 						</jstl:forEach>
 					</div>
 				</div>

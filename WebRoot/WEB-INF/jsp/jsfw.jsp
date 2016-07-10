@@ -104,6 +104,11 @@ function collect(houseId) {
 				<div class="col-lg-8">
 					<table class="table table-bordered ">
 						<tr>
+							<th>标题</th>
+							<th>${housenews.houseTitle }
+							</th>
+						</tr>
+						<tr>
 							<td>详细地址</td>
 							<td>${housenews.houseAddDetail }</td>
 						</tr>
@@ -113,7 +118,7 @@ function collect(houseId) {
 						</tr>
 						<tr>
 							<td>价格</td>
-							<td>${housenews.housePrice }</td>
+							<td style="color:#c9302c;font-size:1.1em;">${housenews.housePrice }元</td>
 						</tr>
 						<tr>
 							<td>住房面积</td>
@@ -145,7 +150,7 @@ function collect(houseId) {
 					role="tab" data-toggle="tab">用户评论</a>
 				</li>
 			</ul>
-			<div class="tab-content col-lg-10" >
+			<div class="tab-content col-lg-12" >
 				<div role="tabpanel" class="tab-pane active" id="xxxx">
 					<div class="row"  >
 						<ul class="list-group" >
@@ -181,11 +186,18 @@ function collect(houseId) {
 							<li class="list-group-item" style="background-color:transparent;">
 								<h3>房源照片</h3>
 								<div class="row" align="center">
-									<img src="${housenews.img4 }" class="img-auto">
-									<hr>
-									<img src="${housenews.img5 }" class="img-auto">
-									<hr>
-									<img src="${housenews.img6 }" class="img-auto">
+									<jstl:if test="${housenews.img4 != null}">
+									<img style="width:80%;margin-bottom:10px" src="${housenews.img4 }" class="img-auto">
+									</jstl:if>
+									<jstl:if test="${housenews.img5 != null}">
+									
+									<img style="width:80%;margin-bottom:10px" src="${housenews.img5 }" class="img-auto">
+									</jstl:if>
+									
+									<jstl:if test="${housenews.img6 != null}">
+								
+									<img style="width:80%;" src="${housenews.img6 }" class="img-auto">
+									</jstl:if>
 								</div>
 							</li>
 						</ul>

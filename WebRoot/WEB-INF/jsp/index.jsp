@@ -248,73 +248,73 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[3].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[3].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[3].picadd}" class="img-responsive">
 								<label>${homepage[3].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[4].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[4].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[4].picadd}" class="img-responsive">
 								<label>${homepage[4].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[5].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[5].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[5].picadd}" class="img-responsive">
 								<label>${homepage[5].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[6].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[6].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[6].picadd}" class="img-responsive">
 								<label>${homepage[6].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[7].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[7].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[7].picadd}" class="img-responsive">
 								<label>${homepage[7].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[8].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[8].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[8].picadd}" class="img-responsive">
 								<label>${homepage[8].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[9].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[9].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[9].picadd}" class="img-responsive">
 								<label>${homepage[9].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[10].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[10].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[10].picadd}" class="img-responsive">
 								<label>${homepage[10].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[11].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[11].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[11].picadd}" class="img-responsive">
 						        <label>${homepage[11].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[12].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[12].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[12].picadd}" class="img-responsive">
 								<label>${homepage[12].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[13].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[13].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[13].picadd}" class="img-responsive">
 								<label>${homepage[13].remarks}</label>
 							</a>
 						</div>
 						<div class="col-xs-3">
-							<a href="zs?newsId=${homepage[14].houseNewsId}" class="thumbnail"> <img
+							<a href="zs?newsId=${homepage[14].houseNewsId}" class="thumbnail" onclick="go_js(${user});"> <img
 								src="${homepage[14].picadd}" class="img-responsive">
 								<label>${homepage[14].remarks}</label>
 							</a>

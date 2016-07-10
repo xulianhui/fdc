@@ -32,7 +32,7 @@
 </head>
 
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="admin-header.jsp"></jsp:include>
 	<!--header end here-->
 	<div class="wrapper">
 	<div class="container">
